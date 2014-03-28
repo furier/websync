@@ -1,0 +1,321 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"require"
+			],
+			[
+				"as",
+				"asMilliseconds"
+			],
+			[
+				"act",
+				"actualDateTime"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"expected",
+				"expectedDuration"
+			],
+			[
+				"ex",
+				"expectedDateTime"
+			],
+			[
+				"a",
+				"actual"
+			],
+			[
+				"y",
+				"years"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"_",
+				"_parseDateTime"
+			],
+			[
+				"e",
+				"eql"
+			],
+			[
+				"pr",
+				"privates"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"da",
+				"dateTime"
+			],
+			[
+				"_p",
+				"_parseDateTime"
+			],
+			[
+				"get",
+				"getDuration"
+			],
+			[
+				"getU",
+				"getUserRefById"
+			],
+			[
+				"users",
+				"usersRef"
+			],
+			[
+				"ch",
+				"chatmanRef"
+			],
+			[
+				"deluge",
+				"deluge-web"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Library/StartupItems/ChmodBPF/README.macosx",
+		"/Users/furier/Library/Application Support/Endless Space/Registry.xml",
+		"/Applications/Steam.app/Contents/MacOS/config/coplay_76561197967343607.vdf",
+		"/Users/furier/Library/Application Support/Steam/SteamApps/common/Endless Space/Endless Space.app/Contents/Info.plist",
+		"/Users/furier/Library/Application Support/Steam/SteamApps/common/Endless Space/Endless Space.app/Contents/Resources/MainMenu.nib/keyedobjects.nib",
+		"/Users/furier/Library/Application Support/Steam/SteamApps/common/Endless Space/Endless Space.app/Contents/Public/Index.xml",
+		"/Users/furier/Library/Application Support/Steam/SteamApps/common/Endless Space/Endless Space.app/Contents/MacOS/Endless Space",
+		"/Users/furier/projects/github/wolfram/lib/hangman/ordliste.adv.txt",
+		"/Users/furier/projects/github/wolfram/lib/hangman/ordliste.adj.txt",
+		"/Users/furier/projects/github/wolfram/lib/hangman/ordliste.verb.txt",
+		"/Users/furier/projects/github/wolfram/lib/hangman/ordliste.txt",
+		"/Users/furier/projects/github/wolfram/lib/hangman/ordliste.subst.txt",
+		"/Users/furier/Downloads/impressivewebs-HTML9-Responsive-Boilerstrap-js-98c58d0/js/html9responsiveboilerstrap.js",
+		"/Users/furier/projects/github/wolfram/package.json",
+		"/Users/furier/projects/github/wolfram/Makefile",
+		"/Users/furier/projects/github/wolfram/actions/timer.js",
+		"/Users/furier/projects/github/wolfram/test/timer.tests.js",
+		"/Users/furier/projects/github/wolfram/tests/timer.tests.js",
+		"/Users/furier/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/furier/Dropbox/Projects/Web/chatman/server/lib/chatman.js",
+		"/Users/furier/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/furier/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/furier/Dropbox/Projects/setup_ansible.sh",
+		"/Users/furier/Dropbox/Projects/setup_main.yaml",
+		"/Users/furier/Dropbox/Projects/deluged.yaml",
+		"/Users/furier/Dropbox/Projects/ubuntu.sh",
+		"/ubuntu.sh"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"22,80,873,1080,32400",
+			"35000",
+			" ",
+			"\\.",
+			"sftpuser",
+			"53.443.1080",
+			"53.443",
+			"22,80,1080,8112,10000,32400",
+			"22,80,445,8112,10000,32400",
+			"22,80,8112,10000,32400",
+			"/",
+			"^\\n",
+			"adv",
+			"^\\n",
+			"adj",
+			"^\\n",
+			"verb",
+			"^\\n",
+			"subst",
+			"prep",
+			"interj",
+			"det",
+			"pron",
+			"verbalsubst",
+			"musikkuttr",
+			"sbu",
+			"konj",
+			"numeral",
+			"CLB",
+			"nominal",
+			"\\n",
+			"^.* ",
+			"duration",
+			"hours",
+			",",
+			".",
+			"-",
+			";"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"22,80,443,873,1080,32400",
+			"32400",
+			".",
+			".\n",
+			"\n",
+			"",
+			"megoix",
+			"53,443,1080",
+			"53.443.1080",
+			"22,80,32400",
+			"22,80,8112,10000,32400",
+			"22,80,445,8112,10000,32400",
+			"\\",
+			"",
+			", ",
+			"",
+			"years",
+			"months",
+			"hours",
+			".",
+			"",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "websync.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
