@@ -1,7 +1,6 @@
 /**
  * Created by furier on 29/03/14.
  */
-
 'use strict';
 
 angular.module('websyncApp')

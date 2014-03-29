@@ -1,14 +1,30 @@
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="styles/margins.css">
-<link rel="stylesheet" href="styles/toolkit.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+<link rel="stylesheet" href="styles/margins.css"/>
+<link rel="stylesheet" href="styles/toolkit.css"/>
+
 <div id="content" class="col-xs-12" ng-controller="MainCtrl">
+
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li>
+                <button type="button" class="btn btn-success" title="New task" ng-click="newTask()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </li>
+        </ul>
+        <h3 class="text-muted">websync</h3>
+    </div>
+
     <div class="panel-group" id="accordion">
 
         <div class="panel panel-default" ng-repeat="task in tasks">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse{{task.id}}">
-                <h4 class="panel-title">
+                <h4 class="panel-title" style="display: inline">
                     {{task.name}} : {{task.source}} => {{task.destination}}
                 </h4>
+                <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>
             </div>
             <div id="collapse{{task.id}}" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -29,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label>Flags</label>
-                        <div class="clearfix"/>
+                        <div class="clearfix"></div>
                         <button type="button" class="btn btn-primary margin-bot margin-right"
                                 ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                             {{flag.name}}
@@ -41,6 +57,9 @@
                                 ng-options="shell as shell for shell in shells">
                             <option value=""></option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <div id="scheduler{{task.id}}"></div>
                     </div>
                 </div>
             </div>

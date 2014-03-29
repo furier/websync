@@ -5,48 +5,67 @@
 
 angular.module('websyncApp')
 
-    .factory('taskManager', function () {
+    .factory('taskManager', function (toolkit) {
 
-        function Task(id, name, source, destination, flags, shell){
+        var guid = toolkit.guid;
+
+        function Task(name, source, destination, flags, shell, id){
 
             var task = {
-                id: id,
+                id: id || guid(),
                 name: name,
                 source: source,
                 destination: destination,
-                flags: flags,
+                flags: flags || [],
                 shell: shell
             };
 
-            function toggleFlag(flag){
-                $.each(task.flags, function(index, value){
+            var hasFlag = function (flag){
+                var found = false;
+                task.flags.forEach(function(value){
                     if(flag.short === value) {
-                        task.flags.splice(index, 1);
-                        return;
+                        found = true;
                     }
                 });
-                task.flags.push(flag.short);
-            }
+                return found;
+            };
 
-            function hasFlag(flag){
-                $.each(task.flags, function(index, value){
-                    if(flag.short === value)
-                        return true;
-                });
-                return false;
-            }
-
-            task.toggleFlag = toggleFlag;
+            task.toggleFlag = function (flag) {
+                if (task.hasFlag(flag)) {
+                    // Remove flag
+                    var index = task.flags.indexOf(flag.short);
+                    if (index > -1) {
+                        task.flags.splice(index, 1);
+                    }
+                }
+                else {
+                    // Add flag
+                    task.flags.push(flag.short);
+                }
+            };
             task.hasFlag = hasFlag;
 
             return  task;
         }
 
+        var tasks = [
+            new Task('Task1', '/home/username', 'username@another.server.com:/backup', ['a', 'v', 'z'], 'ssh'),
+            new Task('Task2', '/usr/local/bin/fantasy', 'username@another.server.com', ['n'], 'bash'),
+            new Task('Task3', '/var/logs', 'username@another.server.com', ['a'], 'powershell')
+        ];
+
+        var newTask = function(){
+            tasks.push(new Task());
+        };
+
+        var removeTask = function(task){
+            var index = tasks.indexOf(task);
+            tasks.splice(index, 1);
+        };
+
         return {
-            tasks: [
-                new Task(1, 'Task1', '/home/username', 'username@another.server.com:/backup', ['a', 'v', 'z'], 'ssh'),
-                new Task(2, 'Task2', '/usr/local/bin/fantasy', 'username@another.server.com', ['n'], 'bash'),
-                new Task(3, 'Task3', '/var/logs', 'username@another.server.com', ['a'], 'powershell')
-            ]
+            newTask: newTask,
+            removeTask: removeTask,
+            tasks: tasks
         }
     });

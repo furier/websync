@@ -7,9 +7,7 @@ angular.module('websyncApp')
         $scope.flags = rsyncMetaData.flags;
         $scope.shells = rsyncMetaData.shells;
         $scope.tasks = taskManager.tasks;
-
-        $.each(taskManager.tasks, function(index, task){
-
-        });
+        $scope.newTask = taskManager.newTask;
+        $scope.removeTask = taskManager.removeTask;
 
     });
