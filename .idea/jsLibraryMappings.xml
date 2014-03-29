@@ -2,6 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{websync node_modules}" />
+    <file url="PROJECT" libraries="{jQuery}" />
   </component>
 </project>
 
