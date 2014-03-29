@@ -30,7 +30,8 @@
                     <div class="form-group">
                         <label>Flags</label>
                         <div class="clearfix"/>
-                        <button type="button" class="btn btn-primary margin-bot margin-right" data-toggle="button" ng-repeat="flag in flags">
+                        <button type="button" class="btn btn-primary margin-bot margin-right"
+                                ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                             {{flag.name}}
                         </button>
                     </div>

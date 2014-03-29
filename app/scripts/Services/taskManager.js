@@ -8,7 +8,8 @@ angular.module('websyncApp')
     .factory('taskManager', function () {
 
         function Task(id, name, source, destination, flags, shell){
-            return {
+
+            var task = {
                 id: id,
                 name: name,
                 source: source,
@@ -16,6 +17,29 @@ angular.module('websyncApp')
                 flags: flags,
                 shell: shell
             };
+
+            function toggleFlag(flag){
+                $.each(task.flags, function(index, value){
+                    if(flag.short === value) {
+                        task.flags.splice(index, 1);
+                        return;
+                    }
+                });
+                task.flags.push(flag.short);
+            }
+
+            function hasFlag(flag){
+                $.each(task.flags, function(index, value){
+                    if(flag.short === value)
+                        return true;
+                });
+                return false;
+            }
+
+            task.toggleFlag = toggleFlag;
+            task.hasFlag = hasFlag;
+
+            return  task;
         }
 
         return {
