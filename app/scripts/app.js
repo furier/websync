@@ -1,20 +1,23 @@
 'use strict';
 
-angular.module('websyncApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
-])
-  .config(function ($routeProvider, $locationProvider) {
+var app = angular.module('websyncApp', [
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ngRoute',
+    'restangular'
+]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
+
+    RestangularProvider.setBaseUrl('/api');
+
     $routeProvider
-      .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        .when('/', {
+            templateUrl: 'partials/main',
+            controller: 'MainCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
 
     $locationProvider.html5Mode(true);
-  });
+});

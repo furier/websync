@@ -3,10 +3,8 @@
  */
 'use strict';
 
-angular.module('websyncApp')
-
-    .directive('scheduler', function(){
-        return {
-            restrict: 'E'
-        };
-    });
+app.directive('scheduler', function () {
+    return {
+        restrict: 'E'
+    };
+});

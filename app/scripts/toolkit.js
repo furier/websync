@@ -3,18 +3,17 @@
  */
 'use strict';
 
-angular.module('websyncApp')
+app.factory('toolkit', function () {
 
-    .factory('toolkit', function () {
-
-        function guid() {
-            function s4() {
-                return Math.floor(Math.random() * 0x10000).toString(16);
-            }
-            return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    function guid() {
+        function s4() {
+            return Math.floor(Math.random() * 0x10000).toString(16);
         }
 
-        return {
-            guid: guid
-        };
-    });
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    }
+
+    return {
+        guid: guid
+    };
+});
