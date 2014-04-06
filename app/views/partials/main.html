@@ -17,7 +17,7 @@
 
     <div class="panel-group" id="accordion">
 
-        <div class="panel panel-default" ng-repeat="task in tasks">
+        <div class="panel panel-default" ng-repeat="task in tasks" ng-controller="TaskCtrl">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse{{task.id}}">
                 <h4 class="panel-title" style="display: inline">
                     {{task.name}} : {{task.source}} => {{task.destination}}
@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label>Flags</label>
                         <div class="clearfix"></div>
-                        <button type="button" class="btn btn-primary margin-bot margin-right"
+                        <button type="button" class="btn btn-info margin-bot margin-right"
                                 ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                             {{flag.name}}
                         </button>
@@ -58,9 +58,9 @@
                             <option value=""></option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <div id="scheduler{{task.id}}"></div>
-                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary" ng-click="task.run()">Run</button>
                 </div>
             </div>
         </div>

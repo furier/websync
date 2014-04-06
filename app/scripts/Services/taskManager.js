@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('websyncApp')
+angular.module('websyncApp', ['restangular'])
 
     .factory('taskManager', function (toolkit) {
 
@@ -17,7 +17,8 @@ angular.module('websyncApp')
                 source: source,
                 destination: destination,
                 flags: flags || [],
-                shell: shell
+                shell: shell,
+                first: true
             };
 
             var hasFlag = function (flag){
@@ -29,6 +30,7 @@ angular.module('websyncApp')
                 });
                 return found;
             };
+            task.hasFlag = hasFlag;
 
             task.toggleFlag = function (flag) {
                 if (task.hasFlag(flag)) {
@@ -43,7 +45,10 @@ angular.module('websyncApp')
                     task.flags.push(flag.short);
                 }
             };
-            task.hasFlag = hasFlag;
+
+            task.run = function(){
+
+            };
 
             return  task;
         }
@@ -63,9 +68,17 @@ angular.module('websyncApp')
             tasks.splice(index, 1);
         };
 
+        var saveTask = function(task){
+            if(task.first){
+                task.first = false;
+                return;
+            }
+        };
+
         return {
             newTask: newTask,
             removeTask: removeTask,
+            saveTask: saveTask,
             tasks: tasks
         }
     });
