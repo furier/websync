@@ -2,3 +2,4 @@
 /app/bower_components/
 /.tmp/
 /.idea/
+*.sublime*
