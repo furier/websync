@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "id": "96811477-ec0e-5902-8993-fe84325fb5f6",
+            "name": "Task",
+            "source": "/etc/usb",
+            "destination": "/loc/dbu",
+            "flags": [
+                "a",
+                "v"
+            ],
+            "shell": "ssh",
+            "first": false
+        },
+        {
+            "id": "cde2d052-e679-1cee-3871-c1e2345e1fad",
+            "name": "Task22",
+            "source": "/var/knc",
+            "destination": "/home/sssss/fri",
+            "flags": [
+                "v",
+                "z"
+            ],
+            "shell": "powershell",
+            "first": false
+        }
+    ]
+}

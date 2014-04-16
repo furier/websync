@@ -7,17 +7,11 @@ app.factory('taskManager', function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
 
-    function Task(name, source, destination, flags, shell, id) {
+    Restangular.extendModel('tasks', function(task){
 
-        var task = {
-            id: id || guid(),
-            name: name,
-            source: source,
-            destination: destination,
-            flags: flags || [],
-            shell: shell,
-            first: true
-        };
+        if(!task.id) task.id = guid();
+
+        task.first = true;
 
         var hasFlag = function (flag) {
             var found = false;
@@ -45,35 +39,40 @@ app.factory('taskManager', function (toolkit, Restangular) {
         };
 
         task.run = function () {
-
+            console.log('run task: ' + task.id);
         };
 
-        return  task;
-    }
-
-    var tasks = [];
-    var all = Restangular.all('tasks');
-    var list = all.getList();
-    var $object = list.$object;
-    $object.forEach(function(task){
-        console.log(task);
-        tasks.push(new Task(task.name, task.source, task.destination, task.flags, task.shell, task.id));
+        return task;
     });
 
+    var tasks = Restangular.all('tasks').getList().$object;
+
     var newTask = function () {
-        tasks.push(new Task());
+        var task = {
+            id: guid(),
+            name: '',
+            source: '',
+            destination: '',
+            flags: [],
+            shell: '',
+            first: true
+        };
+        console.debug('Adding task:id ' + task.id);
+        tasks.post(task).then(function(task){
+            tasks.push(task);
+        });
     };
 
     var removeTask = function (task) {
+        console.debug('Removing task: ' + task.id);
         var index = tasks.indexOf(task);
         tasks.splice(index, 1);
+        task.remove();
     };
 
     var saveTask = function (task) {
-        if (task.first) {
-            task.first = false;
-            return;
-        }
+        console.debug('Saving task: ' + task.id);
+        task.post();
     };
 
     return {

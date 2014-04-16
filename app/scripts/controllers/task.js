@@ -10,6 +10,10 @@ app.controller('TaskCtrl', function ($scope, taskManager) {
 
     var save = function (newVal, oldVal) {
         if (newVal != oldVal) {
+            if(task.first) {
+                task.first = false;
+                return;
+            }
             if (timeout) {
                 clearTimeout(timeout);
             }
