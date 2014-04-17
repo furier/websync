@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('taskManager', function (toolkit, Restangular) {
+app.factory('taskManager', function (toolkit, Restangular, $http) {
 
     var guid = toolkit.guid;
 
@@ -40,6 +40,7 @@ app.factory('taskManager', function (toolkit, Restangular) {
 
         task.run = function () {
             console.log('run task: ' + task.id);
+            Restangular.one('runtask', task.id).post();
         };
 
         return task;
