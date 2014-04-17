@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('taskManager', function (toolkit, Restangular, $http) {
+app.factory('taskManager', function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
 
@@ -73,7 +73,7 @@ app.factory('taskManager', function (toolkit, Restangular, $http) {
 
     var saveTask = function (task) {
         console.debug('Saving task: ' + task.id);
-        task.post();
+        task.put();
     };
 
     return {

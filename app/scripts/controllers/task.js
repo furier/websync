@@ -3,14 +3,14 @@
  */
 'use strict';
 
-app.controller('TaskCtrl', function ($scope, taskManager) {
+app.controller('TaskCtrl', function ($scope, taskManager, socket) {
 
     var timeout = null;
     var task = $scope.task;
 
     var save = function (newVal, oldVal) {
         if (newVal != oldVal) {
-            if(task.first) {
+            if (task.first) {
                 task.first = false;
                 return;
             }
@@ -22,6 +22,22 @@ app.controller('TaskCtrl', function ($scope, taskManager) {
             }, 5000);
         }
     };
+
+    socket.on('connect', function () {
+        console.log('Socket.IO connected to server!')
+    });
+
+    socket.on('task.finished.' + task.id, function (data) {
+        console.log(task.name + ' has finished!');
+    });
+
+    socket.on('task.progress.' + task.id, function (data) {
+        console.log(task.name + ' progress: ' + data);
+    });
+
+    socket.on('task.error.' + task.id, function (data) {
+        console.log(task.name + ' error: ' + data);
+    });
 
     $scope.$watch('task.name', save);
     $scope.$watch('task.source', save);

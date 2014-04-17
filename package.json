@@ -6,7 +6,8 @@
     "lodash": "^2.4.1",
     "ejs": "~0.8.4",
     "jsonfile": "^1.1.1",
-    "rsync": "^0.3.0"
+    "rsync": "^0.3.0",
+    "socket.io": "^0.9.16"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

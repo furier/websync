@@ -5,7 +5,8 @@ var app = angular.module('websyncApp', [
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'restangular'
+    'restangular',
+    'socket-io'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
     RestangularProvider.setBaseUrl('/api');
