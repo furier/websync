@@ -21,4 +21,19 @@ var app = angular.module('websyncApp', [
         });
 
     $locationProvider.html5Mode(true);
+
+}).run(function(socket){
+
+    socket.on('connecting', function(){
+        console.log('Socket.IO connecting to server...');
+    });
+
+    socket.on('connect', function () {
+        console.log('Socket.IO connected to server!');
+    });
+
+    socket.on('error', function(err){
+        console.log(err);
+    });
+
 });

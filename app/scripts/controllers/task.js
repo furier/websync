@@ -23,20 +23,19 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
         }
     };
 
-    socket.on('connect', function () {
-        console.log('Socket.IO connected to server!')
-    });
-
     socket.on('task.finished.' + task.id, function (data) {
-        console.log(task.name + ' has finished!');
+        if(data && data.error)
+            console.log(task.name + ' has finished with an ' + data.error);
+        else
+            console.log(task.name + ' finished successfully!');
     });
 
     socket.on('task.progress.' + task.id, function (data) {
-        console.log(task.name + ' progress: ' + data);
+        console.log(task.name + ': ' + data);
     });
 
     socket.on('task.error.' + task.id, function (data) {
-        console.log(task.name + ' error: ' + data);
+        console.log(task.name + ': ' + data);
     });
 
     $scope.$watch('task.name', save);

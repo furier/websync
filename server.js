@@ -17,15 +17,14 @@ var app = express();
 // Express settings
 require('./lib/config/express')(app);
 
-// Socket.IO Initialization
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+// Socket.IO settings
+var socket = require('./lib/config/socket')(app);
 
 // Routing
-require('./lib/routes')(app, io);
+require('./lib/routes')(app, socket.io);
 
 // Start server
-server.listen(config.port, function () {
+socket.server.listen(config.port, function () {
   console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
 
