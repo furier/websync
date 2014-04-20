@@ -7,6 +7,8 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
 
     var timeout = null;
     var task = $scope.task;
+    var log = $scope.log = [];
+    $scope.logCollapsed = false;
 
     var save = function (newVal, oldVal) {
         if (newVal != oldVal) {
@@ -24,18 +26,30 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
     };
 
     socket.on('task.finished.' + task.id, function (data) {
-        if(data && data.error)
-            console.log(task.name + ' has finished with an ' + data.error);
+        if (data && data.error)
+            log.push({
+                type: 'list-group-item-danger',
+                msg: data.error
+            });
         else
-            console.log(task.name + ' finished successfully!');
+            log.push({
+                type: 'list-group-item-success',
+                msg: 'Task finished Successfully!'
+            });
     });
 
     socket.on('task.progress.' + task.id, function (data) {
-        console.log(task.name + ': ' + data);
+        log.push({
+            type: 'list-group-item-info',
+            msg: data
+        });
     });
 
     socket.on('task.error.' + task.id, function (data) {
-        console.log(task.name + ': ' + data);
+        log.push({
+            type: 'list-group-item-danger',
+            msg: data
+        });
     });
 
     $scope.$watch('task.name', save);

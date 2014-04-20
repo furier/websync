@@ -39,8 +39,13 @@ app.factory('taskManager', function (toolkit, Restangular) {
         };
 
         task.run = function () {
-            console.log('run task: ' + task.id);
+            console.debug('run task: ' + task.id);
             Restangular.one('runtask', task.id).post();
+        };
+
+        task.test = function(){
+            console.debug('test task: ' + task.id);
+            Restangular.one('testtask', task.id).post();
         };
 
         return task;
