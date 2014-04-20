@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label>Flags</label>
                         <div class="clearfix"></div>
-                        <button type="button" class="btn btn-info margin-bot margin-right"
+                        <button type="button" class="btn btn-info btn-xs margin-bot margin-right" title="{{flag.tooltip}}"
                                 ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                             {{flag.name}}
                         </button>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="panel-footer clearfix">
                     <button type="button" class="btn btn-primary pull-right margin-left" ng-click="task.run()">Run</button>
-                    <button type="button" class="btn btn-primary pull-right margin-left" ng-click="task.test()">Test</button>
+                    <button type="button" class="btn btn-primary pull-right margin-left" ng-click="task.test()" title="Dry run">Test</button>
                 </div>
             </div>
         </div>
