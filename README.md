@@ -16,3 +16,6 @@ Start the server with the command:
 
     node server.js
     
+or
+
+    grunt serve
