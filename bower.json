@@ -15,7 +15,8 @@
     "socket.io-client": "~0.9.16",
     "ng-socket-io": "~0.2.0",
     "angular-bootstrap": "~0.10.0",
-    "angularjs-scroll-glue": "~0.0.1"
+    "angularjs-scroll-glue": "~0.0.1",
+    "underscore.string": "~2.3.3"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

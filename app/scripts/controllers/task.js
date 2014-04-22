@@ -21,35 +21,35 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
             }
             timeout = setTimeout(function () {
                 taskManager.saveTask(task);
-            }, 5000);
+            }, 500);
         }
     };
 
     socket.on('task.finished.' + task.id, function (data) {
         if (data && data.error)
-            log.push({
-                type: 'list-group-item-danger',
-                msg: data.error
-            });
+            log.push({type: 'list-group-item-danger', msg: data.error + ' ' + data.errorCode.message});
         else
-            log.push({
-                type: 'list-group-item-success',
-                msg: 'Task finished Successfully!'
-            });
+            log.push({type: 'list-group-item-success', msg: 'Task finished Successfully!'});
     });
 
     socket.on('task.progress.' + task.id, function (data) {
-        log.push({
-            type: 'list-group-item-info',
-            msg: data
-        });
+        if (data) {
+            if (_.startsWith(data, 'rsync:')) {
+
+                data = _.ltrim(data, 'rsync:');
+                log.push({type: 'list-group-item-info', msg: data});
+
+            } else if (_.startsWith(data, 'rsync error:')) {
+
+                data = _.ltrim(data, 'rsync error:');
+                log.push({type: 'list-group-item-danger', msg: data});
+
+            }
+        }
     });
 
     socket.on('task.error.' + task.id, function (data) {
-        log.push({
-            type: 'list-group-item-danger',
-            msg: data
-        });
+        log.push({type: 'list-group-item-danger', msg: data});
     });
 
     $scope.$watch('task.name', save);
