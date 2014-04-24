@@ -1,5 +1,7 @@
 'use strict';
 
+_.mixin(_.str.exports());
+
 var app = angular.module('websyncApp', [
     'ngCookies',
     'ngResource',

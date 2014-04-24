@@ -26,23 +26,34 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
     };
 
     socket.on('task.finished.' + task.id, function (data) {
-        if (data && data.error)
-            log.push({type: 'list-group-item-danger', msg: data.error + ' ' + data.errorCode.message});
-        else
+        if (data && data.error) {
+            var msg = data.error + ' (' + data.errorCode.message + ')';
+            log.push({type: 'list-group-item-danger', msg: msg});
+            log.push({type: 'list-group-item-danger', msg: data.cmd });
+        }
+        else {
             log.push({type: 'list-group-item-success', msg: 'Task finished Successfully!'});
+            log.push({type: 'list-group-item-success', msg: data.cmd});
+        }
     });
 
     socket.on('task.progress.' + task.id, function (data) {
         if (data) {
-            if (_.startsWith(data, 'rsync:')) {
+            var strip = 'rsync:';
+            var striperror = 'rsync error:';
+            if (_.startsWith(data, strip)) {
 
-                data = _.ltrim(data, 'rsync:');
+                data = data.substring(strip.length);
                 log.push({type: 'list-group-item-info', msg: data});
 
-            } else if (_.startsWith(data, 'rsync error:')) {
+            } else if (_.startsWith(data, striperror)) {
 
-                data = _.ltrim(data, 'rsync error:');
+                data = data.substring(striperror.length);
                 log.push({type: 'list-group-item-danger', msg: data});
+
+            } else {
+
+                log.push({type: 'list-group-item-info', msg: data});
 
             }
         }
