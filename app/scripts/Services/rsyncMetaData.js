@@ -4,10 +4,8 @@
 'use strict';
 
 app.factory('rsyncMetaData', function (Restangular) {
-
     return {
         flags: Restangular.all('flags').getList().$object,
         shells: ['ssh', 'bash']
-    }
-
+    };
 });

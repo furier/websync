@@ -30,8 +30,7 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
             var msg = data.error + ' (' + data.errorCode.message + ')';
             log.push({type: 'list-group-item-danger', msg: msg});
             log.push({type: 'list-group-item-danger', msg: data.cmd });
-        }
-        else {
+        } else {
             log.push({type: 'list-group-item-success', msg: 'Task finished Successfully!'});
             log.push({type: 'list-group-item-success', msg: data.cmd});
         }
@@ -42,19 +41,13 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
             var strip = 'rsync:';
             var striperror = 'rsync error:';
             if (_.startsWith(data, strip)) {
-
-                data = data.substring(strip.length);
+                data = _(data.substring(strip.length)).chain().trim().capitalize();
                 log.push({type: 'list-group-item-info', msg: data});
-
             } else if (_.startsWith(data, striperror)) {
-
-                data = data.substring(striperror.length);
+                data = _(data.substring(striperror.length)).chain().trim().capitalize();
                 log.push({type: 'list-group-item-danger', msg: data});
-
             } else {
-
                 log.push({type: 'list-group-item-info', msg: data});
-
             }
         }
     });
