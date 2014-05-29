@@ -1,5 +1,6 @@
 'use strict';
 
+//mixin underscore.string into lodash
 _.mixin(_.str.exports());
 
 var app = angular.module('websyncApp', [
