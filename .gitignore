@@ -3,3 +3,4 @@
 /.tmp/
 /.idea/
 *.sublime*
+tasks.json
