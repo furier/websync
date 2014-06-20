@@ -1,0 +1,68 @@
+
+
+
+<div class="panel panel-default" ng-controller="TaskCtrl">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{task.id}}">
+        <div style="display: inline-block">
+            <h4 class="panel-title data">Name:           {{task.name}}</h4>
+            <h4 class="panel-title data">Source:         {{task.source}}</h4>
+            <h4 class="panel-title data">Destination: {{task.destination}}</h4>
+        </div>
+        <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </div>
+    <div id="collapse-{{task.id}}" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="nameInput">Name</label>
+                <input id="nameInput" type="text" class="form-control" placeholder="Name"
+                       ng-model="task.name">
+            </div>
+            <div class="form-group">
+                <label for="sourceInput">Source</label>
+                <input id="sourceInput" type="text" class="form-control" placeholder="Source"
+                       ng-model="task.source">
+            </div>
+            <div class="form-group">
+                <label for="destinationInput">Destination</label>
+                <input id="destinationInput" type="text" class="form-control" placeholder="Destination"
+                       ng-model="task.destination">
+            </div>
+            <div class="form-group">
+                <label>Flags</label>
+                <div class="clearfix"></div>
+                <button type="button" class="btn btn-info btn-xs margin-bot margin-right" title="{{flag.tooltip}}"
+                        ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
+                    {{flag.name}}
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="shellInput">Shell</label>
+                <select id="shellInput" class="form-control" ng-model="task.shell"
+                        ng-options="shell as shell for shell in shells">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group panel panel-default">
+                <div class="panel-heading">
+                    <h5 class="panel-title" style="display: inline;">Log</h5>
+                    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="logCollapsed = !logCollapsed"
+                            ng-switch on="logCollapsed">
+                        <span ng-switch-when="true" class="glyphicon glyphicon-plus"></span>
+                        <span ng-switch-when="false" class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </div>
+                <ul collapse="logCollapsed" class="list-group" style="max-height: 300px; overflow: scroll;" scroll-glue>
+                    <li ng-repeat="item in log" class="list-group-item" ng-class="item.type">{{item.msg}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary margin-left" ng-click="task.run()">Run</button>
+                <button type="button" class="btn btn-primary margin-left" ng-click="task.test()" title="Dry run">Test</button>
+            </div>
+        </div>
+    </div>
+</div>
