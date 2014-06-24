@@ -22,7 +22,10 @@
 app.directive('logPanel', function () {
     return {
         restrict: 'E',
-        scope: {logEntries: '='},
+        scope: {
+            logEntries: '=',
+            panelHeader: '@'
+        },
         link: function (scope, element, attributes) {
 
             var LogEntry = React.createClass({
@@ -110,7 +113,7 @@ app.directive('logPanel', function () {
                             className: 'form-group panel panel-default'
                         },
                         LogPanelHeader({
-                            header:'Log',
+                            header: this.props.header,
                             logCollapsed: this.state.logCollapsed,
                             toggleCollapsed: this.toggleCollapsed
                         }),
@@ -123,7 +126,9 @@ app.directive('logPanel', function () {
             });
 
             scope.$watchCollection('logEntries', function (n, o) {
+                console.log(scope.panelHeader);
                 React.renderComponent(LogPanel({
+                    header: scope.panelHeader,
                     logEntries: scope.logEntries
                 }), element[0]);
             });
