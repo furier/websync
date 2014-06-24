@@ -39,12 +39,12 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
     socket.on('task.progress.' + task.id, function (data) {
         if (data) {
             var strip = 'rsync:';
-            var striperror = 'rsync error:';
+            var stripError = 'rsync error:';
             if (_.startsWith(data, strip)) {
                 data = _(data.substring(strip.length)).chain().trim().capitalize();
                 log.push({type: 'list-group-item-info', msg: data});
-            } else if (_.startsWith(data, striperror)) {
-                data = _(data.substring(striperror.length)).chain().trim().capitalize();
+            } else if (_.startsWith(data, stripError)) {
+                data = _(data.substring(stripError.length)).chain().trim().capitalize();
                 log.push({type: 'list-group-item-danger', msg: data});
             } else {
                 log.push({type: 'list-group-item-info', msg: data});
