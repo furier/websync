@@ -81,10 +81,27 @@ app.factory('taskManager', function (toolkit, Restangular) {
         task.put();
     };
 
+    var timeout = null;
+    var saveTaskWatch = function (newVal, oldVal, task) {
+        if (newVal !== oldVal) {
+            if (task.first) {
+                task.first = false;
+                return;
+            }
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(function () {
+                saveTask(task);
+            }, 500);
+        }
+    };
+
     return {
         newTask: newTask,
         removeTask: removeTask,
         saveTask: saveTask,
+        saveTaskWatch: saveTaskWatch,
         tasks: tasks
     }
 });

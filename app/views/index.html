@@ -44,8 +44,6 @@
         <script src="bower_components/json3/lib/json3.min.js"></script>
         <![endif]-->
 
-        <!-- build:js(app) scripts/vendor.js -->
-        <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -61,15 +59,18 @@
         <script src="bower_components/socket.io-client/dist/socket.io.js"></script>
         <script src="bower_components/ng-socket-io/ng-socket-io.js"></script>
         <script src="bower_components/react/react.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+        <script src="bower_components/jstree/dist/jstree.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/toolkit.js"></script>
         <script src="scripts/services/reactComponents.js"></script>
         <script src="scripts/directives/task.js"></script>
+        <script src="scripts/directives/jsTree.js"></script>
+        <script src="scripts/directives/connectionDetails.js"></script>
+        <script src="scripts/directives/filePicker.js"></script>
         <script src="scripts/directives/logPanel.js"></script>
+        <script src="scripts/services/directoryService.js"></script>
         <script src="scripts/services/taskManager.js"></script>
         <script src="scripts/services/rsyncMetaData.js"></script>
         <script src="scripts/controllers/task.js"></script>

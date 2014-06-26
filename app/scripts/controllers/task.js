@@ -5,24 +5,11 @@
 
 app.controller('TaskCtrl', function ($scope, taskManager, socket) {
 
-    var timeout = null;
     var task = $scope.task;
     var log = $scope.log = [];
-    $scope.logCollapsed = false;
 
-    var save = function (newVal, oldVal) {
-        if (newVal != oldVal) {
-            if (task.first) {
-                task.first = false;
-                return;
-            }
-            if (timeout) {
-                clearTimeout(timeout);
-            }
-            timeout = setTimeout(function () {
-                taskManager.saveTask(task);
-            }, 500);
-        }
+    var save = function (n, o) {
+        taskManager.saveTaskWatch(n, o, task);
     };
 
     socket.on('task.finished.' + task.id, function (data) {

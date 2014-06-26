@@ -4,9 +4,7 @@
 <div class="panel panel-default" ng-controller="TaskCtrl">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{task.id}}">
         <div style="display: inline-block">
-            <h4 class="panel-title data">Name:           {{task.name}}</h4>
-            <h4 class="panel-title data">Source:         {{task.source}}</h4>
-            <h4 class="panel-title data">Destination: {{task.destination}}</h4>
+            <h4 class="panel-title data">{{task.name}}</h4>
         </div>
         <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
             <span class="glyphicon glyphicon-minus"></span>
@@ -16,19 +14,13 @@
         <div class="panel-body">
             <div class="form-group">
                 <label for="nameInput">Name</label>
-                <input id="nameInput" type="text" class="form-control" placeholder="Name"
-                       ng-model="task.name">
+                <input id="nameInput" type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
-            <div class="form-group">
-                <label for="sourceInput">Source</label>
-                <input id="sourceInput" type="text" class="form-control" placeholder="Source"
-                       ng-model="task.source">
+            <div class="clearfix">
+                <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
+                <connection-details task="task" target="task.destination" class="col-xs-6"></connection-details>
             </div>
-            <div class="form-group">
-                <label for="destinationInput">Destination</label>
-                <input id="destinationInput" type="text" class="form-control" placeholder="Destination"
-                       ng-model="task.destination">
-            </div>
+            <file-picker task="task"></file-picker>
             <div class="form-group">
                 <label>Flags</label>
                 <div class="clearfix"></div>
@@ -36,13 +28,6 @@
                         ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                     {{flag.name}}
                 </button>
-            </div>
-            <div class="form-group">
-                <label for="shellInput">Shell</label>
-                <select id="shellInput" class="form-control" ng-model="task.shell"
-                        ng-options="shell as shell for shell in shells">
-                    <option value=""></option>
-                </select>
             </div>
             <log-panel panel-header="Log" log-entries="log" />
         </div>

@@ -28,7 +28,6 @@ app.directive('logPanel', function (reactComponents) {
         },
         link: function (scope, element, attributes) {
             scope.$watchCollection('logEntries', function (n, o) {
-                console.log(scope.panelHeader);
                 React.renderComponent(reactComponents.LogPanel({
                     header: scope.panelHeader,
                     logEntries: scope.logEntries
