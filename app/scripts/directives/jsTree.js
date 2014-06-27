@@ -19,9 +19,11 @@ app.directive('jstree', function() {
                         },
                         types: {
                             directory: {
+                                icon: 'glyphicon glyphicon-folder-close',
                                 valid_children: ['directory', 'file']
                             },
                             file: {
+                                icon: 'glyphicon glyphicon-file',
                                 valid_children: []
                             }
                         }

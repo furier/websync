@@ -3,7 +3,7 @@
  */
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: TaskCtrl', function () {
 
 
 
