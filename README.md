@@ -6,10 +6,9 @@ websync is intended to be an rsync manager, where rsync tasks can be added, sche
 Requirements
 ============
 
-- Node
-- NPM
-- Bower
-- Grunt
+- Node     `brew install node`
+- Bower    `npm install bower`
+- Grunt    `npm install grunt`
 
 Installation
 ============
