@@ -16,11 +16,13 @@
                 <label for="nameInput">Name</label>
                 <input id="nameInput" type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
-            <div class="clearfix">
-                <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
-                <connection-details task="task" target="task.destination" class="col-xs-6"></connection-details>
+            <div class="well well-sm clearfix">
+                <div class="clearfix">
+                    <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
+                    <connection-details task="task" target="task.destination" class="col-xs-6"></connection-details>
+                </div>
+                <file-picker task="task"></file-picker>
             </div>
-            <file-picker task="task"></file-picker>
             <div class="form-group">
                 <label>Flags</label>
                 <div class="clearfix"></div>
