@@ -59,7 +59,7 @@ describe('Node Directory Tree', function () {
     });
     describe('When recursive is true and maxDepth is 2', function(){
         it('Should return an object representing the path specified recursively with children with max depth 2', function () {
-            var result = ndt.directoryTreeSync('/', [], true, 2);
+            var result = ndt.directoryTreeSync('/usr', [], true, 1);
             result.should.be.ok;
             result.should.have.property('text');
             result.should.have.property('path');
@@ -70,7 +70,7 @@ describe('Node Directory Tree', function () {
             result.children.length.should.be.above(0);
 
             var child = _.find(result.children, function (child) {
-                return child.type === 'directory';
+                return child.type === 'directory' && child.text === 'local';
             });
             child.should.be.ok;
             child.should.have.property('text');
@@ -80,17 +80,7 @@ describe('Node Directory Tree', function () {
             child.should.have.property('children');
 
             child = _.find(child.children, function (child) {
-                return child.type === 'directory';
-            });
-            child.should.be.ok;
-            child.should.have.property('text');
-            child.should.have.property('path');
-            child.should.have.property('type');
-            child.should.have.property('visible');
-            child.should.have.property('children');
-
-            child = _.find(child.children, function (child) {
-                return child.type === 'directory';
+                return child.type === 'directory' && child.text === 'share';
             });
             child.should.be.ok;
             child.should.have.property('text');
@@ -98,6 +88,16 @@ describe('Node Directory Tree', function () {
             child.should.have.property('type');
             child.should.have.property('visible');
             child.should.not.have.property('children');
+
+            /*child = _.find(child.children, function (child) {
+                return child.type === 'directory';
+            });
+            child.should.be.ok;
+            child.should.have.property('text');
+            child.should.have.property('path');
+            child.should.have.property('type');
+            child.should.have.property('visible');
+            child.should.not.have.property('children');*/
         })
     });
 });

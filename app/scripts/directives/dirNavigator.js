@@ -11,19 +11,24 @@ app.directive('dirNavigator', function(directoryService) {
 
             var treeView = $(element);
 
-            scope.$watch('showHiddenFiles', function () {
-
-            })
-
             scope.$watch('target', function () {
 
-                directoryService.getStructure('/').then(function(data){
+                directoryService.getStructure('/').then(function(nodes){
                     treeView.jstree({
                         core: {
-                            data: data
+                            data: {
+                                data: nodes,
+                                url: function (node) {
+                                    console.log('Get Children for Node.');
+                                    return directoryService.getStructure(node.path);
+                                }
+                            }
                         },
                         types: {
                             directory: {
+                                li_attr: {
+                                    'ng-hide': false
+                                },
                                 icon: 'glyphicon glyphicon-folder-close',
                                 valid_children: ['directory', 'file']
                             },
@@ -39,6 +44,15 @@ app.directive('dirNavigator', function(directoryService) {
                 });
 
             }, true);
+
+
+            treeView.on('open_node.jstree', function (e, data) {
+                console.log(data);
+            }).on('close_node.jstree', function (e, data) {
+                console.log(data);
+            }).on('load_node.jstree', function (e, data) {
+                console.log(data);
+            });
 
         }
     };
