@@ -1,7 +1,7 @@
 
 
-<h3>{{target.name}}</h3>
 <div class="form-group">
+    <h3>{{target.name}}</h3>
     <label for="{{target.name}}-connectionType-{{id}}">Connection Type</label>
     <select id="{{target.name}}-connectionType-{{id}}" class="form-control" ng-model="target.connectionType" ng-options="connectionType as connectionType for connectionType in target.connectionTypes"></select>
     <div ng-switch="target.connectionType" collapse="target.connectionType === ''">

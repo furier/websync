@@ -5,8 +5,10 @@
 
 app.factory('directoryService', function (Restangular) {
     return {
-        getStructure: function (connectionString) {
-            return Restangular.one('getDirectoryStructure').post();
+        getStructure: function (path) {
+            return Restangular.one('getDirectoryStructure').customPOST({
+                path: path
+            });
         }
     };
 });

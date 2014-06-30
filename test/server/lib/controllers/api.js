@@ -12,6 +12,7 @@ describe('POST /api/getDirectoryStructure', function() {
     it('should respond with JSON object representing the directory structure of the specified path', function(done) {
         request(app)
             .post('/api/getDirectoryStructure')
+            .send({path: '/'})
             .expect(200)
             .expect('Content-Type', /json/)
             .end(function(err, res) {
@@ -27,6 +28,7 @@ describe('POST /api/getDirectoryStructure', function() {
                 child.should.have.property('text');
                 child.should.have.property('path');
                 child.should.have.property('type');
+                child.should.have.property('visible');
                 child.should.not.have.property('children');
 
                 done();

@@ -3,31 +3,43 @@
  */
 'use strict';
 
-app.directive('jstree', function() {
+app.directive('dirNavigator', function(directoryService) {
     return {
         restrict: 'E',
-        scope: {data: '='},
+        scope: {target: '='},
         link: function (scope, element, attrs) {
 
             var treeView = $(element);
 
-            scope.$watch('data', function (data) {
-                data.then(function(data){
+            scope.$watch('showHiddenFiles', function () {
+
+            })
+
+            scope.$watch('target', function () {
+
+                directoryService.getStructure('/').then(function(data){
                     treeView.jstree({
                         core: {
                             data: data
                         },
                         types: {
                             directory: {
+                                icon: 'glyphicon glyphicon-folder-close',
                                 valid_children: ['directory', 'file']
                             },
                             file: {
+                                icon: 'glyphicon glyphicon-file',
                                 valid_children: []
                             }
-                        }
+                        },
+                        plugins: [
+                            'types'
+                        ]
                     });
                 });
-            });
+
+            }, true);
+
         }
     };
 });
