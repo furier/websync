@@ -1,0 +1,15 @@
+
+
+<ol class="breadcrumb" style="background: white; border: solid; border-width: 1px; border-color: lightgrey;">
+    <li ng-repeat="dir in dirs" ng-click="goBack(dir)"><span class="label label-default cursor-hover-hand">{{dir.text}}</span></li>
+</ol>
+<div style="max-height: 300px; overflow: scroll;" class="list-group">
+    <a ng-repeat="child in children" class="list-group-item" href="#" ng-hide="!child.visible" ng-class="{disabled: child.disabled}">
+        <div ng-switch="child.type" ng-click="getChildren(child)">
+            <span ng-switch-when="directory" class="glyphicon glyphicon-folder-close"></span>
+            <span ng-switch-when="file" class="glyphicon glyphicon-file"></span>
+            {{child.text}}
+        </div>
+    </a>
+</div>
+

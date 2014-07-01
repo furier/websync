@@ -41,4 +41,8 @@ var app = angular.module('websyncApp', [
         console.log(err);
     });
 
+    alertify.set({
+        delay: 3000
+    });
+
 });

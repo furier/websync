@@ -11,3 +11,8 @@
 .data {
     white-space: pre;
 }
+
+.cursor-hover-hand:hover {
+    cursor: hand;
+    cursor: pointer;
+}

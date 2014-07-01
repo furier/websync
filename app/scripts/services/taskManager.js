@@ -57,10 +57,29 @@ app.factory('taskManager', function (toolkit, Restangular) {
         var task = {
             id: guid(),
             name: '',
-            source: '',
-            destination: '',
+            source: {
+                name: 'Source',
+                connectionType: 'default',
+                connectionTypes: [
+                    'default',
+                    'ssh'
+                ],
+                host: '',
+                username: '',
+                paths: []
+            },
+            destination: {
+                name: 'Destination',
+                connectionType: 'default',
+                connectionTypes: [
+                    'default',
+                    'ssh'
+                ],
+                host: '',
+                username: '',
+                paths: []
+            },
             flags: [],
-            shell: '',
             first: true
         };
         console.debug('Adding task:id ' + task.id);
