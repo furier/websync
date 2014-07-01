@@ -34,6 +34,47 @@ app.directive('dirNavigator', function(directoryService) {
                     scope.children = rootDir.children;
             }
 
+            function _pushDir(selectedChild) {
+                var lastItem = _.last(scope.dirs);
+                if (lastItem && lastItem.type !== 'file')
+                    scope.dirs.push(selectedChild);
+                else
+                    scope.dirs[scope.dirs.indexOf(lastItem)] = selectedChild;
+            }
+
+            scope.getChildren = function(selectedChild){
+                switch (selectedChild.type) {
+                    case 'directory' :
+                        directoryService.getStructure(selectedChild.path).then(
+                            function success(files) {
+                                selectedChild.children = files;
+                                _pushDir(selectedChild);
+                                scope.children = selectedChild.children;
+                            },
+                            function failure(err){
+                                selectedChild.disabled = true;
+                                var error = err.data.error;
+                                alertify.error('The item clicked was inaccessible.');
+                                console.error(error.message);
+                            });
+                        break;
+                    default :
+                        selectedChild.selected = true;
+                        _pushDir(selectedChild);
+                        break;
+                }
+            }
+
+            scope.goBack = function(selectedChild){
+                switch (selectedChild.type) {
+                    case 'directory' :
+                        var index = scope.dirs.indexOf(selectedChild);
+                        scope.dirs.splice(index + 1);
+                        scope.children = selectedChild.children;
+                        break;
+                }
+            }
+
             scope.$watch('target', function (n, o) {
 
                 var rootDir = scope.dirs[0];
@@ -41,31 +82,9 @@ app.directive('dirNavigator', function(directoryService) {
 
             }, true);
 
-            scope.getChildren = function(selectedChild){
-                if (selectedChild.type === 'directory'){
-                    directoryService.getStructure(selectedChild.path).then(
-                        function sucess(files) {
-                            selectedChild.children = files;
-                            scope.dirs.push(selectedChild);
-                            scope.children = selectedChild.children;
-                        },
-                        function failure(err){
-                            selectedChild.disabled = true;
-                            var error = err.data.error;
-                            alertify.error('The item clicked was inaccessible.');
-                            console.error(error.message);
-                        });
-                } else
-                    scope.children = [];
-            }
+            scope.$watchCollection('dirs', function (n, o) {
 
-            scope.goBack = function(selectedChild){
-                if (selectedChild.type === 'directory') {
-                    var index = scope.dirs.indexOf(selectedChild);
-                    scope.dirs.splice(index + 1);
-                    scope.children = selectedChild.children;
-                }
-            }
+            })
 
         }
     };

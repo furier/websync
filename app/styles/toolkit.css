@@ -16,3 +16,20 @@
     cursor: hand;
     cursor: pointer;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+
+.overflow-sideways {
+    overflow-x: scroll;
+}
+
+.overflow-bothways {
+    overflow: scroll;
+}

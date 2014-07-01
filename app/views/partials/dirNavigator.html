@@ -1,15 +1,21 @@
 
 
-<ol class="breadcrumb" style="background: white; border: solid; border-width: 1px; border-color: lightgrey;">
-    <li ng-repeat="dir in dirs" ng-click="goBack(dir)"><span class="label label-default cursor-hover-hand">{{dir.text}}</span></li>
-</ol>
-<div style="max-height: 300px; overflow: scroll;" class="list-group">
-    <a ng-repeat="child in children" class="list-group-item" href="#" ng-hide="!child.visible" ng-class="{disabled: child.disabled}">
-        <div ng-switch="child.type" ng-click="getChildren(child)">
-            <span ng-switch-when="directory" class="glyphicon glyphicon-folder-close"></span>
-            <span ng-switch-when="file" class="glyphicon glyphicon-file"></span>
-            {{child.text}}
-        </div>
+<!--<ol class="breadcrumb dir-path-breadcrumb">-->
+    <!--<li ng-repeat="dir in dirs" ng-click="goBack(dir)" ng-switch="dir.type">-->
+        <!--<span ng-switch-when="directory" class="label label-default cursor-hover-hand">{{dir.text}}</span>-->
+        <!--<span ng-switch-when="file" class="label label-primary cursor-hover-hand">{{dir.text}}</span>-->
+    <!--</li>-->
+<!--</ol>-->
+<div class="hide-scrollbar overflow-sideways">
+    <div class="crumb">
+        <a ng-repeat="dir in dirs" href="#" ng-click="goBack(dir)">{{dir.text}}</a>
+    </div>
+</div>
+<div style="max-height: 300px;" class="list-group overflow-bothways">
+    <a ng-repeat="child in children" class="list-group-item cursor-hover-hand" ng-hide="!child.visible" ng-class="{'disabled': child.disabled}" ng-click="getChildren(child)" ng-switch="child.type">
+        <span ng-switch-when="directory" class="glyphicon glyphicon-folder-close"></span>
+        <span ng-switch-when="file" class="glyphicon glyphicon-file"></span>
+        {{child.text}}
     </a>
 </div>
 
