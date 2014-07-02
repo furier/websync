@@ -84,6 +84,9 @@ app.directive('dirNavigator', function(directoryService) {
 
             scope.$watchCollection('dirs', function (n, o) {
 
+                var pathElements = element.find('div.path-elements')[0];
+                pathElements.scrollLeft = pathElements.scrollWidth;
+
             })
 
         }

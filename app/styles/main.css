@@ -50,3 +50,19 @@ body {
     margin-bottom: 30px;
   }
 }
+
+.pathElement {
+    background: linear-gradient(#666, #333);
+    height: 39px;
+    width: 48%;
+    display: inline-block;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 39px;
+    font-size: 11px;
+    margin-top: 5px;
+}
+.paths .pathElement:last-child{
+    margin-bottom: 5px;
+}

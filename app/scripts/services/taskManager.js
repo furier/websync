@@ -65,8 +65,7 @@ app.factory('taskManager', function (toolkit, Restangular) {
                     'ssh'
                 ],
                 host: '',
-                username: '',
-                paths: []
+                username: ''
             },
             destination: {
                 name: 'Destination',
@@ -76,9 +75,9 @@ app.factory('taskManager', function (toolkit, Restangular) {
                     'ssh'
                 ],
                 host: '',
-                username: '',
-                paths: []
+                username: ''
             },
+            paths: [],
             flags: [],
             first: true
         };

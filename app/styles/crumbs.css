@@ -1,18 +1,15 @@
 .crumb {
-    /*centering*/
     display: block;
-    /*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);*/
-    overflow: hidden;
     background: #d3d3d3;
     margin-bottom: 0px;
+    white-space: nowrap;
     border-radius: 5px 5px 0px 0px;
 }
 
 .crumb a {
     text-decoration: none;
     outline: none;
-    display: block;
-    float: left;
+    display: inline-block;
     font-size: 11px;
     line-height: 36px;
     color: white;
@@ -22,15 +19,16 @@
     position: relative;
 }
 
-.crumb a:first-child {
-    padding-left: 20px;
-}
-.crumb a:first-child:before {
-    left: 14px;
-}
 .crumb a:last-child {
     border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
     padding-right: 20px;
+}
+.crumb a:first-child~a {
+    border-radius: 0 5px 5px 0;
+}
+.crumb a:first-child {
+    padding-left: 20px;
+    border-radius: 5px 5px 5px 0;
 }
 
 /*hover/active styles*/

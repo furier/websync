@@ -17,19 +17,21 @@
     cursor: pointer;
 }
 
+/*noinspection CssInvalidPseudoSelector*/
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
+/*noinspection CssInvalidElement*/
 .hide-scrollbar {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
 }
 
-.overflow-sideways {
+.scroll-horizontal {
     overflow-x: scroll;
 }
 
-.overflow-bothways {
+.scroll-both {
     overflow: scroll;
 }
