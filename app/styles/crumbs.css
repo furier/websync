@@ -1,3 +1,5 @@
+
+
 .crumb {
     display: block;
     background: #d3d3d3;
@@ -10,7 +12,7 @@
     text-decoration: none;
     outline: none;
     display: inline-block;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 36px;
     color: white;
     padding: 0 10px 0 36px;
@@ -86,3 +88,4 @@
 .flat a:hover:after, .flat a.active:after{
     background: #9EEB62;
 }
+

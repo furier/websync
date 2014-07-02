@@ -1,6 +1,7 @@
 
 
 <div class="panel panel-default" ng-controller="TaskCtrl">
+    <link rel="stylesheet" href="../../styles/pathList.css"/>
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{task.id}}">
         <div style="display: inline-block">
             <h4 class="panel-title data">{{task.name}}</h4>
@@ -23,9 +24,13 @@
                 </div>
                 <div class="form-group clearfix">
                     <div style="padding-left: 15px; padding-right: 15px;">
-                        <div class="paths" style="margin-bottom: 15px; min-height: 36px; border-radius: 5px; background: #d3d3d3; color: #ffffff;">
-                            <div ng-repeat="path in task.paths">
-                                <div class="pathElement" style="margin-left: 5px;">{{path.source}}</div><div style="width: 3%; display: inline-block;"></div><div class="pathElement">{{path.destination}}</div>
+                        <div class="paths">
+                            <div class="path" ng-repeat="path in task.paths">
+                                <div class="pathElement">{{path.source}}</div>
+                                <button class="btn btn-danger btn-xs">
+                                    <span class="glyphicon glyphicon-minus"/>
+                                </button>
+                                <div class="pathElement">{{path.destination}}</div>
                             </div>
                         </div>
                     </div>

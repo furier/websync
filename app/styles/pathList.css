@@ -1,0 +1,33 @@
+
+
+.paths {
+    padding: 5px;
+    margin-bottom: 15px;
+    min-height: 36px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    color: #ffffff;
+}
+.path {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background: #858585;
+}
+.path:last-child {
+    margin-bottom: 0;
+}
+.pathElement {
+    display: inline-block;
+    background: linear-gradient(#666, #333);
+    font-size: 12px;
+    height: 39px;
+    width: 48%;
+    line-height: 39px;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.pathElement:first-child {
+    margin-right: 2px;
+}
+
