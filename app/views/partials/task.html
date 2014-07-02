@@ -7,7 +7,7 @@
             <h4 class="panel-title data">{{task.name}}</h4>
         </div>
         <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
-            <span class="glyphicon glyphicon-minus"></span>
+            <span class="glyphicon glyphicon-remove-sign"></span>
         </button>
     </div>
     <!--<div id="collapse-{{task.id}}" class="panel-collapse collapse">-->
@@ -27,8 +27,8 @@
                         <div class="paths">
                             <div class="path" ng-repeat="path in task.paths">
                                 <div class="pathElement">{{path.source}}</div>
-                                <button class="btn btn-danger btn-xs">
-                                    <span class="glyphicon glyphicon-minus"/>
+                                <button class="btn btn-danger btn-xs" ng-click="task.removePath(path)">
+                                    <span class="glyphicon glyphicon-remove-sign"/>
                                 </button>
                                 <div class="pathElement">{{path.destination}}</div>
                             </div>

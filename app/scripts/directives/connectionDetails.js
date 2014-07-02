@@ -17,7 +17,6 @@ app.directive('connectionDetails', function (taskManager) {
             scope.$watch('target.connectionType', save);
             scope.$watch('target.host', save);
             scope.$watch('target.username', save);
-            scope.$watch('target.password', save);
 
         }
     };

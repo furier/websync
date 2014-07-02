@@ -5,13 +5,14 @@
     margin-bottom: 15px;
     min-height: 36px;
     border-radius: 5px;
-    background: #d3d3d3;
+    border: 1px solid #d3d3d3;
+    background: #ffffff;
     color: #ffffff;
 }
 .path {
     border-radius: 5px;
     margin-bottom: 5px;
-    background: #858585;
+    background: #e8e8e8;
 }
 .path:last-child {
     margin-bottom: 0;

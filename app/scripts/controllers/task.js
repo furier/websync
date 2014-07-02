@@ -44,9 +44,7 @@ app.controller('TaskCtrl', function ($scope, taskManager, socket) {
     });
 
     $scope.$watch('task.name', save);
-    $scope.$watch('task.source', save);
-    $scope.$watch('task.destination', save);
-    $scope.$watch('task.shell', save);
+    $scope.$watchCollection('task.paths', save);
     $scope.$watchCollection('task.flags', save);
 
 });

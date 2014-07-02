@@ -48,6 +48,15 @@ app.factory('taskManager', function (toolkit, Restangular) {
             Restangular.one('testtask', task.id).post();
         };
 
+        task.addPath = function () {
+            throw new Error('Not yet implemented exception.');
+        };
+
+        task.removePath = function (path) {
+            var index = task.paths.indexOf(path);
+            task.paths.splice(index, 1);
+        };
+
         return task;
     });
 
@@ -121,5 +130,5 @@ app.factory('taskManager', function (toolkit, Restangular) {
         saveTask: saveTask,
         saveTaskWatch: saveTaskWatch,
         tasks: tasks
-    }
+    };
 });

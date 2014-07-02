@@ -2,10 +2,11 @@
 
 .crumb {
     display: block;
-    background: #d3d3d3;
+    background: #ffffff;
     margin-bottom: 0px;
     white-space: nowrap;
     border-radius: 5px 5px 0px 0px;
+    border: 1px solid #d3d3d3;
 }
 
 .crumb a {
@@ -70,7 +71,7 @@
         50px - to prevent hover glitches on the border created using shadows*/
     border-radius: 0 5px 0 50px;
 }
-/*we dont need an arrow after the last link*/
+/*we don't need an arrow after the last link*/
 .crumb a:last-child:after {
     content: none;
 }

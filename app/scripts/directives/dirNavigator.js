@@ -63,7 +63,7 @@ app.directive('dirNavigator', function(directoryService) {
                         _pushDir(selectedChild);
                         break;
                 }
-            }
+            };
 
             scope.goBack = function(selectedChild){
                 switch (selectedChild.type) {
@@ -73,7 +73,7 @@ app.directive('dirNavigator', function(directoryService) {
                         scope.children = selectedChild.children;
                         break;
                 }
-            }
+            };
 
             scope.$watch('target', function (n, o) {
 
