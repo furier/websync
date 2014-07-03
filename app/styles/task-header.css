@@ -1,0 +1,8 @@
+#accordion > task > div > task-header > div > div {
+    display: inline-block;
+}
+
+#accordion > task connection-details input {
+    margin-top: 5px;
+}
+

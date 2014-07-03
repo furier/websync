@@ -6,10 +6,8 @@
 <div ng-switch="target.connectionType" collapse="target.connectionType === ''">
     <div ng-switch-when="default"></div>
     <div ng-switch-when="ssh">
-        <label for="{{target.name}}-host-{{id}}" class="margin-top">Host</label>
-        <input id="{{target.name}}-host-{{id}}" type="text" class="form-control" placeholder="Host" ng-model="target.host">
-        <label for="{{target.name}}-username-{{id}}" class="margin-top">Username</label>
-        <input id="{{target.name}}-username-{{id}}" type="text" class="form-control" placeholder="Username" ng-model="target.username">
+        <input type="text" class="form-control" placeholder="Host" ng-model="target.host">
+        <input type="text" class="form-control" placeholder="Username" ng-model="target.username">
     </div>
 </div>
 

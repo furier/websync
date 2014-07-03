@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="styles/margins.css"/>
-<link rel="stylesheet" href="styles/toolkit.css"/>
+
 
 <div id="content" class="col-xs-12" ng-controller="MainCtrl">
 
@@ -14,9 +13,15 @@
         <h3 class="text-muted">websync</h3>
     </div>
 
-    <div class="panel-group" id="accordion">
-
-        <task ng-repeat="task in tasks"></task>
-
-    </div>
+    <tabset>
+        <tab heading="Tasks">
+            <div class="panel-group" id="accordion">
+                <task ng-repeat="task in tasks"></task>
+            </div>
+        </tab>
+        <tab heading="Hosts">
+            <hosts></hosts>
+        </tab>
+    </tabset>
 </div>
+

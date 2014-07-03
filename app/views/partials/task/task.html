@@ -1,22 +1,16 @@
 
 
 <div class="panel panel-default" ng-controller="TaskCtrl">
-    <link rel="stylesheet" href="../../styles/pathList.css"/>
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{task.id}}">
-        <div style="display: inline-block">
-            <h4 class="panel-title data">{{task.name}}</h4>
-        </div>
-        <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
-            <span class="glyphicon glyphicon-remove-sign"></span>
-        </button>
-    </div>
+    <task-header></task-header>
     <!--<div id="collapse-{{task.id}}" class="panel-collapse collapse">-->
     <div id="collapse-{{task.id}}" class="panel-collapse">
         <div class="panel-body">
+
             <div class="form-group">
-                <label for="nameInput">Name</label>
-                <input id="nameInput" type="text" class="form-control" placeholder="Name" ng-model="task.name">
+                <input type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
+
+            <!-- File Explorer -->
             <div class="well well-sm clearfix">
                 <div class="form-group clearfix">
                     <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
@@ -38,6 +32,8 @@
                     <dir-navigator target="task.destination" class="col-xs-6"></dir-navigator>
                 </div>
             </div>
+
+            <!-- Flag Selector -->
             <div class="form-group">
                 <label>Flags</label>
                 <div class="clearfix"></div>
@@ -46,14 +42,11 @@
                     {{flag.name}}
                 </button>
             </div>
+
             <log-panel panel-header="Log" log-entries="log" />
+
         </div>
-        <div class="panel-footer clearfix">
-            <div class="pull-right">
-                <button type="button" class="btn btn-primary margin-left" ng-click="task.run()">Run</button>
-                <button type="button" class="btn btn-primary margin-left" ng-click="task.test()" title="Dry run">Test</button>
-            </div>
-        </div>
+        <task-footer></task-footer>
     </div>
 </div>
 

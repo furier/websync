@@ -6,7 +6,6 @@
 app.directive('task', function () {
     return {
         restrict: "E",
-        replace: true,
-        templateUrl: '../views/partials/task.html'
+        templateUrl: '../views/partials/task/task.html'
     };
 });

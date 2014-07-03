@@ -1,4 +1,10 @@
-
+@import url('toolkit.css');
+@import url('margins.css');
+@import url('task.css');
+@import url('crumbs.css');
+@import url('task-header.css');
+@import url('connection-details.css');
+@import url('hosts.css');
 
 /* Space out content a bit */
 body {
@@ -51,5 +57,9 @@ body {
   .header {
     margin-bottom: 30px;
   }
+}
+
+#content .tab-content .tab-pane {
+    margin-top: 30px;
 }
 
