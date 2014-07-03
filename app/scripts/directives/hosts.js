@@ -21,6 +21,21 @@ app.directive('hosts', function (hostManager) {
 
             newHost();
 
+            scope.$watch('hosts', function (n, o) {
+                var blankCount = -1;
+                var index = _.findLastIndex(hosts, function (host) {
+                    var notBlank = host.username !== '' || host.host !== '';
+                    if (!notBlank)
+                        blankCount++;
+                    return  notBlank;
+                });
+                var lastIndex = hosts.length - 1;
+                if (index === lastIndex)
+                    newHost();
+                else if (blankCount > 0)
+                    hosts.splice(lastIndex - blankCount);
+            }, true);
+
         }
     };
 });
