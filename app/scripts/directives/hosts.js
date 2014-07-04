@@ -12,7 +12,7 @@ app.directive('hosts', function (hostManager) {
             var hosts = scope.hosts = hostManager.hosts;
 
             (function init(){
-                if (!_.last(hosts).isBlank())
+                if (hosts.length === 0 || !_.last(hosts).isBlank())
                     hostManager.newHost();
             }());
 
