@@ -128,10 +128,10 @@ app.factory('taskManager', function (toolkit, Restangular) {
     };
 
     return {
+        tasks: tasks,
         newTask: newTask,
-        removeTask: removeTask,
         saveTask: saveTask,
         saveTaskWatch: saveTaskWatch,
-        tasks: tasks
+        removeTask: removeTask
     };
 });

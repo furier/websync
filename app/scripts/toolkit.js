@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('toolkit', function () {
+app.factory('toolkit', function ($timeout) {
 
     function guid() {
         function s4() {
@@ -13,7 +13,15 @@ app.factory('toolkit', function () {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
 
+    function delayAction(promise, callback, time){
+        if (promise) $timeout.cancel(promise);
+        promise = $timeout(function () {
+            callback();
+        }, time);
+    }
+
     return {
-        guid: guid
+        guid: guid,
+        delayAction: delayAction
     };
 });

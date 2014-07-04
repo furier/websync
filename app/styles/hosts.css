@@ -10,10 +10,15 @@
 .host-list-item div {
     padding: 0;
 }
+.host-list-item > div:first-child {
+    margin-right: 10px;
+}
 .host-list-item > div > div > div {
     padding: 0 5px;
 }
 .host-list-item > div > button {
     margin: 0 8px;
-    float: right;
+}
+.host-list-item > div > button:last-child {
+    margin: 0;
 }

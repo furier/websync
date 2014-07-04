@@ -1,17 +1,20 @@
 
 
 <ul class="well list-unstyled">
-    <li ng-repeat="host in hosts" class="clearfix host-list-item">
-        <div class="col-xs-10">
+    <li ng-repeat="host in hosts" class="clearfix host-list-item" ng-controller="HostCtrl">
+        <div class="col-xs-3">
+            <input type="text" class="form-control" placeholder="Alias" ng-model="host.alias">
+        </div>
+        <div class="col-xs-7">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Username" ng-model="host.username"/>
                 <div class="input-group-addon">@</div>
                 <input type="text" class="form-control" placeholder="Host" ng-model="host.host"/>
             </div>
         </div>
-        <div class="col-xs-2">
-            <button class="btn btn-danger" title="Remove Host"><span class="glyphicon glyphicon-trash"></span></button>
+        <div class="pull-right">
             <button class="btn btn-primary" title="Upload SSH RSA Key"><span class="glyphicon glyphicon-upload"></span> SSH</button>
+            <button class="btn btn-danger" title="Remove Host"><span class="glyphicon glyphicon-trash"></span></button>
         </div>
     </li>
 </ul>

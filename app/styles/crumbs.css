@@ -3,9 +3,9 @@
 .crumb {
     display: block;
     background: #ffffff;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     white-space: nowrap;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
     border: 1px solid #d3d3d3;
 }
 
