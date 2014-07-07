@@ -20,11 +20,11 @@ app.factory('reactComponents', function () {
                 logCollapsed: false
             };
         },
-        componentWillUpdate: function() {
+        componentWillUpdate: function () {
             var node = this.getDOMNode();
             this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
         },
-        componentDidUpdate: function() {
+        componentDidUpdate: function () {
             if (this.shouldScrollBottom) {
                 var node = this.getDOMNode();
                 node.scrollTop = node.scrollHeight;
@@ -80,7 +80,7 @@ app.factory('reactComponents', function () {
                 logCollapsed: false
             };
         },
-        toggleCollapsed: function(){
+        toggleCollapsed: function () {
             this.setState({
                 logCollapsed: !this.state.logCollapsed
             });

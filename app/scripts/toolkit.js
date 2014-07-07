@@ -14,8 +14,9 @@ app.factory('toolkit', function ($timeout) {
     }
 
     var promises = {};
-    function delayAction(promise, callback, time){
-        if (_.isString(promise)){
+
+    function delayAction(promise, callback, time) {
+        if (_.isString(promise)) {
             var timeout = promises[promise];
             if (timeout) $timeout.cancel(timeout);
             promises[promise] = $timeout(function () {

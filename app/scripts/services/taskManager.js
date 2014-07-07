@@ -70,6 +70,7 @@ app.factory('taskManager', function (toolkit, Restangular) {
         task.delete = function () {
             removeTask(task);
         };
+
         return task;
     });
 
@@ -95,23 +96,11 @@ app.factory('taskManager', function (toolkit, Restangular) {
                 name: '',
                 source: {
                     name: 'Source',
-                    connectionType: 'default',
-                    connectionTypes: [
-                        'default',
-                        'ssh'
-                    ],
-                    host: '',
-                    username: ''
+                    host: ''
                 },
                 destination: {
                     name: 'Destination',
-                    connectionType: 'default',
-                    connectionTypes: [
-                        'default',
-                        'ssh'
-                    ],
-                    host: '',
-                    username: ''
+                    host: ''
                 },
                 paths: [],
                 flags: [],
