@@ -1,8 +1,3 @@
-#accordion > task > div > task-header > div > div {
+#accordion > task > div > div.panel-heading > h4 {
     display: inline-block;
 }
-
-#accordion > task connection-details input {
-    margin-top: 5px;
-}
-

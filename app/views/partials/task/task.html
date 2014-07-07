@@ -1,6 +1,6 @@
 
-
-<div class="panel panel-default" ng-controller="TaskCtrl">
+<!--TASK-->
+<div class="panel panel-default">
 
     <!--TASK HEADER-->
     <task-header></task-header>
@@ -19,10 +19,6 @@
             <!--TASK FILE EXPLORER-->
             <div class="well well-sm clearfix">
                 <div class="form-group clearfix">
-                    <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
-                    <connection-details task="task" target="task.destination" class="col-xs-6"></connection-details>
-                </div>
-                <div class="form-group clearfix">
                     <div style="padding-left: 15px; padding-right: 15px;">
                         <div class="paths">
                             <div class="path" ng-repeat="path in task.paths">
@@ -33,7 +29,7 @@
                                 <div class="pathElement">{{path.destination}}</div>
                             </div>
                         </div>
-                    </div>ﬁ
+                    </div>
                     <dir-navigator target="task.source" class="col-xs-6"></dir-navigator>
                     <dir-navigator target="task.destination" class="col-xs-6"></dir-navigator>
                 </div>

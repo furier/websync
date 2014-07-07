@@ -2,9 +2,7 @@
 @import url('margins.css');
 @import url('task.css');
 @import url('crumbs.css');
-@import url('task-header.css');
-@import url('connection-details.css');
-@import url('hosts.css');
+@import url('host.css');
 
 /* Space out content a bit */
 body {
@@ -63,7 +61,7 @@ body {
     margin-top: 30px;
 }
 
-#content > div.tabbable.ng-isolate-scope > div > div.tab-pane.ng-scope.active > div.clearfix.ng-scope {
+#content > div.tabbable > div > div.tab-pane > div:first-child {
     margin-bottom: 30px;
 }
 

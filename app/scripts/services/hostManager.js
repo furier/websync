@@ -5,13 +5,15 @@
 
 app.factory('hostManager', function (toolkit, Restangular) {
 
+    var hasBeenInitializes = false;
+    var guid = toolkit.guid;
+    var hosts = Restangular.all('hosts').getList().$object;
+
     Restangular.extendModel('hosts', function(host) {
         host.first = true;
         extendHostModel(host);
         return host;
     });
-
-    var hosts = Restangular.all('hosts').getList().$object || [];
 
     function extendHostModel(host) {
         host.isBlank = function () {
@@ -49,43 +51,39 @@ app.factory('hostManager', function (toolkit, Restangular) {
         };
     }
 
-    var guid = toolkit.guid;
-
-    var newHost = function(){
-        var host = {
-            id: guid(),
-            alias: '',
-            username: '',
-            host: '',
-            port: '',
-            first: true
-        };
-        hosts.post(host).then(function(host){
-            console.log('Adding host.id: ' + host.id);
-            hosts.push(host);
-        });
-    };
-
-    var removeHost = function (host) {
-        console.debug('Removing host: ' + host.id);
-        _.remove(hosts, host);
-        host.remove();
-    };
-
-    var saveHost = function (host) {
-        console.debug('Saving host: ' + host.id);
-        host.put();
-    };
-
-    var lastIndex = function(){
-        return hosts.length - 1;
-    };
-
     return {
         hosts: hosts,
-        newHost: newHost,
-        saveHost: saveHost,
-        removeHost: removeHost,
-        lastIndex: lastIndex
+        newHost: function(){
+            var host = {
+                id: guid(),
+                alias: '',
+                username: '',
+                host: '',
+                port: '',
+                first: true
+            };
+            hosts.post(host).then(function(host){
+                console.log('Adding host.id: ' + host.id);
+                hosts.push(host);
+            });
+        },
+        saveHost: function (host) {
+            console.debug('Saving host: ' + host.id);
+            host.put();
+        },
+        removeHost: function (host) {
+            console.debug('Removing host: ' + host.id);
+            _.remove(hosts, host);
+            host.remove();
+        },
+        lastIndex: function () {
+            return hosts.length - 1;
+        },
+        init: function(){
+            if (hasBeenInitializes) return;
+            if (hosts.length === 0 || !_.last(hosts).isBlank())
+                this.newHost();
+            hasBeenInitializes = true;
+        }
     };
 });

@@ -6,6 +6,7 @@
 app.directive('taskHeader', function () {
     return {
         restrict: "E",
-        templateUrl: '../views/partials/task/taskHeader.html'
+        replace: true,
+        templateUrl: '../../../views/partials/task/taskHeader.html'
     };
 });

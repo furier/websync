@@ -1,10 +1,16 @@
 
-
+<!--MAIN CONTENT-->
 <div id="content" class="col-xs-12" ng-controller="MainCtrl">
+
+    <!--MAIN CONTENT HEADER-->
     <div class="header">
         <h3 class="text-muted">websync</h3>
     </div>
+
+    <!--MAIN CONTENT - CONTENT TABSET-->
     <tabset>
+
+        <!--TASKS TAB-->
         <tab heading="Tasks">
             <div class="clearfix">
                 <button type="button" class="btn btn-success pull-right" title="New task" ng-click="newTask()"><span class="glyphicon glyphicon-plus-sign"></span></button>
@@ -13,9 +19,15 @@
                 <task ng-repeat="task in tasks"></task>
             </div>
         </tab>
+
+        <!--HOSTS TAB-->
         <tab heading="Hosts">
-            <hosts></hosts>
+            <ul class="well list-unstyled">
+                <host ng-repeat="host in hosts"></host>
+            </ul>
         </tab>
+
     </tabset>
+
 </div>
 
