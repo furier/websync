@@ -6,17 +6,18 @@
 app.directive('host', function (hostManager, toolkit) {
     return {
         restrict: "E",
+        replace: true,
         templateUrl: '../../views/partials/host.html',
         controller: function ($scope, $element, $attrs) {
 
             var host = $scope.host;
             hostManager.init();
 
-            $scope.removeHost = function (host) {
+            $scope.removeHost = function () {
                 // The last item in the host list should always be an empty item
                 // which is used to add new hosts, so we don't want to remove that one.
                 if (host.isLast()) return;
-                hostManager.removeHost(host);
+                host.delete();
             };
 
             function prevBlankHosts(host){
@@ -64,7 +65,7 @@ app.directive('host', function (hostManager, toolkit) {
                         var blankHosts = nextBlankHosts(host);
                         blankHosts.forEach(function (blankHost) {
                             message += ' next sibling is also blank, removing next sibling host...';
-                            hostManager.removeHost(blankHost);
+                            blankHost.delete();
                         });
                     }
                 }
@@ -77,7 +78,7 @@ app.directive('host', function (hostManager, toolkit) {
                         var blankHosts = prevBlankHosts(host);
                         blankHosts.forEach(function (blankHost) {
                             message += ' previous sibling is also blank, removing previous sibling host...';
-                            hostManager.removeHost(blankHost);
+                            blankHost.delete();
                         });
                     } else
                     {
@@ -92,12 +93,12 @@ app.directive('host', function (hostManager, toolkit) {
                     if (_.last(blankHosts).index() === hostManager.lastIndex())
                         blankHosts.forEach(function (blankHost) {
                             message += ' next sibling is also blank, removing next sibling host...';
-                            hostManager.removeHost(blankHost);
+                            blankHost.delete();
                         });
                 }
 
                 message += ' Saving host...';
-                hostManager.saveHost(host);
+                host.save();
                 console.log(message);
             }
 

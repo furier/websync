@@ -6,8 +6,8 @@
     <h4 class="panel-title data">{{task.name}}</h4>
 
     <!--TASK DELETE BUTTON-->
-    <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="removeTask(task)">
-        <span class="glyphicon glyphicon-remove-sign"></span>
+    <button class="btn btn-danger btn-xs pull-right" title="Remove task" ng-click="task.delete()">
+        <span class="glyphicon glyphicon-trash"></span>
     </button>
 
 </div>

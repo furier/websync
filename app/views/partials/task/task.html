@@ -16,24 +16,10 @@
                 <input type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
 
-            <!--TASK FILE EXPLORER-->
-            <div class="well well-sm clearfix">
-                <div class="form-group clearfix">
-                    <div style="padding-left: 15px; padding-right: 15px;">
-                        <div class="paths">
-                            <div class="path" ng-repeat="path in task.paths">
-                                <div class="pathElement">{{path.source}}</div>
-                                <button class="btn btn-danger btn-xs" ng-click="task.removePath(path)">
-                                    <span class="glyphicon glyphicon-remove-sign"/>
-                                </button>
-                                <div class="pathElement">{{path.destination}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <dir-navigator target="task.source" class="col-xs-6"></dir-navigator>
-                    <dir-navigator target="task.destination" class="col-xs-6"></dir-navigator>
-                </div>
-            </div>
+            <!--TASK PATHS LIST-->
+            <ul class="well well-sm list-unstyled">
+                <path ng-repeat="path in task.paths" task="task" path="path"></path>
+            </ul>
 
             <!--TASK FLAG SELECTOR-->
             <div class="form-group">
@@ -46,7 +32,7 @@
             </div>
 
             <!--TASK LOG PANEL-->
-            <log-panel panel-header="Log" log-entries="log" />
+            <log-panel panel-header="Log" log-entries="log" ></log-panel>
 
         </div>
 

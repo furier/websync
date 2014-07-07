@@ -1,0 +1,33 @@
+
+
+<li class="clearfix path-list-item">
+
+    <!--INPUTS-->
+    <div class="col-xs-10">
+        <div class="input-group">
+
+            <input type="text" class="form-control" placeholder="Source" ng-model="path.source"/>
+            <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></div>
+            <input type="text" class="form-control" placeholder="Destination" ng-model="path.destination"/>
+
+        </div>
+    </div>
+
+    <!--BUTTONS / ACTIONS-->
+    <div class="col-xs-2">
+
+        <div class="btn-group pull-right">
+
+            <!--TOGGLE FILE BROWSER-->
+            <button class="btn btn-primary" title="Browse files" ng-click="browse()"><span class="glyphicon glyphicon-folder-open"></span></button>
+
+            <!--DELETE PATH BUTTON-->
+            <button class="btn btn-danger" title="Remove Path" ng-click="removePath()"><span class="glyphicon glyphicon-trash"></span></button>
+
+        </div>
+
+    </div>
+    <!--<dir-navigator target="task.source" class="col-xs-6"></dir-navigator>-->
+    <!--<dir-navigator target="task.destination" class="col-xs-6"></dir-navigator>-->
+</li>
+

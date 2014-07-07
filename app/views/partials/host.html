@@ -1,6 +1,8 @@
 
 
 <li class="clearfix host-list-item">
+
+    <!--INPUTS-->
     <div class="col-xs-3">
 
         <!--ALIAS-->
@@ -23,13 +25,19 @@
 
         </div>
     </div>
-    <div class="pull-right">
 
-        <!--COPY SSH ID BUTTON-->
-        <button class="btn btn-primary" title="Upload SSH RSA Key"><span class="glyphicon glyphicon-upload"></span> SSH</button>
+    <!--BUTTONS / ACTIONS-->
+    <div class="col-xs-2">
 
-        <!--DELETE HOST BUTTON-->
-        <button class="btn btn-danger" title="Remove Host" ng-click="removeHost(host)"><span class="glyphicon glyphicon-trash"></span></button>
+        <div class="btn-group pull-right">
+
+            <!--COPY SSH ID BUTTON-->
+            <button class="btn btn-primary" title="Upload SSH RSA Key"><span class="glyphicon glyphicon-upload"></span> SSH</button>
+
+            <!--DELETE HOST BUTTON-->
+            <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()"><span class="glyphicon glyphicon-trash"></span></button>
+
+        </div>
 
     </div>
 </li>

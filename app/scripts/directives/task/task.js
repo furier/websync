@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('task', function (taskManager, socket) {
+app.directive('task', function (socket, toolkit) {
     return {
         restrict: "E",
         templateUrl: '../../../views/partials/task/task.html',
@@ -11,10 +11,6 @@ app.directive('task', function (taskManager, socket) {
 
             var task = $scope.task;
             var log = $scope.log = [];
-
-            var save = function (n, o) {
-                taskManager.saveTaskWatch(n, o, task);
-            };
 
             socket.on('task.finished.' + task.id, function (data) {
                 if (data && data.error) {
@@ -47,8 +43,8 @@ app.directive('task', function (taskManager, socket) {
                 log.push({type: 'list-group-item-danger', msg: data});
             });
 
-            $scope.$watch('task.name', save);
-            $scope.$watchCollection('task.flags', save);
+            $scope.$watch('task.name', task.saveDelayed);
+            $scope.$watchCollection('task.flags', task.saveDelayed);
 
         }
     };

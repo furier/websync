@@ -7,7 +7,7 @@ app.directive('dirNavigator', function(directoryService) {
     return {
         restrict: 'E',
         scope: {target: '='},
-        templateUrl: '../views/partials/dirNavigator.html',
+        templateUrl: '../../views/partials/dirNavigator.html',
         link: function (scope, element, attrs) {
 
             scope.dirs = [

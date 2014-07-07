@@ -49,10 +49,29 @@ app.factory('hostManager', function (toolkit, Restangular) {
             var nextHost = host.nextHost();
             return nextHost && nextHost.isBlank();
         };
+        host.save = function () {
+            saveHost(host);
+        };
+        host.delete = function () {
+            removeHost(host);
+        };
     }
+
+    var saveHost = function (host) {
+        console.debug('Saving host: ' + host.id);
+        host.put();
+    };
+
+    var removeHost = function (host) {
+        console.debug('Removing host: ' + host.id);
+        _.remove(hosts, host);
+        host.remove();
+    };
 
     return {
         hosts: hosts,
+        saveHost: saveHost,
+        removeHost: removeHost,
         newHost: function(){
             var host = {
                 id: guid(),
@@ -66,15 +85,6 @@ app.factory('hostManager', function (toolkit, Restangular) {
                 console.log('Adding host.id: ' + host.id);
                 hosts.push(host);
             });
-        },
-        saveHost: function (host) {
-            console.debug('Saving host: ' + host.id);
-            host.put();
-        },
-        removeHost: function (host) {
-            console.debug('Removing host: ' + host.id);
-            _.remove(hosts, host);
-            host.remove();
         },
         lastIndex: function () {
             return hosts.length - 1;
