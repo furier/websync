@@ -14,11 +14,11 @@ app.directive('path', function ($modal) {
             var task = scope.task;
             var path = scope.path;
 
-            scope.removePath = function(){
+            scope.removePath = function () {
                 task.removePath(path);
             };
 
-            scope.browse = function(){
+            scope.browse = function () {
                 $modal.open({
                     templateUrl: '../../../views/partials/browserModal.html',
                     controller: 'BrowserCtrl'

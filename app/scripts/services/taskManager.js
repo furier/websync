@@ -6,7 +6,7 @@
 app.factory('taskManager', function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
-    var tasks = Restangular.all('tasks').getList().$object;
+    var tasks = [];
 
     Restangular.extendModel('tasks', function (task) {
 
@@ -70,6 +70,7 @@ app.factory('taskManager', function (toolkit, Restangular) {
         task.delete = function () {
             removeTask(task);
         };
+
         return task;
     });
 
@@ -85,6 +86,8 @@ app.factory('taskManager', function (toolkit, Restangular) {
         return task.remove();
     };
 
+    tasks = Restangular.all('tasks').getList().$object;
+
     return {
         tasks: tasks,
         saveTask: saveTask,
@@ -95,23 +98,11 @@ app.factory('taskManager', function (toolkit, Restangular) {
                 name: '',
                 source: {
                     name: 'Source',
-                    connectionType: 'default',
-                    connectionTypes: [
-                        'default',
-                        'ssh'
-                    ],
-                    host: '',
-                    username: ''
+                    host: ''
                 },
                 destination: {
                     name: 'Destination',
-                    connectionType: 'default',
-                    connectionTypes: [
-                        'default',
-                        'ssh'
-                    ],
-                    host: '',
-                    username: ''
+                    host: ''
                 },
                 paths: [],
                 flags: [],

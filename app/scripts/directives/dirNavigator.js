@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('dirNavigator', function(directoryService) {
+app.directive('dirNavigator', function (directoryService) {
     return {
         restrict: 'E',
         scope: {target: '='},
@@ -42,7 +42,7 @@ app.directive('dirNavigator', function(directoryService) {
                     scope.dirs[scope.dirs.indexOf(lastItem)] = selectedChild;
             }
 
-            scope.getChildren = function(selectedChild){
+            scope.getChildren = function (selectedChild) {
                 switch (selectedChild.type) {
                     case 'directory' :
                         directoryService.getStructure(selectedChild.path).then(
@@ -51,7 +51,7 @@ app.directive('dirNavigator', function(directoryService) {
                                 _pushDir(selectedChild);
                                 scope.children = selectedChild.children;
                             },
-                            function failure(err){
+                            function failure(err) {
                                 selectedChild.disabled = true;
                                 var error = err.data.error;
                                 alertify.error('The item clicked was inaccessible.');
@@ -65,7 +65,7 @@ app.directive('dirNavigator', function(directoryService) {
                 }
             };
 
-            scope.goBack = function(selectedChild){
+            scope.goBack = function (selectedChild) {
                 switch (selectedChild.type) {
                     case 'directory' :
                         var index = scope.dirs.indexOf(selectedChild);

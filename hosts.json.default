@@ -1,3 +1,11 @@
 {
-    "hosts": []
+    "hosts": [
+        {
+            "id": "",
+            "alias": "",
+            "username": "",
+            "host": "",
+            "port": ""
+        }
+    ]
 }

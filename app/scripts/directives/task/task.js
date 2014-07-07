@@ -3,11 +3,11 @@
  */
 'use strict';
 
-app.directive('task', function (socket, toolkit) {
+app.directive('task', function (socket) {
     return {
         restrict: "E",
         templateUrl: '../../../views/partials/task/task.html',
-        controller: function($scope, $element, $attrs){
+        controller: function ($scope, $element, $attrs) {
 
             var task = $scope.task;
             var log = $scope.log = [];
