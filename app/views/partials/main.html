@@ -1,26 +1,20 @@
 
 
 <div id="content" class="col-xs-12" ng-controller="MainCtrl">
-
     <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <li>
-                <button type="button" class="btn btn-success" title="New task" ng-click="newTask()">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                </button>
-            </li>
-        </ul>
         <h3 class="text-muted">websync</h3>
     </div>
-
     <tabset>
-        <tab heading="Hosts">
-            <hosts></hosts>
-        </tab>
         <tab heading="Tasks">
+            <div class="clearfix">
+                <button type="button" class="btn btn-success pull-right" title="New task" ng-click="newTask()"><span class="glyphicon glyphicon-plus-sign"></span></button>
+            </div>
             <div class="panel-group" id="accordion">
                 <task ng-repeat="task in tasks"></task>
             </div>
+        </tab>
+        <tab heading="Hosts">
+            <hosts></hosts>
         </tab>
     </tabset>
 </div>

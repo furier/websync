@@ -13,11 +13,20 @@ app.factory('toolkit', function ($timeout) {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
 
+    var promises = {};
     function delayAction(promise, callback, time){
-        if (promise) $timeout.cancel(promise);
-        promise = $timeout(function () {
-            callback();
-        }, time);
+        if (_.isString(promise)){
+            var timeout = promises[promise];
+            if (timeout) $timeout.cancel(timeout);
+            promises[promise] = $timeout(function () {
+                callback();
+            }, time);
+        } else {
+            if (promise) $timeout.cancel(promise);
+            return promise = $timeout(function () {
+                callback();
+            }, time);
+        }
     }
 
     return {

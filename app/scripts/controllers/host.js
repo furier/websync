@@ -7,6 +7,13 @@ app.controller('HostCtrl', function ($scope, hostManager, toolkit) {
 
     var host = $scope.host;
 
+    $scope.removeHost = function (host) {
+        // The last item in the host list should always be an empty item
+        // which is used to add new hosts, so we don't want to remove that one.
+        if (host.isLast()) return;
+        hostManager.removeHost(host);
+    };
+
     function prevBlankHosts(host){
         var blankHosts = [];
         function _prevBlankHosts(host) {
@@ -89,14 +96,13 @@ app.controller('HostCtrl', function ($scope, hostManager, toolkit) {
         console.log(message);
     }
 
-    var promise = null;
     var save = function (n, o) {
         if (n === o) return;
         if (host.first) {
             host.first = false;
             return;
         }
-        toolkit.delayAction(promise, function(){
+        toolkit.delayAction('host', function(){
             processHost(host);
         }, 500);
     };

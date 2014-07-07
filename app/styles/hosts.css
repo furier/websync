@@ -16,6 +16,9 @@
 .host-list-item > div > div > div {
     padding: 0 5px;
 }
+.host-list-item > div > div > input:last-child {
+    width: 90px !important;
+}
 .host-list-item > div > button {
     margin: 0 8px;
 }

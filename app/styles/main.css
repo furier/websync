@@ -63,3 +63,7 @@ body {
     margin-top: 30px;
 }
 
+#content > div.tabbable.ng-isolate-scope > div > div.tab-pane.ng-scope.active > div.clearfix.ng-scope {
+    margin-bottom: 30px;
+}
+

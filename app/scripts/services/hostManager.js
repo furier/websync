@@ -39,6 +39,14 @@ app.factory('hostManager', function (toolkit, Restangular) {
         host.index = function() {
             return hosts.indexOf(host);
         };
+        host.hasPrecedingBlankSiblings = function() {
+            var prevHost = host.prevHost();
+            return prevHost && prevHost.isBlank();
+        };
+        host.hasSucceedingBlankSiblings = function() {
+            var nextHost = host.nextHost();
+            return nextHost && nextHost.isBlank();
+        };
     }
 
     var guid = toolkit.guid;
@@ -52,7 +60,7 @@ app.factory('hostManager', function (toolkit, Restangular) {
             port: '',
             first: true
         };
-        hosts.post(host, function (host) {
+        hosts.post(host).then(function(host){
             console.log('Adding host.id: ' + host.id);
             hosts.push(host);
         });

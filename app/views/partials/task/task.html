@@ -1,16 +1,22 @@
 
 
 <div class="panel panel-default" ng-controller="TaskCtrl">
+
+    <!--TASK HEADER-->
     <task-header></task-header>
+
     <!--<div id="collapse-{{task.id}}" class="panel-collapse collapse">-->
     <div id="collapse-{{task.id}}" class="panel-collapse">
+
+        <!--TASK BODY-->
         <div class="panel-body">
 
+            <!--TASK NAME-->
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
 
-            <!-- File Explorer -->
+            <!--TASK FILE EXPLORER-->
             <div class="well well-sm clearfix">
                 <div class="form-group clearfix">
                     <connection-details task="task" target="task.source" class="col-xs-6"></connection-details>
@@ -27,13 +33,13 @@
                                 <div class="pathElement">{{path.destination}}</div>
                             </div>
                         </div>
-                    </div>
+                    </div>ﬁ
                     <dir-navigator target="task.source" class="col-xs-6"></dir-navigator>
                     <dir-navigator target="task.destination" class="col-xs-6"></dir-navigator>
                 </div>
             </div>
 
-            <!-- Flag Selector -->
+            <!--TASK FLAG SELECTOR-->
             <div class="form-group">
                 <label>Flags</label>
                 <div class="clearfix"></div>
@@ -43,9 +49,12 @@
                 </button>
             </div>
 
+            <!--TASK LOG PANEL-->
             <log-panel panel-header="Log" log-entries="log" />
 
         </div>
+
+        <!--TASK FOOTER-->
         <task-footer></task-footer>
     </div>
 </div>
