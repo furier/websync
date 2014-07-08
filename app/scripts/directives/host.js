@@ -15,7 +15,7 @@ app.directive('host', function (hostManager, toolkit) {
             $scope.removeHost = function () {
                 // The last item in the host list should always be an empty item
                 // which is used to add new hosts, so we don't want to remove that one.
-                if (host.isLast()) return;
+                if (host.isLast() && host.isBlank()) return;
                 host.delete();
             };
 

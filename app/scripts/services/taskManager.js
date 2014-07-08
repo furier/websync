@@ -6,7 +6,7 @@
 app.factory('taskManager', function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
-    var tasks = [];
+    var tasks = Restangular.all('tasks').getList().$object;
 
     Restangular.extendModel('tasks', function (task) {
 
@@ -74,6 +74,24 @@ app.factory('taskManager', function (toolkit, Restangular) {
         return task;
     });
 
+    function _createTask() {
+        return {
+            id: guid(),
+            name: '',
+            source: {
+                name: 'Source',
+                host: ''
+            },
+            destination: {
+                name: 'Destination',
+                host: ''
+            },
+            paths: [],
+            flags: [],
+            first: true
+        };
+    }
+
     var saveTask = function (task) {
         console.debug('Saving task: ' + task.id);
         return task.put();
@@ -86,28 +104,12 @@ app.factory('taskManager', function (toolkit, Restangular) {
         return task.remove();
     };
 
-    tasks = Restangular.all('tasks').getList().$object;
-
     return {
         tasks: tasks,
         saveTask: saveTask,
         removeTask: removeTask,
         newTask: function () {
-            var task = {
-                id: guid(),
-                name: '',
-                source: {
-                    name: 'Source',
-                    host: ''
-                },
-                destination: {
-                    name: 'Destination',
-                    host: ''
-                },
-                paths: [],
-                flags: [],
-                first: true
-            };
+            var task = _createTask();
             return tasks.post(task).then(function (task) {
                 console.debug('Adding task:id ' + task.id);
                 tasks.push(task);

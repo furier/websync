@@ -18,7 +18,8 @@
     "angularjs-scroll-glue": "~0.0.1",
     "underscore.string": "~2.3.3",
     "react": "~0.10.0",
-    "alertify": "~0.3.10"
+    "alertify": "~0.3.10",
+    "underscore-observable-arrays": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

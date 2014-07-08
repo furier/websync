@@ -3,10 +3,18 @@
  */
 'use strict';
 
-app.factory('hostManager', function (toolkit, Restangular) {
+app.factory('hostManager', function (toolkit, Restangular, $q) {
 
     var guid = toolkit.guid;
-    var hosts = [];
+    var hostsPromise = Restangular.all('hosts').getList();
+    var hosts = hostsPromise.$object;
+
+    hostsPromise.then(function (hostz) {
+        var empty = _.isEmpty(hostz);
+        var blank = _.last(hostz).isBlank();
+        if (hostz && (empty || !blank))
+            newHost();
+    });
 
     Restangular.extendModel('hosts', function (host) {
 
@@ -57,6 +65,17 @@ app.factory('hostManager', function (toolkit, Restangular) {
         return host;
     });
 
+    function _createHost() {
+        return {
+            id: guid(),
+            alias: '',
+            username: '',
+            host: '',
+            port: '',
+            first: true
+        };
+    }
+
     var saveHost = function (host) {
         console.info('Saving host: ' + host.id);
         host.put();
@@ -69,26 +88,12 @@ app.factory('hostManager', function (toolkit, Restangular) {
     };
 
     var newHost = function () {
-        var host = {
-            id: guid(),
-            alias: '',
-            username: '',
-            host: '',
-            port: '',
-            first: true
-        };
+        var host = _createHost();
         hosts.post(host).then(function (host) {
             console.info('Adding host.id: ' + host.id);
             hosts.push(host);
         });
     };
-
-    Restangular.all('hosts').getList().then(function (hostz) {
-        hosts = hostz;
-        var lastHost = _.last(hosts);
-        if (hosts.length === 0 || !lastHost.isBlank())
-            newHost();
-    });
 
     return {
         hosts: hosts,
