@@ -20,14 +20,14 @@
             <div class="form-group clearfix">
                 <div class="col-xs-6 no-padding-left">
                     <label for="target-{{task.id}}">Source</label>
-                    <select id="target-{{task.id}}" class="form-control">
-                        <option></option>
+                    <select id="target-{{task.id}}" ng-model="task.source.host" ng-options="host.id as host.alias for host in hosts" class="form-control">
+                        <option value="">Localhost</option>
                     </select>
                 </div>
                 <div class="col-xs-6 no-padding-right">
                     <label for="destination-{{task.id}}">Destination</label>
-                    <select id="destination-{{task.id}}" class="form-control">
-                        <option></option>
+                    <select id="destination-{{task.id}}" ng-model="task.destination.host" ng-options="host.id as host.alias for host in hosts" class="form-control">
+                        <option value="">Localhost</option>
                     </select>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="form-group">
                 <label>Flags</label>
                 <div class="clearfix"></div>
-                <button type="button" class="btn btn-info btn-xs margin-bot margin-right" title="{{flag.tooltip}}"
+                <button type="button" class="btn btn-info btn-xs margin-bottom margin-right" title="{{flag.tooltip}}"
                         ng-repeat="flag in flags" ng-click="task.toggleFlag(flag)" ng-class="{active: task.hasFlag(flag)}">
                     {{flag.name}}
                 </button>

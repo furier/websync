@@ -44,6 +44,8 @@ app.directive('task', function (socket) {
             });
 
             $scope.$watch('task.name', task.saveDelayed);
+            $scope.$watch('task.source.host', task.saveDelayed);
+            $scope.$watch('task.destination.host', task.saveDelayed);
             $scope.$watchCollection('task.flags', task.saveDelayed);
 
         }
