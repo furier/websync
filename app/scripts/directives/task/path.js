@@ -21,12 +21,7 @@ app.directive('path', function ($modal) {
             scope.browse = function () {
                 $modal.open({
                     templateUrl: '../../../views/partials/browserModal.html',
-                    controller: 'BrowserCtrl',
-                    resolve: {
-                        path: function(){
-                            return path;
-                        }
-                    }
+                    controller: 'BrowserCtrl'
                 });
             };
 

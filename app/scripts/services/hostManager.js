@@ -9,10 +9,10 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
     var hostsPromise = Restangular.all('hosts').getList();
     var hosts = hostsPromise.$object;
 
-    hostsPromise.then(function (hostz) {
-        var empty = _.isEmpty(hostz);
-        var blank = _.last(hostz).isBlank();
-        if (hostz && (empty || !blank))
+    hostsPromise.then(function (hosts) {
+        var empty = _.isEmpty(hosts);
+        var blank = _.last(hosts).isBlank();
+        if (hosts && (empty || !blank))
             newHost();
     });
 

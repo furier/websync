@@ -16,10 +16,28 @@
                 <input type="text" class="form-control" placeholder="Name" ng-model="task.name">
             </div>
 
+            <!--TASK - SOURCE - DESTINATION-->
+            <div class="form-group clearfix">
+                <div class="col-xs-6 no-padding-left">
+                    <label for="target-{{task.id}}">Source</label>
+                    <select id="target-{{task.id}}" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-xs-6 no-padding-right">
+                    <label for="destination-{{task.id}}">Destination</label>
+                    <select id="destination-{{task.id}}" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
             <!--TASK PATHS LIST-->
-            <ul class="well well-sm list-unstyled">
-                <path ng-repeat="path in task.paths" task="task" path="path"></path>
-            </ul>
+            <div class="form-group">
+                <ul class="well well-sm list-unstyled">
+                    <path ng-repeat="path in task.paths" task="task" path="path"></path>
+                </ul>
+            </div>
 
             <!--TASK FLAG SELECTOR-->
             <div class="form-group">
