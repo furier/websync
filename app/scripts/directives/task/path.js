@@ -15,16 +15,12 @@ app.directive('path', function ($modal, pathHelper) {
             var task = scope.task;
             var path = scope.path;
 
-            function _clonePath() {
-                return ph.createPath(path.source, path.destination);
-            }
-
             scope.removePath = function () {
                 task.removePath(path);
             };
 
             scope.clonePath = function () {
-                task.addPath(_clonePath());
+                task.injectAfterPath(path, ph.createPath(path.source, path.destination));
             };
 
             scope.isBlank = function () {
