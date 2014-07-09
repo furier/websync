@@ -44,9 +44,10 @@ app.factory('taskManager', function (toolkit, Restangular) {
             console.debug('test task: ' + task.id);
             Restangular.one('testtask', task.id).post();
         };
-        task.addPath = function () {
+        task.addPath = function (path) {
             console.debug('adding path for task: ' + task.id);
-            throw new Error('Not yet implemented exception.');
+            task.paths.push(path);
+            saveTask(task);
         };
         task.removePath = function (path) {
             console.debug('removing path for task: ' + task.id);

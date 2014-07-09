@@ -35,7 +35,7 @@
             <button class="btn btn-primary" title="Upload SSH RSA Key"><span class="glyphicon glyphicon-upload"></span> SSH</button>
 
             <!--DELETE HOST BUTTON-->
-            <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()"><span class="glyphicon glyphicon-trash"></span></button>
+            <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-trash"></span></button>
 
         </div>
 

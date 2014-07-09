@@ -12,13 +12,6 @@ app.directive('host', function (hostManager, toolkit) {
 
             var host = $scope.host;
 
-            $scope.removeHost = function () {
-                // The last item in the host list should always be an empty item
-                // which is used to add new hosts, so we don't want to remove that one.
-                if (host.isLast() && host.isBlank()) return;
-                host.delete();
-            };
-
             function _prevBlankHosts(host) {
                 var blankHosts = [];
 
@@ -85,16 +78,23 @@ app.directive('host', function (hostManager, toolkit) {
                 else if (host.isBlank()) {
                     message += ' is blank.';
                     var blankHosts = _nextBlankHosts(host);
-                    if (_.last(blankHosts).index() === hostManager.lastIndex())
+                    var lastBlankHost = _.last(blankHosts);
+                    if (lastBlankHost && lastBlankHost.index() === hostManager.lastIndex()) {
                         blankHosts.forEach(function (blankHost) {
                             message += ' next sibling is also blank, removing next sibling host...';
                             blankHost.delete();
                         });
+                        blankHosts = _prevBlankHosts(host);
+                        blankHosts.forEach(function (blankHost) {
+                            message += ' prev sibling is also blank, removing prev sibling host...';
+                            blankHost.delete();
+                        });
+                    }
                 }
 
                 message += ' Saving host...';
                 host.save();
-                console.log(message);
+                console.debug(message);
             }
 
             var _save = function (n, o) {
@@ -106,6 +106,17 @@ app.directive('host', function (hostManager, toolkit) {
                 toolkit.delayAction('host', function () {
                     _processHost(host);
                 }, 500);
+            };
+
+            $scope.removeHost = function () {
+                // The last item in the host list should always be an empty item
+                // which is used to add new hosts, so we don't want to remove that one.
+                if (host.isLast() && host.isBlank()) return;
+                host.delete();
+            };
+
+            $scope.isLastAndBlank = function () {
+                return host.isBlank() && host.isLast();
             };
 
             $scope.$watch('host.alias', _save);

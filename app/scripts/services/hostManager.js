@@ -47,11 +47,11 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
         host.index = function () {
             return hosts.indexOf(host);
         };
-        host.hasPrecedingBlankSiblings = function () {
+        host.isPrevHostBlank = function () {
             var prevHost = host.prevHost();
             return prevHost && prevHost.isBlank();
         };
-        host.hasSucceedingBlankSiblings = function () {
+        host.isNextHostBlank = function () {
             var nextHost = host.nextHost();
             return nextHost && nextHost.isBlank();
         };
@@ -77,12 +77,12 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
     }
 
     var saveHost = function (host) {
-        console.info('Saving host: ' + host.id);
+        console.debug('Saving host: ' + host.id);
         host.put();
     };
 
     var removeHost = function (host) {
-        console.info('Removing host: ' + host.id);
+        console.debug('Removing host: ' + host.id);
         _.remove(hosts, host);
         host.remove();
     };
@@ -90,7 +90,7 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
     var newHost = function () {
         var host = _createHost();
         hosts.post(host).then(function (host) {
-            console.info('Adding host.id: ' + host.id);
+            console.debug('Adding host.id: ' + host.id);
             hosts.push(host);
         });
     };

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('task', function (socket) {
+app.directive('task', function (socket, pathHelper) {
     return {
         restrict: "E",
         templateUrl: '../../../views/partials/task/task.html',
@@ -11,6 +11,12 @@ app.directive('task', function (socket) {
 
             var task = $scope.task;
             var log = $scope.log = [];
+            var ph = pathHelper;
+            var paths = task.paths;
+
+            if (!ph.isLastBlank(paths)) {
+                paths.push(ph.createPath());
+            }
 
             socket.on('task.finished.' + task.id, function (data) {
                 if (data && data.error) {

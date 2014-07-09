@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('path', function ($modal) {
+app.directive('path', function ($modal, pathHelper) {
     return {
         restrict: 'E',
         replace: true,
@@ -11,11 +11,28 @@ app.directive('path', function ($modal) {
         templateUrl: '../../../views/partials/task/path.html',
         link: function (scope, element, attrs) {
 
+            var ph = pathHelper;
             var task = scope.task;
             var path = scope.path;
 
+            function _clonePath() {
+                return ph.createPath(path.source, path.destination);
+            }
+
             scope.removePath = function () {
                 task.removePath(path);
+            };
+
+            scope.clonePath = function () {
+                task.addPath(_clonePath());
+            };
+
+            scope.isBlank = function () {
+                return ph.isBlank(path);
+            };
+
+            scope.isBlankAndLast = function () {
+                return ph.isLast(task.paths, path) && ph.isBlank(path);
             };
 
             scope.browse = function () {
@@ -25,6 +42,10 @@ app.directive('path', function ($modal) {
                 });
             };
 
+            scope.$watch('path', function (n, o) {
+                task.paths = ph.evalPaths(task.paths, path);
+                task.saveDelayed(n, o);
+            }, true);
         }
     };
 });
