@@ -12,3 +12,4 @@ app.factory('directoryService', function (Restangular) {
         }
     };
 });
+
