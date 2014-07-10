@@ -2,11 +2,12 @@
   "name": "websync",
   "version": "0.0.0",
   "dependencies": {
-    "express": "~3.4.3",
-    "lodash": "^2.4.1",
     "ejs": "~0.8.4",
+    "express": "~3.4.3",
     "jsonfile": "^1.1.1",
+    "lodash": "^2.4.1",
     "rsync": "^0.3.0",
+    "sh": "0.0.3",
     "socket.io": "^0.9.16"
   },
   "devDependencies": {

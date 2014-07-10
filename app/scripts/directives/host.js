@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('host', function (hostManager, toolkit) {
+app.directive('host', function (hostManager, toolkit, sshHelper) {
     return {
         restrict: "E",
         replace: true,
@@ -11,6 +11,13 @@ app.directive('host', function (hostManager, toolkit) {
         controller: function ($scope, $element, $attrs) {
 
             var host = $scope.host;
+
+            $("[data-toggle=popover]").popover({
+                html: true,
+                content: function() {
+                    return $('#popover-content').html();
+                }
+            });
 
             function _prevBlankHosts(host) {
                 var blankHosts = [];
@@ -113,6 +120,11 @@ app.directive('host', function (hostManager, toolkit) {
                 // which is used to add new hosts, so we don't want to remove that one.
                 if (host.isLast() && host.isBlank()) return;
                 host.delete();
+            };
+
+            $scope.sshCopyId = function (password) {
+                sshHelper.sshCopyId(host.username, password, host.host, host.port);
+                console.debug('Trying to copy ssh id to target: ' + host.host);
             };
 
             $scope.isLastAndBlank = function () {
