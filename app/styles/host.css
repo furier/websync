@@ -1,5 +1,3 @@
-
-
 .host-list-item {
     background: #dedede;
     padding: 15px 10px;
@@ -21,22 +19,4 @@
 }
 .host-list-item > div > div > input:last-child {
     width: 90px !important;
-}
-
-
-.path-list-item {
-    background: #dedede;
-    padding: 15px 10px;
-    border-radius: 5px;
-    border: thin solid #d3d3d3;
-    margin-bottom: 8px;
-}
-.path-list-item:last-child {
-    margin-bottom: 0;
-}
-.path-list-item div {
-    padding: 0;
-}
-.path-list-item > div > div > div {
-    padding: 0 5px;
 }

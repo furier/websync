@@ -1,34 +1,18 @@
 @import url('task-header.css');
 
-.paths {
-    padding: 5px;
-    margin-bottom: 15px;
-    min-height: 36px;
+.path-list-item {
+    background: #dedede;
+    padding: 15px 10px;
     border-radius: 5px;
-    border: 1px solid #d3d3d3;
-    background: #ffffff;
-    color: #ffffff;
+    border: thin solid #d3d3d3;
+    margin-bottom: 8px;
 }
-.path {
-    border-radius: 5px;
-    margin-bottom: 5px;
-    background: #e8e8e8;
-}
-.path:last-child {
+.path-list-item:last-child {
     margin-bottom: 0;
 }
-.pathElement {
-    display: inline-block;
-    background: linear-gradient(#666, #333);
-    font-size: 12px;
-    height: 39px;
-    width: 48%;
-    line-height: 39px;
-    border-radius: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+.path-list-item div {
+    padding: 0;
 }
-.pathElement:first-child {
-    margin-right: 2px;
+.path-list-item > div > div > div {
+    padding: 0 5px;
 }
-

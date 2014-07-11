@@ -1,10 +1,8 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 @import url('toolkit.css');
-@import url('margins.css');
-@import url('paddings.css');
-@import url('task.css');
 @import url('crumbs.css');
-@import url('list-items.css');
+@import url('task.css');
+@import url('host.css');
 
 /* Space out content a bit */
 body {
@@ -66,4 +64,3 @@ body {
 #content > div.tabbable > div > div.tab-pane > div:first-child {
     margin-bottom: 30px;
 }
-

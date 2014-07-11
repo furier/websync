@@ -53,6 +53,7 @@ app.factory('taskManager', function (toolkit, Restangular) {
             console.debug('cloning path for task: ' + task.id);
             var index = task.paths.indexOf(path);
             task.paths.splice(index + 1, 0, path2Inject);
+            saveTask(task);
         };
         task.removePath = function (path) {
             console.debug('removing path for task: ' + task.id);
