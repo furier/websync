@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('host', function (hostManager, toolkit, sshHelper) {
+module.exports = function (hostManager, toolkit, sshHelper) {
     return {
         restrict: "E",
         replace: true,
@@ -138,4 +138,4 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
 
         }
     };
-});
+};

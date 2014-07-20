@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('reactComponents', function () {
+module.exports = function () {
 
     var LogEntry = React.createClass({
         render: function () {
@@ -108,4 +108,4 @@ app.factory('reactComponents', function () {
         LogPanelHeader: LogPanelHeader,
         LogPanel: LogPanel
     };
-});
+};

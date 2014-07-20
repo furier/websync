@@ -63,7 +63,7 @@ var ngAnnotate = require('gulp-ng-annotate');
     (function styles() {
         gulp.task('css', function () {
             gulp.src('app/styles/**/*.css')
-                .pipe(concatCss('bundle.css'))
+                //.pipe(concatCss('bundle.css'))
                 .pipe(gulp.dest('dist/app/styles'))
                 .pipe(cssmin())
                 .pipe(rename({suffix: '.min'}))
@@ -92,7 +92,7 @@ var ngAnnotate = require('gulp-ng-annotate');
         });
         gulp.task('watchify', function () {
 
-            var bundler = watchify('app/scripts/app.js');
+            var bundler = watchify('./app/scripts/app.js');
             bundler.transform('brfs');
             bundler.on('update', rebundle);
 
@@ -103,15 +103,12 @@ var ngAnnotate = require('gulp-ng-annotate');
                         gutil.log('Browserify Error', e);
                     })
                     .pipe(source('bundle.js'))
-                    .pipe(gulp.dest('dist/scripts'))
+                    .pipe(gulp.dest('dist/app/scripts'))
             }
 
             return rebundle();
         });
-        gulp.task('js', ['jshint', 'uglify'], function () {
-            gulp.src('app/bower_components/**')
-                .pipe(gulp.dest('dist/app/bower_components'));
-        });
+        gulp.task('js', ['watchify']);
     }());
 
 }());
@@ -128,7 +125,7 @@ var ngAnnotate = require('gulp-ng-annotate');
     });
     gulp.task('server', ['copy-server-to-dist'], function () {
         gulp.watch(['server.js', 'lib/**'], ['copy-server-to-dist']);
-        nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development' } })
+        nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development' }, watch: ['lib', 'assets', 'server.js'] })
             .on('restart', function () {
                 console.log('restarted!')
             });

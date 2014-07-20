@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('path', function ($modal, pathHelper) {
+module.exports = function ($modal, pathHelper) {
     return {
         restrict: 'E',
         replace: true,
@@ -44,4 +44,4 @@ app.directive('path', function ($modal, pathHelper) {
             }, true);
         }
     };
-});
+};

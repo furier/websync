@@ -3,7 +3,7 @@
  */
 'use strict';
 
-// This is the Angular HTML equivalent
+var React = require('react');
 
 //<div class="form-group panel panel-default">
 //    <div class="panel-heading">
@@ -19,7 +19,7 @@
 //    </ul>
 //</div>
 
-app.directive('logPanel', function (reactComponents) {
+module.exports = function (reactComponents) {
     return {
         restrict: 'E',
         scope: {
@@ -35,4 +35,4 @@ app.directive('logPanel', function (reactComponents) {
             });
         }
     };
-});
+};

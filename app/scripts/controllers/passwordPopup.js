@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.controller('PassPopCtrl', function ($scope) {
+module.exports = function ($scope) {
 
     $scope.pw = '';
 
@@ -15,4 +15,4 @@ app.controller('PassPopCtrl', function ($scope) {
         console.log(n);
     });
 
-});
+};

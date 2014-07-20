@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('sshHelper', function (Restangular) {
+module.exports = function (Restangular) {
     return {
         sshCopyId: function (username, password, host, port) {
             return Restangular.one('sshCopyId').customPOST({
@@ -14,4 +14,4 @@ app.factory('sshHelper', function (Restangular) {
             });
         }
     };
-});
+};

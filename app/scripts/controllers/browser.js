@@ -3,6 +3,6 @@
  */
 'use strict';
 
-app.controller('BrowserCtrl', function ($scope) {
+module.exports = function ($scope) {
 
-});
+};

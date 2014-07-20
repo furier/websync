@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MainCtrl', function ($scope, taskManager, rsyncMetaData, hostManager) {
+module.exports = function ($scope, taskManager, rsyncMetaData, hostManager) {
 
     $scope.flags = rsyncMetaData.flags;
     $scope.tasks = taskManager.tasks;
@@ -8,4 +8,4 @@ app.controller('MainCtrl', function ($scope, taskManager, rsyncMetaData, hostMan
     $scope.removeTask = taskManager.removeTask;
     $scope.hosts = hostManager.hosts;
 
-});
+};

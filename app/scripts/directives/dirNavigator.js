@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('dirNavigator', function (directoryService) {
+module.exports = function (directoryService) {
     return {
         restrict: 'E',
         scope: {target: '='},
@@ -91,4 +91,4 @@ app.directive('dirNavigator', function (directoryService) {
 
         }
     };
-});
+};

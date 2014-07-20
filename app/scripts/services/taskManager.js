@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('taskManager', function (toolkit, Restangular) {
+module.exports = function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
     var tasks = Restangular.all('tasks').getList().$object;
@@ -123,4 +123,4 @@ app.factory('taskManager', function (toolkit, Restangular) {
             });
         }
     };
-});
+};

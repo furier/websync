@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('task', function (socket, pathHelper) {
+module.exports = function ($socket, pathHelper) {
     return {
         restrict: "E",
         templateUrl: '../../../views/partials/task/task.html',
@@ -18,7 +18,7 @@ app.directive('task', function (socket, pathHelper) {
                 paths.push(ph.createPath());
             }
 
-            socket.on('task.finished.' + task.id, function (data) {
+            $socket.on('task.finished.' + task.id, function (data) {
                 if (data && data.error) {
                     var msg = data.error + ' (' + data.errorCode.message + ')';
                     log.push({type: 'list-group-item-danger', msg: msg});
@@ -29,7 +29,7 @@ app.directive('task', function (socket, pathHelper) {
                 }
             });
 
-            socket.on('task.progress.' + task.id, function (data) {
+            $socket.on('task.progress.' + task.id, function (data) {
                 if (data) {
                     var strip = 'rsync:';
                     var stripError = 'rsync error:';
@@ -45,7 +45,7 @@ app.directive('task', function (socket, pathHelper) {
                 }
             });
 
-            socket.on('task.error.' + task.id, function (data) {
+            $socket.on('task.error.' + task.id, function (data) {
                 log.push({type: 'list-group-item-danger', msg: data});
             });
 
@@ -56,4 +56,4 @@ app.directive('task', function (socket, pathHelper) {
 
         }
     };
-});
+};

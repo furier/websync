@@ -3,7 +3,11 @@
  */
 'use strict';
 
-app.factory('toolkit', function ($timeout) {
+var _ = require('lodash');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+module.exports = function ($timeout) {
 
     function guid() {
         function s4() {
@@ -34,4 +38,4 @@ app.factory('toolkit', function ($timeout) {
         guid: guid,
         delayAction: delayAction
     };
-});
+};

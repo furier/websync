@@ -3,7 +3,11 @@
  */
 'use strict';
 
-app.factory('hostManager', function (toolkit, Restangular, $q) {
+var _ = require('lodash');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+module.exports = function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
     var hostsPromise = Restangular.all('hosts').getList();
@@ -104,4 +108,4 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
             return hosts.length - 1;
         }
     };
-});
+};

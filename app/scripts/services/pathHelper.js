@@ -3,7 +3,11 @@
  */
 'use strict';
 
-app.factory('pathHelper', function (toolkit) {
+var _ = require('lodash');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+module.exports = function (toolkit) {
 
     var isBlank = function (path) {
         if (!path) return true;
@@ -153,4 +157,4 @@ app.factory('pathHelper', function (toolkit) {
         },
         createPath: createPath
     };
-});
+};
