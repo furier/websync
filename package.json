@@ -65,8 +65,8 @@
   "browser": {
     "restangular": "./node_modules/restangular/dist/restangular.js",
     "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
-    "ng-socket": "./app/scripts/ngSocket.js",
-    "alertifyjs": "./node_modules/alertifyjs/dist/js/alertify.js"
+    "angular-socket": "./app/scripts/ngSocket.js",
+    "angular-alertify": "./app/scripts/ngAlertify.js"
   },
   "browserify-shim": {
     "restangular": {
@@ -75,7 +75,7 @@
         "lodash:_"
       ]
     },
-    "ng-socket": {
+    "angular-socket": {
       "depends": [
         "angular",
         "socket.io-client:io"

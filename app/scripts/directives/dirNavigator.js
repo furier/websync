@@ -3,7 +3,7 @@
  */
 'use strict';
 
-module.exports = function (directoryService) {
+module.exports = function (directoryService, alertify) {
     return {
         restrict: 'E',
         scope: {target: '='},

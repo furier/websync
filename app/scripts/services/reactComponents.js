@@ -3,6 +3,8 @@
  */
 'use strict';
 
+var React = require('react');
+
 module.exports = function () {
 
     var LogEntry = React.createClass({

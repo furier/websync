@@ -5,7 +5,8 @@ require('angular-cookies');
 require('angular-sanitize');
 require('angular-route');
 require('socket.io-client');
-require('ng-socket');
+require('angular-socket');
+require('angular-alertify');
 require('lodash');
 require('restangular');
 require('scrollglue');
@@ -14,8 +15,9 @@ var app = angular.module('websyncApp', [
     'ngCookies',
     'ngSanitize',
     'ngRoute',
-    'restangular',
     'ngSocket',
+    'ngAlertify',
+    'restangular',
     'luegg.directives'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
@@ -42,7 +44,6 @@ app.factory('sshHelper', ['Restangular', require('./services/sshHelper')]);
 app.factory('hostManager', ['toolkit', 'Restangular', require('./services/hostManager')]);
 app.factory('taskManager', ['toolkit', 'Restangular', require('./services/taskManager')]);
 app.factory('pathHelper', ['toolkit', require('./services/pathHelper')]);
-app.factory('alertify', [require('./services/alertify')]);
 
 app.directive('task', ['$socket', 'pathHelper', require('./directives/task/task')]);
 app.directive('path', ['$modal', 'pathHelper', require('./directives/task/path')]);

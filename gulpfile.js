@@ -138,11 +138,13 @@ gulp.task('build', ['html', 'css', 'fonts', 'js', 'imagemin'], function () {
         .pipe(gulp.dest('dist/app'));
 });
 
+gulp.task('dist', ['copy-server-to-dist', 'build']);
+
 gulp.task('default', ['server', 'livereload', 'build'], function () {
     gulp.watch([
         'app/styles/**/*.css',
         'app/scripts/**/*.js',
-        'app/views/**/.*.html'
+        'app/views/**/*.html'
     ], [
         'build'
     ]);
