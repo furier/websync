@@ -53,6 +53,7 @@ var ngAnnotate = require('gulp-ng-annotate');
         });
         gulp.task('fonts', function () {
             gulp.src('app/fonts/**')
+                .pipe(changed('dist/app/fonts'))
                 .pipe(gulp.dest('dist/app/fonts'));
         });
     }());
@@ -90,7 +91,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 
             return rebundle();
         });
-        gulp.task('js', ['watchify']);
+        gulp.task('js', ['jshint', 'uglify']);
     }());
 
 }());
@@ -133,19 +134,23 @@ var ngAnnotate = require('gulp-ng-annotate');
     });
 }());
 
-gulp.task('build', ['html', 'css', 'fonts', 'js', 'imagemin'], function () {
+gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin'], function () {
     gulp.src(['app/.htaccess', 'app/favicon.ico', 'app/robots.txt'])
         .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('dist', ['copy-server-to-dist', 'build']);
+gulp.task('dist', ['clean'], function () {
+    gulp.start(['copy-server-to-dist', 'build']);
+});
 
 gulp.task('default', ['server', 'livereload', 'build'], function () {
-    gulp.watch([
-        'app/styles/**/*.css',
-        'app/scripts/**/*.js',
-        'app/views/**/*.html'
-    ], [
-        'build'
-    ]);
+    gulp.watch('app/styles/**/*.css', ['css']);
+    gulp.watch('app/views/**/*.html', ['html']);
+    gulp.watch('app/fonts/**/*', ['fonts']);
+
+    //watchify takes care of rebuilding JS when changes occurre
+    //gulp.watch('app/scripts/**/*.js', ['js']);
+
+    //websync currently doesn't use any images, so no need to run this task
+    //gulp.watch('app/images/**/*.html', ['imagemin']);
 });
