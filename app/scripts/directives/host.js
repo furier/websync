@@ -3,8 +3,6 @@
  */
 'use strict';
 
-var $ = require('jquery');
-
 module.exports = function (hostManager, toolkit, sshHelper) {
     return {
         restrict: "E",

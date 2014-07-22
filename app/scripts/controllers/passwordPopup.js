@@ -12,7 +12,7 @@ module.exports = function ($scope) {
     };
 
     $scope.$watch('pw', function (n,o) {
-        console.log(n);
+        console.debug('password:' + n);
     });
 
 };

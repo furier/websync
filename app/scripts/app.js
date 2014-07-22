@@ -1,6 +1,5 @@
 'use strict';
 
-require('angular');
 require('angular-cookies');
 require('angular-sanitize');
 require('angular-route');
@@ -18,7 +17,8 @@ var app = angular.module('websyncApp', [
     'ngSocket',
     'ngAlertify',
     'restangular',
-    'luegg.directives'
+    'luegg.directives',
+    'ui.bootstrap'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
     RestangularProvider.setBaseUrl('/api');

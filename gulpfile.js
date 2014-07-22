@@ -24,24 +24,6 @@ var ngAnnotate = require('gulp-ng-annotate');
 
 (function client() {
 
-    (function common() {
-        gulp.task('livereload', function () {
-            livereload.listen();
-            gulp.watch([
-                'dist/server.js',
-                'dist/lib/**',
-                'dist/assets/**',
-                'dist/app/**'
-            ]).on('change', livereload.changed);
-        });
-        gulp.task('clean', function () {
-            gulp.src('dist/**', {
-                read: false,
-                ignore: ['hosts.json', 'tasks.json']
-            }).pipe(rimraf());
-        });
-    }());
-
     (function html() {
         gulp.task('html', function () {
             gulp.src('app/views/**/*.html')
@@ -131,6 +113,24 @@ var ngAnnotate = require('gulp-ng-annotate');
             });
     });
 
+}());
+
+(function common() {
+    gulp.task('livereload', function () {
+        livereload.listen();
+        gulp.watch([
+            'dist/server.js',
+            'dist/lib/**',
+            'dist/assets/**',
+            'dist/app/**'
+        ]).on('change', livereload.changed);
+    });
+    gulp.task('clean', function () {
+        gulp.src('dist/**', {
+            read: false,
+            ignore: ['hosts.json', 'tasks.json']
+        }).pipe(rimraf());
+    });
 }());
 
 gulp.task('build', ['html', 'css', 'fonts', 'js', 'imagemin'], function () {
