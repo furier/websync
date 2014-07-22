@@ -49,7 +49,7 @@ app.directive('task', ['$socket', 'pathHelper', require('./directives/task/task'
 app.directive('path', ['$modal', 'pathHelper', require('./directives/task/path')]);
 app.directive('taskFooter', [require('./directives/task/taskFooter')]);
 app.directive('taskHeader', [require('./directives/task/taskHeader')]);
-app.directive('dirNavigator', ['directoryService', require('./directives/dirNavigator')]);
+app.directive('dirNavigator', ['directoryService', 'alertify', require('./directives/dirNavigator')]);
 app.directive('host', ['hostManager', 'toolkit', 'sshHelper', require('./directives/host')]);
 app.directive('logPanel', ['reactComponents', require('./directives/logPanel')]);
 app.directive('scheduler', [require('./directives/scheduler')]);

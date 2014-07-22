@@ -50,6 +50,14 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(cssmin())
                 .pipe(rename({suffix: '.min'}))
                 .pipe(gulp.dest('dist/app/styles'));
+            gulp.src(['node_modules/alertifyjs/src/css/core.css',
+                      'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
+                .pipe(changed('dist/app/styles'))
+                .pipe(concatCss('alertify.css'))
+                .pipe(gulp.dest('dist/app/styles'))
+                .pipe(cssmin())
+                .pipe(rename({suffix: '.min'}))
+                .pipe(gulp.dest('dist/app/styles'));
         });
         gulp.task('fonts', function () {
             gulp.src('app/fonts/**')

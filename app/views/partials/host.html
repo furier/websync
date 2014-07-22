@@ -39,7 +39,9 @@
                     <div class="form-group">
                         <div class="input-group">
                             <input type="password" placeholder="Password" class="form-control" ng-model="pw">
-                            <span class="btn input-group-addon" ng-click="sshCopyId(pw)"><i class="glyphicon glyphicon-flash" ></i></span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" ng-click="sshCopyId(pw)"><span class="glyphicon glyphicon-flash" ></span></button>
+                            </span>
                         </div>
                     </div>
                 </div>
