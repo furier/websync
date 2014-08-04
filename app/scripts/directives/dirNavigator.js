@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('dirNavigator', function (directoryService) {
+module.exports = function (directoryService, alertify) {
     return {
         restrict: 'E',
         scope: {target: '='},
@@ -87,8 +87,8 @@ app.directive('dirNavigator', function (directoryService) {
                 var pathElements = element.find('div.path-elements')[0];
                 pathElements.scrollLeft = pathElements.scrollWidth;
 
-            })
+            });
 
         }
     };
-});
+};

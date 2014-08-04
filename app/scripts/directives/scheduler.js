@@ -3,8 +3,8 @@
  */
 'use strict';
 
-app.directive('scheduler', function () {
+module.exports = function () {
     return {
         restrict: 'E'
     };
-});
+};

@@ -10,13 +10,13 @@ FROM    dockerfile/nodejs
 # could also be fetching the code from a git 
 # repo, or really anything else.
 #
-ADD . /src
+ADD ./dist /src
 
 #
 # Install app dependencies - Got to install them 
 # all! :)
 #
-RUN cd /src; npm install; npm install -g bower; bower install --allow-root
+RUN cd /src; npm install
 
 # 
 # Which ports you want to be exposing from this 

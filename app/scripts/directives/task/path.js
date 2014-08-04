@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('path', function ($modal, pathHelper) {
+module.exports = function ($modal, pathHelper) {
     return {
         restrict: 'E',
         replace: true,
@@ -34,7 +34,17 @@ app.directive('path', function ($modal, pathHelper) {
             scope.browse = function () {
                 $modal.open({
                     templateUrl: '../../../views/partials/browserModal.html',
-                    controller: 'BrowserCtrl'
+                    controller: function ($scope, $modalInstance) {
+
+                        $scope.ok = function () {
+
+                        };
+
+                        $scope.cancel = function () {
+                            $modalInstance.dismiss('cancel');
+                        };
+
+                    }
                 });
             };
 
@@ -44,4 +54,4 @@ app.directive('path', function ($modal, pathHelper) {
             }, true);
         }
     };
-});
+};

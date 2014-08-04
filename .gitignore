@@ -1,6 +1,5 @@
 /node_modules/
 /app/bower_components/
-/.tmp/
 /.idea/
 *.sublime*
-tasks.json
+wsdata.json

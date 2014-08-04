@@ -1,16 +1,37 @@
 {
   "name": "websync",
   "version": "0.0.0",
+  "homepage": "https://github.com/furier/websync",
+  "authors": [
+      "Sander Struijk <sander.struijk@gmail.com>"
+  ],
+  "description": "websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.",
+  "main": "server.js",
+  "keywords": [
+      "rsync"
+  ],
+  "license": "MIT",
+  "private": true,
   "dependencies": {
+    "angular-cookies": "^1.2.19",
+    "angular-route": "^1.2.17-build.163.1",
+    "angular-sanitize": "0.0.1",
     "ejs": "~0.8.4",
     "express": "~3.4.3",
     "jsonfile": "^1.1.1",
     "lodash": "^2.4.1",
+    "react": "^0.11.0",
+    "restangular": "^1.4.0",
     "rsync": "^0.3.0",
     "sh": "0.0.3",
-    "socket.io": "^0.9.16"
+    "socket.io": "^1.0.6",
+    "socket.io-client": "^1.0.6",
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {
+    "brfs": "^1.1.2",
+    "browserify": "^4.2.3",
+    "browserify-shim": "^3.6.0",
     "connect-livereload": "^0.4.0",
     "gulp": "^3.8.6",
     "gulp-changed": "^0.4.0",
@@ -26,6 +47,9 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^3.0.0",
+    "hiredis": "^0.1.17",
+    "msgpack": "^0.2.3",
+    "napa": "^0.4.1",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^0.10.2"
   },
@@ -33,6 +57,34 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "gulp test",
+    "install": "napa"
+  },
+  "napa": {
+    "scrollglue": "Luegg/angularjs-scroll-glue",
+    "alertifyjs": "alertifyjs/alertify.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "restangular": "./node_modules/restangular/dist/restangular.js",
+    "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
+    "angular-socket": "./app/scripts/ngSocket.js",
+    "angular-alertify": "./app/scripts/ngAlertify.js"
+  },
+  "browserify-shim": {
+    "restangular": {
+      "depends": [
+        "lodash:_"
+      ]
+    },
+    "angular-socket": {
+      "depends": [
+        "socket.io-client:io"
+      ]
+    }
   }
 }

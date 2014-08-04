@@ -3,10 +3,10 @@
  */
 'use strict';
 
-app.directive('taskHeader', function () {
+module.exports = function () {
     return {
         restrict: "E",
         replace: true,
         templateUrl: '../../../views/partials/task/taskHeader.html'
     };
-});
+};

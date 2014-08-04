@@ -11,14 +11,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(app) styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="styles/bundle.css">
-        <!-- endbuild -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/alertify.css">
+        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body ng-app="websyncApp">
         <!--[if lt IE 7]>
@@ -40,47 +36,16 @@
         </script>
 
         <!--[if lt IE 9]>
-        <script src="bower_components/es5-shim/es5-shim.js"></script>
-        <script src="bower_components/json3/lib/json3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
         <![endif]-->
 
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angularjs-scroll-glue/src/scrollglue.js"></script>
-        <script src="bower_components/restangular/dist/restangular.js"></script>
-        <script src="bower_components/lodash/dist/lodash.js"></script>
-        <script src="bower_components/underscore.string/lib/underscore.string.js"></script>
-        <script src="bower_components/socket.io-client/dist/socket.io.js"></script>
-        <script src="bower_components/ng-socket-io/ng-socket-io.js"></script>
-        <script src="bower_components/react/react.js"></script>
-        <script src="bower_components/alertify/alertify.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/toolkit.js"></script>
-        <script src="scripts/services/reactComponents.js"></script>
-        <script src="scripts/services/hostManager.js"></script>
-        <script src="scripts/services/directoryService.js"></script>
-        <script src="scripts/services/taskManager.js"></script>
-        <script src="scripts/services/rsyncMetaData.js"></script>
-        <script src="scripts/services/pathHelper.js"></script>
-        <script src="scripts/services/sshHelper.js"></script>
-        <script src="scripts/directives/host.js"></script>
-        <script src="scripts/directives/task/path.js"></script>
-        <script src="scripts/directives/task/task.js"></script>
-        <script src="scripts/directives/task/taskHeader.js"></script>
-        <script src="scripts/directives/task/taskFooter.js"></script>
-        <script src="scripts/directives/dirNavigator.js"></script>
-        <script src="scripts/directives/logPanel.js"></script>
-        <script src="scripts/controllers/browser.js"></script>
-        <script src="scripts/controllers/passwordPopup.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+        <script src="scripts/bundle.js"></script>
     </body>
 </html>

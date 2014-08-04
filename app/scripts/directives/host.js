@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.directive('host', function (hostManager, toolkit, sshHelper) {
+module.exports = function (hostManager, toolkit, sshHelper) {
     return {
         restrict: "E",
         replace: true,
@@ -11,13 +11,6 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
         controller: function ($scope, $element, $attrs) {
 
             var host = $scope.host;
-
-            $("[data-toggle=popover]").popover({
-                html: true,
-                content: function() {
-                    return $('#popover-content').html();
-                }
-            });
 
             function _prevBlankHosts(host) {
                 var blankHosts = [];
@@ -99,8 +92,6 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
                     }
                 }
 
-                message += ' Saving host...';
-                host.save();
                 console.debug(message);
             }
 
@@ -110,8 +101,9 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
                     host.first = false;
                     return;
                 }
+                _processHost(host);
                 toolkit.delayAction('host', function () {
-                    _processHost(host);
+                    host.save();
                 }, 500);
             };
 
@@ -120,11 +112,6 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
                 // which is used to add new hosts, so we don't want to remove that one.
                 if (host.isLast() && host.isBlank()) return;
                 host.delete();
-            };
-
-            $scope.sshCopyId = function (password) {
-                sshHelper.sshCopyId(host.username, password, host.host, host.port);
-                console.debug('Trying to copy ssh id to target: ' + host.host);
             };
 
             $scope.isLastAndBlank = function () {
@@ -138,4 +125,4 @@ app.directive('host', function (hostManager, toolkit, sshHelper) {
 
         }
     };
-});
+};

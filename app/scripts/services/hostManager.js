@@ -3,17 +3,27 @@
  */
 'use strict';
 
-app.factory('hostManager', function (toolkit, Restangular, $q) {
+var _ = require('lodash');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+module.exports = function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
     var hostsPromise = Restangular.all('hosts').getList();
     var hosts = hostsPromise.$object;
 
     hostsPromise.then(function (hosts) {
-        var empty = _.isEmpty(hosts);
-        var blank = _.last(hosts).isBlank();
-        if (hosts && (empty || !blank))
-            newHost();
+        if (hosts) {
+            var empty = _.isEmpty(hosts);
+            if (!empty) {
+                var blank = _.last(hosts).isBlank();
+                if (!blank)
+                    newHost();
+            } else {
+                newHost();
+            }
+        }
     });
 
     Restangular.extendModel('hosts', function (host) {
@@ -104,4 +114,4 @@ app.factory('hostManager', function (toolkit, Restangular, $q) {
             return hosts.length - 1;
         }
     };
-});
+};

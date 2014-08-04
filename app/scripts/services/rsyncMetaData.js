@@ -3,8 +3,8 @@
  */
 'use strict';
 
-app.factory('rsyncMetaData', function (Restangular) {
+module.exports = function (Restangular) {
     return {
         flags: Restangular.all('flags').getList().$object
     };
-});
+};

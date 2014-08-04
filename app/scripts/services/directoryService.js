@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.factory('directoryService', function (Restangular) {
+module.exports = function (Restangular) {
     return {
         getStructure: function (path) {
             return Restangular.one('getDirectoryStructure').customPOST({
@@ -11,5 +11,5 @@ app.factory('directoryService', function (Restangular) {
             });
         }
     };
-});
+};
 
