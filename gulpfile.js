@@ -107,7 +107,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 (function server() {
 
     gulp.task('copy-server-to-dist', function () {
-        gulp.src(['server.js', 'tasks.json', 'hosts.json'])
+        gulp.src(['server.js', 'wsdata.json'])
             .pipe(gulp.dest('dist'));
         gulp.src(['lib/**'])
             .pipe(gulp.dest('dist/lib'));

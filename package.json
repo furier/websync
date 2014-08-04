@@ -1,6 +1,17 @@
 {
   "name": "websync",
   "version": "0.0.0",
+  "homepage": "https://github.com/furier/websync",
+  "authors": [
+      "Sander Struijk <sander.struijk@gmail.com>"
+  ],
+  "description": "websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.",
+  "main": "server.js",
+  "keywords": [
+      "rsync"
+  ],
+  "license": "MIT",
+  "private": true,
   "dependencies": {
     "angular-cookies": "^1.2.19",
     "angular-route": "^1.2.17-build.163.1",
