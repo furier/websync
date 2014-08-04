@@ -4,6 +4,7 @@
 'use strict';
 
 var path = require('path');
+var fs = require('fs');
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -51,7 +52,7 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(rename({suffix: '.min'}))
                 .pipe(gulp.dest('dist/app/styles'));
             gulp.src(['node_modules/alertifyjs/src/css/core.css',
-                      'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
+                'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
                 .pipe(changed('dist/app/styles'))
                 .pipe(concatCss('alertify.css'))
                 .pipe(gulp.dest('dist/app/styles'))
@@ -107,11 +108,16 @@ var ngAnnotate = require('gulp-ng-annotate');
 (function server() {
 
     gulp.task('copy-server-to-dist', function () {
-        gulp.src(['server.js', 'wsdata.json'])
+        if (!fs.existsSync('dist/wsdata.json')) {
+            gulp.src('default.wsdata.json')
+                .pipe(rename('wsdata.json'))
+                .pipe(gulp.dest('dist'));
+        }
+        gulp.src('server.js')
             .pipe(gulp.dest('dist'));
-        gulp.src(['lib/**'])
+        gulp.src('lib/**')
             .pipe(gulp.dest('dist/lib'));
-        gulp.src(['assets/**'])
+        gulp.src('assets/**')
             .pipe(gulp.dest('dist/assets'));
     });
     gulp.task('server', ['copy-server-to-dist'], function () {
