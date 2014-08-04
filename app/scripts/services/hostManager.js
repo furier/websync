@@ -14,10 +14,16 @@ module.exports = function (toolkit, Restangular) {
     var hosts = hostsPromise.$object;
 
     hostsPromise.then(function (hosts) {
-        var empty = _.isEmpty(hosts);
-        var blank = _.last(hosts).isBlank();
-        if (hosts && (empty || !blank))
-            newHost();
+        if (hosts) {
+            var empty = _.isEmpty(hosts);
+            if (!empty) {
+                var blank = _.last(hosts).isBlank();
+                if (!blank)
+                    newHost();
+            } else {
+                newHost();
+            }
+        }
     });
 
     Restangular.extendModel('hosts', function (host) {

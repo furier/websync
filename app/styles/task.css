@@ -16,3 +16,7 @@
 .path-list-item > div > div > div {
     padding: 0 5px;
 }
+
+#accordion > task > div {
+    margin-bottom: 10px;
+}
