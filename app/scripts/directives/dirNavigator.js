@@ -87,7 +87,7 @@ module.exports = function (directoryService, alertify) {
                 var pathElements = element.find('div.path-elements')[0];
                 pathElements.scrollLeft = pathElements.scrollWidth;
 
-            })
+            });
 
         }
     };

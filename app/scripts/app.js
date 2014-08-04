@@ -55,8 +55,6 @@ app.directive('logPanel', ['reactComponents', require('./directives/logPanel')])
 app.directive('scheduler', [require('./directives/scheduler')]);
 
 app.controller('MainCtrl', ['$scope', 'taskManager', 'rsyncMetaData', 'hostManager', require('./controllers/main')]);
-app.controller('BrowserCtrl', ['$scope', require('./controllers/browser')]);
-app.controller('PassPopCtrl', ['$scope', require('./controllers/passwordPopup')]);
 
 app.run(function ($socket, alertify) {
 

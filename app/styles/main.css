@@ -63,3 +63,12 @@ body {
 #content > div.tabbable > div > div.tab-pane > div:first-child {
     margin-bottom: 30px;
 }
+
+#content > div > ul > div > p {
+    font-size: 25px;
+}
+
+#content > div > ul > li {
+    cursor: hand;
+    cursor: pointer;
+}

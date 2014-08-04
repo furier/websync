@@ -2,16 +2,18 @@
 <!--MAIN CONTENT-->
 <div id="content" class="col-xs-12" ng-controller="MainCtrl">
 
-    <!--MAIN CONTENT HEADER-->
-    <div class="header">
-        <h3 class="text-muted">websync</h3>
-    </div>
-
     <!--MAIN CONTENT - CONTENT TABSET-->
     <tabset>
 
+        <div class="navbar-brand">
+            <p class="text-muted">websync</p>
+        </div>
+
         <!--TASKS TAB-->
-        <tab heading="Tasks">
+        <tab>
+            <tab-heading>
+                <span class="glyphicon glyphicon-tasks"></span> Tasks
+            </tab-heading>
             <div class="clearfix">
                 <button type="button" class="btn btn-success pull-right" title="New task" ng-click="newTask()"><span class="glyphicon glyphicon-plus-sign"></span></button>
             </div>
@@ -21,7 +23,10 @@
         </tab>
 
         <!--HOSTS TAB-->
-        <tab heading="Hosts">
+        <tab>
+            <tab-heading>
+                <span class="fa fa-desktop"></span> Hosts
+            </tab-heading>
             <ul class="well list-unstyled">
                 <host ng-repeat="host in hosts"></host>
             </ul>

@@ -19,7 +19,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "ng-polymer-elements": "~0.1.0"
-  }
+  "dependencies": {}
 }

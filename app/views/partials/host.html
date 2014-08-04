@@ -32,20 +32,9 @@
         <div class="btn-group pull-right">
 
             <!--COPY SSH ID BUTTON-->
-            <button class="btn btn-primary" data-placement="right" data-toggle="popover" data-container="body" data-html="true">
-                <span class="glyphicon glyphicon-upload"></span> SSH</button>
-            <div id="popover-content" class="hide" ng-controller="PassPopCtrl">
-                <div class="form-inline">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="password" placeholder="Password" class="form-control" ng-model="pw">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button" ng-click="sshCopyId(pw)"><span class="glyphicon glyphicon-flash" ></span></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="btn btn-primary" title="Feature currently disabled..." disabled>
+                <span class="glyphicon glyphicon-upload"></span> SSH
+            </button>
 
             <!--DELETE HOST BUTTON-->
             <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-trash"></span></button>

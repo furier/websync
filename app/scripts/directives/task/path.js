@@ -34,7 +34,17 @@ module.exports = function ($modal, pathHelper) {
             scope.browse = function () {
                 $modal.open({
                     templateUrl: '../../../views/partials/browserModal.html',
-                    controller: 'BrowserCtrl'
+                    controller: function ($scope, $modalInstance) {
+
+                        $scope.ok = function () {
+
+                        };
+
+                        $scope.cancel = function () {
+                            $modalInstance.dismiss('cancel');
+                        };
+
+                    }
                 });
             };
 
