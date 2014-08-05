@@ -72,3 +72,8 @@ body {
     cursor: hand;
     cursor: pointer;
 }
+
+#accordion > button {
+    width: 100%;
+    height: 54px;
+}

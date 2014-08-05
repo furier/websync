@@ -14,11 +14,11 @@
             <tab-heading>
                 <span class="glyphicon glyphicon-tasks"></span> Tasks
             </tab-heading>
-            <div class="clearfix">
-                <button type="button" class="btn btn-success pull-right" title="New task" ng-click="newTask()"><span class="glyphicon glyphicon-plus-sign"></span></button>
-            </div>
             <div class="panel-group" id="accordion">
                 <task ng-repeat="task in tasks"></task>
+                <button type="button" class="btn btn-success" title="New task" ng-click="newTask()">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </button>
             </div>
         </tab>
 
