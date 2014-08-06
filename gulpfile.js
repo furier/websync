@@ -103,6 +103,13 @@ var ngAnnotate = require('gulp-ng-annotate');
         gulp.task('js', ['jshint', 'uglify']);
     }());
 
+    (function bowerComponents() {
+        gulp.task('bower', function () {
+            gulp.src('app/bower_components/**')
+                .pipe(gulp.dest('dist/app/bower_components'));
+        });
+    }());
+
 }());
 
 (function server() {
@@ -148,7 +155,7 @@ var ngAnnotate = require('gulp-ng-annotate');
     });
 }());
 
-gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin'], function () {
+gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin', 'bower'], function () {
     gulp.src(['app/.htaccess', 'app/favicon.ico', 'app/robots.txt'])
         .pipe(gulp.dest('dist/app'));
 });

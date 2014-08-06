@@ -19,5 +19,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "WebComponents": "*"
+  }
 }

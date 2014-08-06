@@ -1,3 +1,10 @@
+
+
+#accordion > task > div > div.panel-heading{
+    cursor: hand;
+    cursor: pointer;
+}
+
 #accordion > task > div > div.panel-heading > h4 {
     margin-top: 8px;
     display: inline-block;
