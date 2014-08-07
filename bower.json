@@ -20,7 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "WebComponents": "1.0.0",
+    "WebComponents": "1.0.2",
     "css-toggle-switch": "~2.1.6"
   }
 }

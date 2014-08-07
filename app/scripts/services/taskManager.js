@@ -72,9 +72,7 @@ module.exports = function (toolkit, Restangular) {
             removeTask(task);
         };
         task.toggleScheduleEnabled = function () {
-            console.log('before task.schedule.enabled: ' + task.schedule.enabled);
             task.schedule.enabled = !task.schedule.enabled;
-            console.log('after task.schedule.enabled: ' + task.schedule.enabled);
         };
 
         return task;

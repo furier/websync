@@ -1,29 +1,4 @@
 {
-    "tasks": [
-        {
-            "id": "",
-            "name": "Task",
-            "source": {
-                "name": "Source",
-                "host": null
-            },
-            "destination": {
-                "name": "Destination",
-                "host": null
-            },
-            "paths": [],
-            "flags": [],
-            "first": false
-        }
-    ],
-    "hosts": [
-        {
-            "id": "",
-            "alias": "",
-            "username": "",
-            "host": "",
-            "port": "",
-            "first": false
-        }
-    ]
+    "tasks": [],
+    "hosts": []
 }

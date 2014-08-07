@@ -33,6 +33,7 @@
 ## Installation
 
     git clone https://github.com/furier/websync.git
+    bower install
     npm install
 
 ### Development
@@ -46,5 +47,11 @@
     gulp dist
 
 `gulp dist` will build the project and create a `dist` folder which is ready for distribution.
+
+## Roadmap
+
+- **File Browser**, which can browse both localhost and remote targets.
+- **Path autocompletion** for both localhost and remote targets when just typing the paths manually in the path list for each task.
+- **ssh-copy-id** to remote targets through the web interface on the hosts tab.
 
   [1]: http://brew.sh/

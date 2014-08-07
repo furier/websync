@@ -6,6 +6,7 @@ require('angular-route');
 require('socket.io-client');
 require('angular-socket');
 require('angular-alertify');
+require('angu-poly');
 require('lodash');
 require('restangular');
 require('scrollglue');
@@ -19,7 +20,7 @@ var app = angular.module('websyncApp', [
     'restangular',
     'luegg.directives',
     'ui.bootstrap',
-    'eee-c.angularBindPolymer'
+    'angupoly'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
     RestangularProvider.setBaseUrl('/api');

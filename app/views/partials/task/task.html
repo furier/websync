@@ -59,7 +59,7 @@
                           </span>
                     <a class="btn btn-primary"></a>
                 </label>
-                <ss-scheduler bind-polymer cronValue="{{task.schedule.time}}" ng-class="{hidden: !task.schedule.enabled}"></ss-scheduler>
+                <ss-scheduler angupoly="{cronValue: 'task.schedule.time'}" ng-class="{hidden: !task.schedule.enabled}"></ss-scheduler>
             </div>
 
             <!--TASK LOG PANEL-->

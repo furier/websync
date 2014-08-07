@@ -62,7 +62,8 @@
   },
   "napa": {
     "scrollglue": "Luegg/angularjs-scroll-glue",
-    "alertifyjs": "alertifyjs/alertify.js"
+    "alertifyjs": "alertifyjs/alertify.js",
+    "angu-poly": "matjaz/angu-poly"
   },
   "browserify": {
     "transform": [
@@ -73,7 +74,8 @@
     "restangular": "./node_modules/restangular/dist/restangular.js",
     "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
     "angular-socket": "./app/scripts/ngSocket.js",
-    "angular-alertify": "./app/scripts/ngAlertify.js"
+    "angular-alertify": "./app/scripts/ngAlertify.js",
+    "angu-poly": "./node_modules/angu-poly/angupoly.js"
   },
   "browserify-shim": {
     "restangular": {
