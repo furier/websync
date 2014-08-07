@@ -30,8 +30,6 @@ module.exports = function (toolkit, Restangular) {
 
         if (!host.id) host.id = guid();
 
-        host.first = true;
-
         host.isBlank = function () {
             return !(host.alias !== '' || host.username !== '' || host.host !== '' || host.port !== '');
         };
@@ -81,8 +79,7 @@ module.exports = function (toolkit, Restangular) {
             alias: '',
             username: '',
             host: '',
-            port: '',
-            first: true
+            port: ''
         };
     }
 

@@ -52,6 +52,7 @@ module.exports = function ($socket, pathHelper) {
             $scope.$watch('task.name', task.saveDelayed);
             $scope.$watch('task.source.host', task.saveDelayed);
             $scope.$watch('task.destination.host', task.saveDelayed);
+            $scope.$watch('task.schedule', task.saveDelayed, true);
             $scope.$watchCollection('task.flags', task.saveDelayed);
 
         }

@@ -18,7 +18,8 @@ var app = angular.module('websyncApp', [
     'ngAlertify',
     'restangular',
     'luegg.directives',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'eee-c.angularBindPolymer'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
     RestangularProvider.setBaseUrl('/api');
@@ -52,7 +53,6 @@ app.directive('taskHeader', [require('./directives/task/taskHeader')]);
 app.directive('dirNavigator', ['directoryService', 'alertify', require('./directives/dirNavigator')]);
 app.directive('host', ['hostManager', 'toolkit', 'sshHelper', require('./directives/host')]);
 app.directive('logPanel', ['reactComponents', require('./directives/logPanel')]);
-app.directive('scheduler', [require('./directives/scheduler')]);
 
 app.controller('MainCtrl', ['$scope', 'taskManager', 'rsyncMetaData', 'hostManager', require('./controllers/main')]);
 

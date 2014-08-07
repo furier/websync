@@ -1,4 +1,3 @@
-<link rel="import" href="bower_components/WebComponents/components/scheduler/ss-scheduler.html">
 
 <!--TASK-->
 <div class="panel panel-default">
@@ -50,7 +49,18 @@
                 </button>
             </div>
 
-            <ss-scheduler></ss-scheduler>
+            <div class="scheduler">
+                <label class="switch-light well">
+                    <input type="checkbox" ng-click="task.toggleScheduleEnabled()" ng-checked="task.schedule.enabled">
+                          <span>
+                            Schedule
+                            <span>Off</span>
+                            <span>On</span>
+                          </span>
+                    <a class="btn btn-primary"></a>
+                </label>
+                <ss-scheduler bind-polymer cronValue="{{task.schedule.time}}" ng-class="{hidden: !task.schedule.enabled}"></ss-scheduler>
+            </div>
 
             <!--TASK LOG PANEL-->
             <log-panel panel-header="Log" log-entries="log" ></log-panel>

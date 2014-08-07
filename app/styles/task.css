@@ -20,3 +20,12 @@
 #accordion > task > div {
     margin-bottom: 10px;
 }
+
+#accordion > task > div.panel.panel-default > div > div.panel-body > div.scheduler {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+#accordion > task > div.panel.panel-default > div > div.panel-body > div.scheduler > label {
+    width: 100px;
+}

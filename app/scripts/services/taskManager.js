@@ -12,8 +12,6 @@ module.exports = function (toolkit, Restangular) {
 
         if (!task.id) task.id = guid();
 
-        task.first = true;
-
         task.hasFlag = function (flag) {
             var found = false;
             task.flags.forEach(function (value) {
@@ -66,16 +64,17 @@ module.exports = function (toolkit, Restangular) {
         };
         task.saveDelayed = function (n, o) {
             if (n === o) return;
-            if (task.first) {
-                task.first = false;
-                return;
-            }
             toolkit.delayAction('task', function () {
                 saveTask(task);
             }, 500);
         };
         task.delete = function () {
             removeTask(task);
+        };
+        task.toggleScheduleEnabled = function () {
+            console.log('before task.schedule.enabled: ' + task.schedule.enabled);
+            task.schedule.enabled = !task.schedule.enabled;
+            console.log('after task.schedule.enabled: ' + task.schedule.enabled);
         };
 
         return task;
@@ -93,9 +92,12 @@ module.exports = function (toolkit, Restangular) {
                 name: 'Destination',
                 host: ''
             },
+            schedule: {
+                time: '0 * * * *',
+                enabled: false
+            },
             paths: [],
-            flags: [],
-            first: true
+            flags: []
         };
     }
 

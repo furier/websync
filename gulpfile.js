@@ -167,7 +167,8 @@ gulp.task('dist', ['clean'], function () {
 gulp.task('default', ['server', 'livereload', 'build'], function () {
     gulp.watch('app/styles/**/*.css', ['css']);
     gulp.watch('app/views/**/*.html', ['html']);
-    gulp.watch('app/fonts/**/*', ['fonts']);
+    gulp.watch('app/fonts/**', ['fonts']);
+    gulp.watch('app/bower_components/**', ['bower']);
 
     //watchify takes care of rebuilding JS when changes occurre
     //gulp.watch('app/scripts/**/*.js', ['js']);

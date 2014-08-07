@@ -97,10 +97,6 @@ module.exports = function (hostManager, toolkit, sshHelper) {
 
             var _save = function (n, o) {
                 if (n === o) return;
-                if (host.first) {
-                    host.first = false;
-                    return;
-                }
                 _processHost(host);
                 toolkit.delayAction('host', function () {
                     host.save();

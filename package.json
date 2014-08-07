@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "homepage": "https://github.com/furier/websync",
   "authors": [
-      "Sander Struijk <sander.struijk@gmail.com>"
+    "Sander Struijk <sander.struijk@gmail.com>"
   ],
   "description": "websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.",
   "main": "server.js",
   "keywords": [
-      "rsync"
+    "rsync"
   ],
   "license": "MIT",
   "private": true,
