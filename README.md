@@ -28,7 +28,9 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
   - Clone
   - Schedule
   - Multiple paths defined for one task.
-  - Either source or destination can be a remote target, as long as a passwordless ssh RSA key (for the host running websync) has been added to authorized hosts on the remote target
+  - Either source or destination can be a remote target, as long as a passwordless ssh RSA key (for the host running websync) has been added to authorized hosts on the remote target.
+  - Realtime logs for each task in the browser.
+  - Test and Run on demand.
 
 - Hosts
   - Create
@@ -40,6 +42,7 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 - **File Browser**, which can browse both localhost and remote targets.
 - **Path autocompletion** for both localhost and remote targets when just typing the paths manually in the path list for each task.
 - **ssh-copy-id** to remote targets through the web interface on the hosts tab.
+- **Progressbars** to view total task progress, individual task progress and for each file!
 
 ## Collaborate
 
