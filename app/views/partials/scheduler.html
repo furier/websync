@@ -1,0 +1,67 @@
+
+
+<div class="form-inline">
+
+    <!--EVERY OPTIONS-->
+    <div class="form-group">
+        <label for="every">Every</label>
+        <select class="form-control" id="every" ng-model="selectedEvery">
+            <option value="0">Minute</option>
+            <option value="1">Hour</option>
+            <option value="2">Day</option>
+            <option value="3">Week</option>
+            <option value="4">Month</option>
+            <option value="5">Year</option>
+        </select>
+    </div>
+
+    <!--MONTH AND DAY-->
+    <div class="form-group" ng-class="{hidden: hideMonthAndDay}">
+        <select class="form-control" ng-model="selectedMonth">
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+        </select>
+        <select class="form-control" ng-model="selectedDay" ng-options="d for d in days"></select>
+    </div>
+
+    <!--DAY-->
+    <div class="form-group" ng-class="{hidden: hideDay}">
+        <select class="form-control" ng-model="selectedDay" ng-options="d for d in days"></select>
+    </div>
+
+    <!--WEEK DAY-->
+    <div class="form-group" ng-class="{hidden: hideWeekDay}">
+        <select class="form-control" ng-model="selectedWeekDay">
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+            <option value="5">Saturday</option>
+            <option value="6">Sunday</option>
+        </select>
+    </div>
+
+    <!--HOUR AND MINUTE-->
+    <div class="form-group" ng-class="{hidden: hideHourAndMinute}">
+        <select class="form-control" ng-model="selectedHour" ng-options="h for h in hours"></select>
+        <select class="form-control" ng-model="selectedMinute" ng-options="m for m in minutes"></select>
+    </div>
+
+    <!--MINUTE-->
+    <div class="form-group" ng-class="{hidden: hideMinute}">
+        <select class="form-control" ng-model="selectedMinute" ng-options="m for m in minutes"></select>
+    </div>
+
+</div>
+

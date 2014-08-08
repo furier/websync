@@ -54,6 +54,7 @@ app.directive('taskHeader', [require('./directives/task/taskHeader')]);
 app.directive('dirNavigator', ['directoryService', 'alertify', require('./directives/dirNavigator')]);
 app.directive('host', ['hostManager', 'toolkit', 'sshHelper', require('./directives/host')]);
 app.directive('logPanel', ['reactComponents', require('./directives/logPanel')]);
+app.directive('scheduler', [require('./directives/scheduler')]);
 
 app.controller('MainCtrl', ['$scope', 'taskManager', 'rsyncMetaData', 'hostManager', require('./controllers/main')]);
 
