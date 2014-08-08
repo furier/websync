@@ -9,21 +9,27 @@
 
 ## Screenshots
 
-Tasks tab
+### Tasks tab
 ![Tasks](doc/screenshots/tasks_tab.png)
-Hosts tab
+
+### Hosts tab
 ![Hosts](doc/screenshots/hosts_tab.png)
 
 ## Features
+
+- All
+  - Every change is auto synchronized with the back end, no manual saving is required!
+  - Data is stored in a simple json file on disk!
 
 - Tasks
   - Create
   - Edit
   - Remove
+  - Clone
   - Schedule
-  - multiple paths defined for one task.
+  - Multiple paths defined for one task.
   - Either source or destination can be a remote target, as long as a passwordless ssh RSA key (for the host running websync) has been added to authorized hosts on the remote target
-  
+
 - Hosts
   - Create
   - Edit
@@ -35,9 +41,14 @@ Hosts tab
 - **Path autocompletion** for both localhost and remote targets when just typing the paths manually in the path list for each task.
 - **ssh-copy-id** to remote targets through the web interface on the hosts tab.
 
+## Collaborate
+
+- Collaborators are very welcome, contact me!
+- Pull requests are also welcome, fork me and send me a pull request!
+
 ## Contact
 
 - Authors
   - Sander Struijk - sander.struijk@gmail.com
-  
+
 ## LICENSE - MIT
