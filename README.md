@@ -57,6 +57,6 @@ Please file an issue report if you find a bug, or have any other request, sugges
 ## Contact
 
 - Authors
-  - Sander Struijk - sander.struijk@gmail.com
+  - Sander Struijk - furier84+github@gmail.com
 
 ## LICENSE - MIT
