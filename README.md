@@ -9,8 +9,10 @@
 
 ## Screenshots
 
-![Tasks](https://www.dropbox.com/s/fjcpshfrmzzeriq/Screenshot%202014-08-08%2016.34.36.png)
-![Hosts](https://www.dropbox.com/s/5668u1l04vwphjr/Screenshot%202014-08-08%2016.38.16.png)
+Tasks tab
+![Tasks](doc/screenshots/tasks_tab.png)
+Hosts tab
+![Hosts](doc/screenshots/hosts_tab.png)
 
 ## Features
 
