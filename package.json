@@ -16,6 +16,7 @@
     "angular-cookies": "^1.2.19",
     "angular-route": "^1.2.17-build.163.1",
     "angular-sanitize": "0.0.1",
+    "cron": "^1.0.4",
     "ejs": "~0.8.4",
     "express": "~3.4.3",
     "jsonfile": "^1.1.1",
