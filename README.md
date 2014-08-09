@@ -2,6 +2,17 @@
 
 _websync is intended to be an **rsync task manager**, where rsync tasks can be added, scheduled and maintained in a sane manner._
 
+## Table of content
+
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Bugs & Requests/Enhancments](#bugs--requestsenhancments)
+- [Roadmap](#roadmap)
+- [Collaborate](#collaborate)
+- [Contact](#contact)
+- [License](#license---mit)
+
 ## Installation
 
 - [OS X](https://github.com/furier/websync/wiki/Installation---OS-X)
