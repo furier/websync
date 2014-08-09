@@ -4,14 +4,14 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 
 ## Table of content
 
-- [Installation](#Installation)
-- [Screenshots](#Screenshots)
-- [Features](#Features)
-- [Bugs & Requests/Enhancments](#Bugs & Requests/Enhancments)
-- [Roadmap](#Roadmap)
-- [Collaborate](#Collaborate)
-- [Contact](#Contact)
-- [License](#LICENSE - MIT)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Bugs & Requests/Enhancments](#bugs--requestsenhancments)
+- [Roadmap](#roadmap)
+- [Collaborate](#collaborate)
+- [Contact](#contact)
+- [License](#license---mit)
 
 ## Installation
 
