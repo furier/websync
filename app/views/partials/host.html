@@ -32,9 +32,9 @@
         <div class="btn-group pull-right">
 
             <!--COPY SSH ID BUTTON-->
-            <!--<button class="btn btn-primary" title="Copy ssh id to target host.">
+            <button class="btn btn-primary" title="Copy ssh id to target host." ng-click="showSshCopyIdModal()" ng-class="{disabled: isLastAndBlank()}">
                 <span class="glyphicon glyphicon-upload"></span> SSH
-            </button>-->
+            </button>
 
             <!--DELETE HOST BUTTON-->
             <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-trash"></span></button>

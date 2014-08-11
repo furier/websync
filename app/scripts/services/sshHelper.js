@@ -5,8 +5,9 @@
 
 module.exports = function (Restangular) {
     return {
-        sshCopyId: function (username, password, host, port) {
+        sshCopyId: function (id, username, password, host, port) {
             return Restangular.one('sshCopyId').customPOST({
+                id: id,
                 username: username,
                 password: password,
                 host: host,

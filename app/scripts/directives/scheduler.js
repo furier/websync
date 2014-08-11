@@ -46,10 +46,8 @@ module.exports = function () {
             scope.selectedMinute = 0;
 
             if (scope.cronvalue) {
-                console.log('cronvalue: ' + scope.cronvalue);
                 parsecronvalue();
             } else {
-                console.log('cronvalue: ' + scope.cronvalue);
                 scope.selectedEvery = 0;
                 scope.cronvalue = '* * * * *';
             }
@@ -117,7 +115,6 @@ module.exports = function () {
 
             function onChange() {
                 scope.cronvalue = generatecronvalue(scope.selectedMinute, scope.selectedHour, scope.selectedDay, scope.selectedMonth, scope.selectedWeekDay);
-                console.log('generatecronvalue: ' + scope.cronvalue);
             }
 
             scope.$watch('selectedEvery', function (n,o) {
