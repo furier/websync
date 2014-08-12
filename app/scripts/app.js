@@ -6,7 +6,9 @@ require('angular-route');
 require('socket.io-client');
 require('angular-socket');
 require('angular-alertify');
-require('angu-poly');
+require('angular-strap-tooltip-tpl');
+require('angular-strap-typeahead-tpl');
+require('angular-strap-typeahead');
 require('lodash');
 require('restangular');
 require('scrollglue');
@@ -20,7 +22,7 @@ var app = angular.module('websyncApp', [
     'restangular',
     'luegg.directives',
     'ui.bootstrap',
-    'angupoly'
+    'mgcrea.ngStrap.typeahead'
 ]).config(function ($routeProvider, $locationProvider, RestangularProvider) {
 
     RestangularProvider.setBaseUrl('/api');
@@ -40,7 +42,6 @@ var app = angular.module('websyncApp', [
 
 app.factory('toolkit', ['$timeout', require('./toolkit')]);
 app.factory('reactComponents', [require('./services/reactComponents')]);
-app.factory('directoryService', ['Restangular', require('./services/directoryService')]);
 app.factory('rsyncMetaData', ['Restangular', require('./services/rsyncMetaData')]);
 app.factory('hostManager', ['toolkit', 'Restangular', require('./services/hostManager')]);
 app.factory('taskManager', ['toolkit', 'Restangular', require('./services/taskManager')]);
@@ -50,7 +51,7 @@ app.directive('task', ['$socket', 'pathHelper', require('./directives/task/task'
 app.directive('path', ['$modal', 'pathHelper', require('./directives/task/path')]);
 app.directive('taskFooter', [require('./directives/task/taskFooter')]);
 app.directive('taskHeader', [require('./directives/task/taskHeader')]);
-app.directive('dirNavigator', ['directoryService', 'alertify', require('./directives/dirNavigator')]);
+//app.directive('dirNavigator', ['directoryService', 'alertify', require('./directives/dirNavigator')]);
 app.directive('host', ['$modal', '$socket', 'hostManager', 'toolkit', require('./directives/host')]);
 app.directive('logPanel', ['reactComponents', require('./directives/logPanel')]);
 app.directive('scheduler', [require('./directives/scheduler')]);

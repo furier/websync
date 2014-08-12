@@ -3,7 +3,7 @@
  */
 'use strict';
 
-module.exports = function ($modal, pathHelper) {
+module.exports = function ($modal, pathHelper, $socket) {
     return {
         restrict: 'E',
         replace: true,
@@ -48,10 +48,17 @@ module.exports = function ($modal, pathHelper) {
                 });
             };
 
-            scope.$watch('path', function (n, o) {
-                task.paths = ph.evalPaths(task.paths, path);
-                task.saveDelayed(n, o);
-            }, true);
+            scope.getChildrenForPath = function (pathString) {
+                if (!path) return;
+                $socket.emit('path.' + path.id + '.getChildren', pathString, function (children) {
+                    return children;
+                });
+            };
+
+//            scope.$watch('path', function (n, o) {
+//                task.paths = ph.evalPaths(task.paths, path);
+//                task.saveDelayed(n, o);
+//            }, true);
         }
     };
 };
