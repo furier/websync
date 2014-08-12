@@ -1,17 +1,18 @@
 
 
 <div id="ssh-copy-id-{{id}}" class="modal-body">
-    <div class="form-inline" style="margin: 0 auto;">
-        <div class="form-group">
-            <div class="input-group">
-                <input class="form-control" type="password" ng-model="password" placeholder="Password">
-                <span class="input-group-btn" ng-click="sshCopyId(password)">
-                    <button class="btn btn-primary">
-                        <span class="glyphicon glyphicon-flash"></span>
-                    </button>
-                </span>
-            </div>
+    <div class="form-inline">
+        <div class="input-group">
+            <input class="form-control" type="password" ng-model="password" placeholder="Password">
+            <span class="input-group-btn" ng-click="sshCopyId(password, $event)">
+                <button class="btn btn-primary">
+                    <span class="glyphicon glyphicon-flash"></span>
+                </button>
+            </span>
         </div>
     </div>
+    <ul class="list-group" style="margin-top: 15px; margin-bottom: 0;">
+        <li class="list-group-item {{o.type}}" ng-repeat="o in output">{{o.msg}}</li>
+    </ul>
 </div>
 
