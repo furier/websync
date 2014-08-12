@@ -20,6 +20,9 @@ require('./lib/config/express')(app);
 // Socket.IO settings
 var socket = require('./lib/config/socket')(app);
 
+// Bind up ssh copy id
+require('./lib/ssh-copy-id')(socket.io);
+
 // Routing
 require('./lib/routes')(app, socket.io);
 

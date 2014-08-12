@@ -128,6 +128,8 @@ var ngAnnotate = require('gulp-ng-annotate');
             .pipe(gulp.dest('dist/assets'));
     });
     gulp.task('server', ['copy-server-to-dist'], function () {
+        //process.env.DEBUG = 'socket.io*';
+        process.env.DEBUG = null;
         gulp.watch(['server.js', 'lib/**'], ['copy-server-to-dist']);
         nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development' }, watch: ['lib', 'assets', 'server.js'] })
             .on('restart', function () {

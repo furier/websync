@@ -3,7 +3,11 @@
  */
 'use strict';
 
-module.exports = function (hostManager, toolkit, sshHelper) {
+var _ = require('lodash');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+module.exports = function ($modal, $socket, hostManager, toolkit) {
     return {
         restrict: "E",
         replace: true,
@@ -101,6 +105,76 @@ module.exports = function (hostManager, toolkit, sshHelper) {
                 toolkit.delayAction('host', function () {
                     host.save();
                 }, 500);
+            };
+
+            $scope.showSshCopyIdModal = function () {
+                $modal.open({
+                    templateUrl: '../../../views/partials/sshCopyIdModal.html',
+                    controller: function ($scope, $modalInstance, $socket) {
+
+                        $scope.id = host.id;
+                        $scope.output = [];
+                        var btn;
+
+                        function _getType(msg) {
+                            if (_.startsWith(msg, 'WARNING: '))
+                                return 'list-group-item-warning';
+                            if (_.startsWith(msg, 'ERROR: '))
+                                return 'list-group-item-danger';
+                            return 'list-group-item-info';
+                        }
+
+                        function _stripType(msg) {
+                            if (_.startsWith(msg, 'INFO: '))
+                                return _.strRight(msg, 'INFO: ');
+                            if (_.startsWith(msg, 'WARNING: '))
+                                return _.strRight(msg, 'WARNING: ');
+                            if (_.startsWith(msg, 'ERROR: '))
+                                return _.strRight(msg, 'ERROR: ');
+                            return msg;
+                        }
+
+                        function _parseOutput(msg) {
+                            return {
+                                msg: _stripType(msg),
+                                type: _getType(msg)
+                            };
+                        }
+
+                        $socket.on('host.finished.' + host.id, $scope, function (data) {
+                            if (btn) btn.button('reset');
+                            if (data) {
+                                $scope.output.push(_parseOutput(data));
+                                console.log('host.finished: ' + data);
+                            }
+                        });
+
+                        $socket.on('host.progress.' + host.id, $scope, function (data) {
+                            if (!data) return;
+                            $scope.output.push(_parseOutput(data));
+                            console.log('host.progress: ' + data);
+                        });
+
+                        $socket.on('host.error.' + host.id, $scope, function (data) {
+                            if (!data) return;
+                            $scope.output.push(_parseOutput(data));
+                            console.log('host.progress: ' + data);
+                        });
+
+                        $scope.sshCopyId = function (password, $event) {
+                            btn = $($event.target);
+                            btn.button('loading');
+                            $socket.emit('sshcopyid', {
+                                id: host.id,
+                                username: host.username,
+                                password: password,
+                                host: host.host,
+                                port: host.port
+                            });
+                        };
+
+                    }
+                });
             };
 
             $scope.removeHost = function () {
