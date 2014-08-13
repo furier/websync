@@ -6,9 +6,9 @@
     <div class="col-xs-10">
         <div class="input-group">
 
-            <input type="text" class="form-control" placeholder="Source" ng-model="path.source" data-animation="am-flip-x" ng-options="file as file.name for file in getChildrenForPath($viewValue)" bs-typeahead/>
+            <input type="text" class="form-control path-source" placeholder="Source" ng-model="path.source.name">
             <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></div>
-            <input type="text" class="form-control" placeholder="Destination" ng-model="path.destination" data-animation="am-flip-x" ng-options="file as file.name for file in getChildrenForPath($viewValue)" bs-typeahead/>
+            <input type="text" class="form-control path-destination" placeholder="Destination" ng-model="path.destination.name">
 
         </div>
     </div>

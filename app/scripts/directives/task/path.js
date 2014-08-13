@@ -14,6 +14,8 @@ module.exports = function ($modal, pathHelper, $socket) {
             var ph = pathHelper;
             var task = scope.task;
             var path = scope.path;
+            scope.sourceOptions = [];
+            scope.destinationOptions = [];
 
             scope.removePath = function () {
                 task.removePath(path);
@@ -48,17 +50,29 @@ module.exports = function ($modal, pathHelper, $socket) {
                 });
             };
 
-            scope.getChildrenForPath = function (pathString) {
-                if (!path) return;
-                $socket.emit('path.' + path.id + '.getChildren', pathString, function (children) {
-                    return children;
+            function _getChildrenForPath(pathObj, callback) {
+                //TODO: Needs to be fixed if to support windows in the future.
+                $socket.emit('path.getChildren', pathObj || {name: '/', type: 'directory'}, function (err, children) {
+                    if (err)
+                        console.error(err);
+                    callback(children);
                 });
-            };
+            }
 
-//            scope.$watch('path', function (n, o) {
-//                task.paths = ph.evalPaths(task.paths, path);
-//                task.saveDelayed(n, o);
-//            }, true);
+            scope.$watch('path.source.name', function () {
+                _getChildrenForPath(path.source, function (children) {
+                    scope.sourceOptions = children;
+                });
+            });
+            scope.$watch('path.destination.name', function () {
+                _getChildrenForPath(path.destination, function (children) {
+                    scope.destinationOptions = children;
+                });
+            });
+
+            scope.$watch('path', function (n, o) {
+                //task.saveDelayed(n, o);
+            }, true);
         }
     };
 };

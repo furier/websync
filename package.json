@@ -34,6 +34,7 @@
     "browserify": "^4.2.3",
     "browserify-shim": "^3.6.0",
     "connect-livereload": "^0.4.0",
+    "cssify": "^0.6.0",
     "gulp": "^3.8.6",
     "gulp-changed": "^0.4.0",
     "gulp-concat-css": "^0.1.4",
@@ -64,24 +65,18 @@
   "napa": {
     "scrollglue": "Luegg/angularjs-scroll-glue",
     "alertifyjs": "alertifyjs/alertify.js",
-    "angular-strap": "mgcrea/angular-strap"
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "cssify"
     ]
   },
   "browser": {
     "restangular": "./node_modules/restangular/dist/restangular.js",
     "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
     "angular-socket": "./app/scripts/ngSocket.js",
-    "angular-alertify": "./app/scripts/ngAlertify.js",
-    "angular-strap-typeahead": "./node_modules/angular-strap/dist/modules/typeahead.js",
-    "angular-strap-typeahead-tpl": "./node_modules/angular-strap/dist/modules/typeahead.tpl.js",
-    "angular-strap-tooltip": "./node_modules/angular-strap/dist/modules/tooltip.js",
-    "angular-strap-tooltip-tpl": "./node_modules/angular-strap/dist/modules/tooltip.tpl.js",
-    "angular-strap-dimensions": "./node_modules/angular-strap/dist/modules/dimensions.js",
-    "angular-strap-parse-options": "./node_modules/angular-strap/dist/modules/parse-options.js"
+    "angular-alertify": "./app/scripts/ngAlertify.js"
   },
   "browserify-shim": {
     "restangular": {
@@ -92,19 +87,6 @@
     "angular-socket": {
       "depends": [
         "socket.io-client:io"
-      ]
-    },
-    "angular-strap-tooltip": {
-      "depends": [
-        "angular-strap-tooltip-tpl",
-        "angular-strap-dimensions"
-      ]
-    },
-    "angular-strap-typeahead": {
-      "depends": [
-        "angular-strap-typeahead-tpl",
-        "angular-strap-tooltip",
-        "angular-strap-parse-options"
       ]
     }
   }

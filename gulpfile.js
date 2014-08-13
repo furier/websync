@@ -155,6 +155,14 @@ var ngAnnotate = require('gulp-ng-annotate');
             ignore: ['hosts.json', 'tasks.json']
         }).pipe(rimraf());
     });
+    gulp.task('development', function () {
+        //set node env variables
+        process.env.NODE_ENV = 'development';
+    });
+    gulp.task('production', function () {
+        //set node env variables
+        process.env.NODE_ENV = 'production';
+    });
 }());
 
 gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin', 'bower'], function () {
@@ -162,11 +170,13 @@ gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin', 'bower'], fu
         .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('dist', ['clean'], function () {
+// distribution / production task
+gulp.task('dist', ['production', 'clean'], function () {
     gulp.start(['copy-server-to-dist', 'build']);
 });
 
-gulp.task('default', ['server', 'livereload', 'build'], function () {
+// default development task
+gulp.task('default', ['development', 'server', 'livereload', 'build'], function () {
     gulp.watch('app/styles/**/*.css', ['css']);
     gulp.watch('app/views/**/*.html', ['html']);
     gulp.watch('app/fonts/**', ['fonts']);
