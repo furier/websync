@@ -7,6 +7,7 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 - [Installation](#installation)
 - [Screenshots](#screenshots)
 - [Features](#features)
+- [websync@docker](#websync-docker)
 - [Bugs & Requests/Enhancments](#bugs--requestsenhancments)
 - [Roadmap](#roadmap)
 - [Collaborate](#collaborate)
@@ -49,6 +50,17 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
   - Edit
   - Remove
   - ssh-copy-id to remote targets
+
+## websync@docker
+
+websync can now be found @ docker, get it [here](https://registry.hub.docker.com/u/furier/websync/)!
+
+All you have to do is
+
+    sudo docker pull furier/websync
+    sudo docker run -d -p 3000:3000 -v /path/to/share:/path/to/share -w /src furier/websync node server.js
+    
+and you are done!
 
 ## Bugs & Requests/Enhancments
 
