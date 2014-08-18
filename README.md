@@ -7,7 +7,7 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 - [Installation](#installation)
 - [Screenshots](#screenshots)
 - [Features](#features)
-- [websync@docker](#websync-docker)
+- [websync@docker](#websyncdocker)
 - [Bugs & Requests/Enhancments](#bugs--requestsenhancments)
 - [Roadmap](#roadmap)
 - [Collaborate](#collaborate)
