@@ -166,7 +166,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 }());
 
 gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin', 'bower'], function () {
-    gulp.src(['app/.htaccess', 'app/favicon.ico', 'app/robots.txt'])
+    gulp.src(['app/.htaccess', 'app/robots.txt'])
         .pipe(gulp.dest('dist/app'));
 });
 

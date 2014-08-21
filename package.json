@@ -64,7 +64,7 @@
   },
   "napa": {
     "scrollglue": "Luegg/angularjs-scroll-glue",
-    "alertifyjs": "alertifyjs/alertify.js",
+    "alertifyjs": "alertifyjs/alertify.js"
   },
   "browserify": {
     "transform": [
