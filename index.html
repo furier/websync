@@ -1,72 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>websync</title>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Websync : websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner." />
+    <link rel="icon" type="image/png" href="img/websync_icon.png">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <title>Websync</title>
-  </head>
+    <!--Custom styles-->
+    <link href="css/style.css" rel="stylesheet">
 
-  <body>
+</head>
+<body>
+	<section class="top">
+    	<nav>
+        	<div class="wrapper">
+                <ul>
+                    <li><a href="#"><span>web</span>sync</a></li>
+                </ul>
+                <ul class="pull-right">
+                    <li><a href="https://github.com/furier/websync/wiki"><i class="fa fa-globe"></i> wiki</a></li>
+                    <li><a href="https://github.com/furier/websync"><i class="fa fa-github"></i> github</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="headline">
+        <div class="wrapper">
+            <div class="">
+                <h2><span>web</span>sync</h2>
+                <img src="img/websync_tasks.png">
+                <p>websync is intended to be an rsync task manager, where tasks can be added, scheduled and maintained in a sane manner.</p>
+            </div>
+        </div>
+    </section>
+    <section class="promo">
+    	<h1>Finally an amazing user interface for rsync.</h1>
+        <p>With websync's great and intuitive user interface you can now easily set up and schedule backup tasks.</p>
+    </section>
+    <section class="highlights">
+        <div class="wrapper">
+            <div class="highlight">
+                <i class="fa fa-cog"></i>
+                <h2>Setup</h2>
+                <p>Setting up and managing backup tasks with websync is a breeze.</p>
+            </div>
+            <div class="highlight">
+                <i class="fa fa-cloud"></i>
+                <h2>Web Based</h2>
+                <p>Easy and intuitive web interface with node.js at the backend.</p>
+            </div>
+            <div class="highlight">
+                <i class="fa fa-th-list"></i>
+                <h2>Logging</h2>
+                <p>Output from the rsync tasks are shown real-time as logs in the web interface.</p>
+            </div>
+            <div class="highlight">
+                <i class="fa fa-linux"></i>
+                <h2>Unix</h2>
+                <p>Runs on any Unix-like operating system.</p>
+            </div>
+        </div>
+    </section>
+    <section class="demos">
+        <div class="wrapper">
+            <div class="demo clearfix">
+                <figure>
+                    <img src="img/websync_hosts.gif" />
+                </figure>
+                <h2>Manage hosts</h2>
+                <p>The hosts tab lets you add, remove and edit hosts connection information.<br><br>Clicking the SSH button prompts you for the password to log on to the target host, and then copies websync's SSH ID over, never to be prompted for the password again.</p>
+            </div>
+            <div class="demo clearfix">
+                <figure>
+                    <img src="img/websync_tasks.gif" />
+                </figure>
+                <h2>Manage tasks</h2>
+                <p>The tasks tab lets you view, add, remove, edit and schedule rsync jobs.<br><br>Either source or destination can be a remote host defined on the host tab. Easily add and remove rsync flags. Define multiple paths per task. etc.</p>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <footer class="wrapper">
+            <div><a href="https://github.com/furier/websync"><i class="fa fa-code-fork"></i><p>Fork me on GitHub</p></a></div>
+            <div><a href="https://www.gittip.com/furier"><i class="fa fa-gittip"></i><p>Tip me on Gittip</p></a></div>
+            <div><a href="https://twitter.com/furier84"><i class="fa fa-twitter"></i><p>Follow me on Twitter</p></a></div>
+            <div><a href="https://github.com/furier/websync/wiki/FAQ"><i class="fa fa-question"></i><p>Frequently Asked Questions</p></a></div>
+        </footer>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/furier/websync">View on GitHub</a>
-
-          <h1 id="project_title">Websync</h1>
-          <h2 id="project_tagline">websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/furier/websync/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/furier/websync/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="websync" class="anchor" href="#websync"><span class="octicon octicon-link"></span></a>websync</h1>
-
-<p>websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.</p>
-
-<h1>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
-
-<pre><code>git clone https://github.com/furier/websync.git
-npm install
-bower install
-</code></pre>
-
-<p>Rename the following file <code>tasks.json.default</code> to <code>tasks.json</code></p>
-
-<p>Start the server with the command:</p>
-
-<pre><code>node server.js
-</code></pre>
-
-<p>or</p>
-
-<pre><code>grunt serve
-</code></pre>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Websync maintained by <a href="https://github.com/furier">furier</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+    <script src="scripts/live.js"></script>
+</body>
 </html>
