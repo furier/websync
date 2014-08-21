@@ -1,0 +1,410 @@
+/*reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*general styles*/
+
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #404040;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 41px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h1, h2 {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
+a.button {
+    background-color: #428bca;
+    padding: 0.7em 2.8em;
+    color: #fff;
+    border: 0.1em solid #fff;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+
+    transition: all 0.1s;
+}
+
+a.button:hover {
+    background-color: #428bca;
+    -ms-transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+.wrapper {
+    width: 944px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+.pull-right {
+    float: right;
+}
+
+nav, .highlights, .demos, .footer {
+    float: left;
+    width: 100%;
+}
+
+footer div {
+    float: left;
+}
+
+.promo, .highlight {
+    text-align: center;
+}
+
+.highlight, footer div {
+    display: block;
+    float: left;
+    width: 22%;
+    margin-right: 4%;
+}
+
+.highlight:last-child, footer div:last-child {
+    margin-right: 0%;
+}
+
+nav ul li a, footer a, .headline h2, .headline p, .highlights p, .highlights h2 {
+    color: #fff;
+    text-decoration: none;
+}
+
+.highlights h2 span {
+    font-weight: 800;
+}
+
+nav ul li a:hover, footer a:hover {
+    color: #428bca;
+}
+
+.promo, .highlights, .demos, .footer {
+    padding: 100px 0;
+}
+
+nav, .footer {
+    background-color: #404040;
+}
+
+.headline, .highlights {
+    /*background-color:#429b97;*/
+    background-color: #428bca;
+}
+
+/*custom styles*/
+
+nav ul li a {
+    display: block;
+    float: left;
+    font-size: 22px;
+    padding: 0 30px;
+    margin: 30px 40px 30px 0;
+}
+
+nav ul li a span {
+    font-weight: 800;
+}
+
+.headline {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.headline .wrapper {
+    width: 1024px;
+    padding: 0;
+}
+
+.headline h2 {
+    font-size: 72px;
+    margin-bottom: 50px;
+}
+
+.headline h2 span {
+    font-weight: 800;
+}
+
+.headline p {
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.headline a.button {
+    font-size: 24px;
+}
+
+.promo {
+    width: 500px;
+    clear: left;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.highlight i {
+    font-size: 100px;
+    color: #334373;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.demo {
+    margin-bottom: 100px;
+}
+
+.demo:last-child {
+    margin-bottom: 0;
+}
+
+.demo:nth-child(even) figure {
+    float: left;
+    margin-left: -10px;
+    margin-right: 35px;
+}
+
+.demo:nth-child(odd) figure {
+    float: right;
+    margin-right: -10px;
+    margin-left: 35px;
+}
+
+.demo > figure {
+    width: 500px;
+    background: url('../img/mac-placeholder.png') no-repeat;
+}
+
+.demo > figure > img {
+    width: 82%;
+    margin: 24px 24px 97px;
+}
+
+footer a p {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+footer a i {
+    font-size: 72px;
+    float: left;
+    margin-right: 15px;
+}
+
+/*media queries*/
+@media (max-width: 1024px) {
+    .wrapper {
+        width: auto;
+    }
+
+    .headline .wrapper {
+        width: auto;
+    }
+}
+
+@media (max-width: 1165px) {
+    .bx-wrapper .bx-prev {
+        left: -20px;
+    }
+
+    .bx-wrapper .bx-next {
+        right: -20px;
+    }
+}
+
+@media (max-width: 1065px) {
+    .bx-controls {
+        display: none;
+    }
+}
+
+@media (max-width: 950px) {
+    .headline img {
+        display: none;
+    }
+
+    .headlinetext {
+        margin: 85px 40px;
+    }
+
+    .highlight, footer div {
+        display: block;
+        float: left;
+        margin-right: 4%;
+        width: 46%;
+    }
+
+    .highlight:nth-child(even), footer div:nth-child(even) {
+        margin-right: 0;
+    }
+
+    .highlight:first-child, footer div:first-child, .highlight:nth-child(2), footer div:nth-child(2) {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 580px) {
+    nav ul li a {
+        float: none;
+        margin: 30px 0;
+        padding: 0;
+    }
+
+    .promo {
+        width: auto;
+    }
+
+    .highlight, footer div {
+        width: 100%;
+        margin-bottom: 50px;
+        margin-right: 0;
+    }
+
+    .highlight:last-child {
+        margin: 0;
+    }
+
+    .demo:nth-child(odd) figure {
+        margin: 0 0 40px 0;
+        float: none;
+    }
+
+    .demo:nth-child(even) figure {
+        float: none;
+        margin: 0 0 40px 0;
+    }
+
+    .demo figure img {
+        width: 313px;
+
+    }
+
+    .footer {
+        padding: 100px 0 40px;
+    }
+}
+
+@media (max-width: 390px) {
+    .headlinetext {
+        margin: 85px 20px;
+    }
+
+    .wrapper {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 370px) {
+    .headlinetext h2 {
+        font-size: 62px;
+    }
+
+    .headlinetext p {
+        font-size: 30px;
+    }
+
+    .headlinetext a.button {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 340px) {
+    .demo figure img {
+        width: 278px;
+    }
+}
+
+/*clearfixing wrapper*/
+
+.wrapper:before,
+.wrapper:after {
+    content: " ";
+    display: table;
+}
+
+.wrapper:after {
+    clear: both;
+}
+
+.wrapper {
+    *zoom: 1;
+}
+
+/*clearfix*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
