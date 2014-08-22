@@ -8,6 +8,7 @@ var fs = require('fs');
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var browserify = require('browserify');
 var watchify = require('watchify');
 var cssmin = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -82,12 +83,18 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(rename({suffix: '.min'}))
                 .pipe(gulp.dest('dist/app/scripts/min'));
         });
+        //Using browserify to run once
+        gulp.task('browserify', function () {
+            var b = browserify();
+            b.add('./app/scripts/app.js');
+            b.bundle().pipe(source('bundle.js'))
+                      .pipe(gulp.dest('dist/app/scripts'));
+        });
+        //Using watchify to watch changes and rebuild continuously
         gulp.task('watchify', function () {
-
             var bundler = watchify('./app/scripts/app.js');
-            bundler.transform('brfs');
+            //bundler.transform('brfs');
             bundler.on('update', rebundle);
-
             function rebundle() {
                 return bundler.bundle()
                     // log errors if they happen
@@ -97,7 +104,6 @@ var ngAnnotate = require('gulp-ng-annotate');
                     .pipe(source('bundle.js'))
                     .pipe(gulp.dest('dist/app/scripts'))
             }
-
             return rebundle();
         });
         gulp.task('js', ['jshint', 'uglify']);
@@ -120,7 +126,7 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(rename('wsdata.json'))
                 .pipe(gulp.dest('dist'));
         }
-        gulp.src('server.js')
+        gulp.src(['server.js', 'package.json', '.bowerrc', 'bower.json'])
             .pipe(gulp.dest('dist'));
         gulp.src('lib/**')
             .pipe(gulp.dest('dist/lib'));
@@ -128,13 +134,15 @@ var ngAnnotate = require('gulp-ng-annotate');
             .pipe(gulp.dest('dist/assets'));
     });
     gulp.task('server', ['copy-server-to-dist'], function () {
-        //process.env.DEBUG = 'socket.io*';
-        process.env.DEBUG = null;
         gulp.watch(['server.js', 'lib/**'], ['copy-server-to-dist']);
-        nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development' }, watch: ['lib', 'assets', 'server.js'] })
-            .on('restart', function () {
-                console.log('restarted!')
-            });
+        // If nodemon starts too quick, files hasn't always been copied over before the server is started
+        // resulting in nodemon crashing...
+        setTimeout(function () {
+            nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development', 'DEBUG': null }, watch: ['lib', 'assets', 'server.js'] })
+                .on('restart', function () {
+                    console.log('restarted!')
+                });
+        }, 1000);
     });
 
 }());
@@ -150,23 +158,23 @@ var ngAnnotate = require('gulp-ng-annotate');
         ]).on('change', livereload.changed);
     });
     gulp.task('clean', function () {
-        gulp.src('dist/**', {
-            read: false,
-            ignore: ['hosts.json', 'tasks.json']
+        gulp.src(['dist/app', 'dist/lib', 'dist/assets', 'dist/*.json', 'dist/server.js', 'dist/.bowerrc', '!dist/wsdata.json'], {
+            read: false
         }).pipe(rimraf());
     });
 }());
 
-gulp.task('build', ['watchify', 'html', 'css', 'fonts', 'imagemin', 'bower'], function () {
-    gulp.src(['app/.htaccess', 'app/favicon.ico', 'app/robots.txt'])
+gulp.task('build', ['html', 'css', 'fonts', 'imagemin', 'bower'], function () {
+    gulp.src(['app/.htaccess', 'app/robots.txt'])
         .pipe(gulp.dest('dist/app'));
 });
+gulp.task('build-prod', ['browserify', 'build']);
+gulp.task('build-dev', ['watchify', 'build']);
 
-gulp.task('dist', ['clean'], function () {
-    gulp.start(['copy-server-to-dist', 'build']);
-});
 
-gulp.task('default', ['server', 'livereload', 'build'], function () {
+gulp.task('dist', ['clean', 'copy-server-to-dist', 'build-prod']);
+
+gulp.task('default', ['server', 'livereload', 'build-dev'], function () {
     gulp.watch('app/styles/**/*.css', ['css']);
     gulp.watch('app/views/**/*.html', ['html']);
     gulp.watch('app/fonts/**', ['fonts']);

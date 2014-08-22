@@ -68,7 +68,8 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "brfs"
     ]
   },
   "browser": {
