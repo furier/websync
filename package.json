@@ -34,7 +34,6 @@
     "browserify": "^4.2.3",
     "browserify-shim": "^3.6.0",
     "connect-livereload": "^0.4.0",
-    "cssify": "^0.6.0",
     "gulp": "^3.8.6",
     "gulp-changed": "^0.4.0",
     "gulp-concat-css": "^0.1.4",
@@ -64,19 +63,21 @@
   },
   "napa": {
     "scrollglue": "Luegg/angularjs-scroll-glue",
-    "alertifyjs": "alertifyjs/alertify.js"
+    "alertifyjs": "alertifyjs/alertify.js",
+    "angu-poly": "matjaz/angu-poly"
   },
   "browserify": {
     "transform": [
       "browserify-shim",
-      "cssify"
+      "brfs"
     ]
   },
   "browser": {
     "restangular": "./node_modules/restangular/dist/restangular.js",
     "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
     "angular-socket": "./app/scripts/ngSocket.js",
-    "angular-alertify": "./app/scripts/ngAlertify.js"
+    "angular-alertify": "./app/scripts/ngAlertify.js",
+    "angu-poly": "./node_modules/angu-poly/angupoly.js"
   },
   "browserify-shim": {
     "restangular": {
