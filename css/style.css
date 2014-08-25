@@ -184,7 +184,7 @@ nav ul li a span {
 
 .headline h2 {
     font-size: 72px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .headline h2 span {
@@ -193,7 +193,7 @@ nav ul li a span {
 
 .headline p {
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .headline a.button {
