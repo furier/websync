@@ -12,6 +12,7 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 - [Roadmap](#roadmap)
 - [Collaborate](#collaborate)
 - [Contact](#contact)
+- [FAQ](https://github.com/furier/websync/wiki/FAQ)
 - [License](#license---mit)
 
 ## Installation
