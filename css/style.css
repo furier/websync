@@ -149,7 +149,6 @@ nav, .footer {
 }
 
 .headline, .highlights {
-    /*background-color:#429b97;*/
     background-color: #428bca;
 }
 
@@ -176,28 +175,26 @@ nav ul li a span {
     text-align: center;
     font-weight: 400;
 }
-
 .headline .wrapper {
     width: 1024px;
     padding: 0;
 }
-
 .headline h2 {
     font-size: 72px;
     margin-bottom: 25px;
 }
-
 .headline h2 span {
     font-weight: 800;
 }
-
+.headline img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 45px;
+}
 .headline p {
     font-size: 30px;
-    margin-top: 25px;
-}
-
-.headline a.button {
-    font-size: 24px;
+    margin-top: 50px;
 }
 
 .promo {
@@ -254,6 +251,24 @@ footer a i {
     font-size: 72px;
     float: left;
     margin-right: 15px;
+}
+
+a.tryme {
+    color: #428bca;
+    background: #ffffff;
+    border: 0;
+    border-radius: 0;
+    padding: 15px 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+a.tryme:hover, a.tryme:focus {
+    color: #ffffff;
+    background: #334373;
 }
 
 /*media queries*/
