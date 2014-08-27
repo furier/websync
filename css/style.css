@@ -257,7 +257,7 @@ a.tryme {
     color: #428bca;
     background: #ffffff;
     border: 0;
-    border-radius: 0;
+    border-radius: 5px;
     padding: 15px 50px;
     font-size: 40px;
     font-weight: bold;
@@ -265,10 +265,13 @@ a.tryme {
     -webkit-transition-duration: 0.1s;
     -moz-transition-duration: 0.1s;
     transition-duration: 0.1s;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
 }
 a.tryme:hover, a.tryme:focus {
     color: #ffffff;
     background: #334373;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 1);
 }
 
 /*media queries*/
