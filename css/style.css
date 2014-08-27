@@ -265,7 +265,6 @@ a.tryme {
     -webkit-transition-duration: 0.1s;
     -moz-transition-duration: 0.1s;
     transition-duration: 0.1s;
-    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 a.tryme:hover, a.tryme:focus {
     color: #ffffff;
