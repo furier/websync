@@ -19,6 +19,7 @@ _websync is intended to be an **rsync task manager**, where rsync tasks can be a
 
 - [OS X](https://github.com/furier/websync/wiki/Installation---OS-X)
 - [Ubuntu](https://github.com/furier/websync/wiki/Installation---Ubuntu)
+- [Debian](https://github.com/furier/websync/wiki/Installation-Debian-6)
 - Should work for any unix like system.
 
 ## Screenshots
