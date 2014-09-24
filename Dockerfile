@@ -1,37 +1,36 @@
-#
-# Select Base image, we choose a Nodejs base 
-# because it has already all the ingredients for 
-# our Nodejs app
-#
-FROM    dockerfile/nodejs
+FROM node:latest
 
-#
-# Bundle our app source with the container, we
-# could also be fetching the code from a git 
-# repo, or really anything else.
-#
-ADD ./dist /src
+MAINTAINER Sander Struijk, furier84+docker@gmail.com
 
-#
-# Install app dependencies - Got to install them 
-# all! :)
-#
-RUN cd /src; npm install
+# set user root
+USER root
 
-# 
-# Which ports you want to be exposing from this 
-# container
-#
+# install base dependencies
+RUN apt-get install sshpass
+
+# create user
+RUN useradd -m -d /home/wsuser -p wsuser wsuser
+
+# set HOME env
+ENV HOME /home/wsuser
+
+# set working directory
+WORKDIR /home/wsuser/websync
+
+# make the wsuser own
+RUN chown -R wsuser:wsuser /home/wsuser
+
+# set user wsuser
+USER wsuser
+
+# install websync
+RUN npm install websync
+
+# create SSH key
+RUN ssh-keygen -t rsa -N "" -f /home/wsuser/.ssh/id_rsa
+
+# expose websync server port
 EXPOSE  3000
 
-#
-# Specify the runtime (node) and the source to 
-# be run
-#
-CMD ["node", "/src/server.js"]
-
-#
-# Note: You can do pretty much anything you 
-# would do in a command line, using the `RUN` 
-# prefix 
-#
+# start websync
+CMD npm start
