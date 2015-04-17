@@ -30,6 +30,7 @@
     "underscore.string": "^2.3.3"
   },
   "devDependencies": {
+    "bower": "^1.4.1",
     "brfs": "^1.1.2",
     "browserify": "^4.2.3",
     "browserify-shim": "^3.6.0",
@@ -59,7 +60,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "install": "napa"
+    "install": "napa && bower install && gulp dist"
   },
   "napa": {
     "scrollglue": "Luegg/angularjs-scroll-glue",
