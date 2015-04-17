@@ -4,3 +4,4 @@
 *.sublime*
 wsdata.json
 /dist/
+npm-debug.log
