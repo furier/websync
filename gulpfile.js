@@ -48,10 +48,10 @@ var ngAnnotate = require('gulp-ng-annotate');
         gulp.task('css', function () {
             gulp.src('app/styles/**/*.css')
                 //.pipe(concatCss('bundle.css'))
-                .pipe(gulp.dest('dist/app/styles'))
+                .pipe(gulp.dest('dist/app/styles'))/*
                 .pipe(cssmin())
                 .pipe(rename({suffix: '.min'}))
-                .pipe(gulp.dest('dist/app/styles'));
+                .pipe(gulp.dest('dist/app/styles'))*/;
             gulp.src(['node_modules/alertifyjs/src/css/core.css',
                 'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
                 .pipe(changed('dist/app/styles'))

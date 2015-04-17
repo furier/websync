@@ -3,3 +3,4 @@
 /.idea/
 *.sublime*
 wsdata.json
+/dist/
