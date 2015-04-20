@@ -5,10 +5,15 @@
     <!--TASK HEADER TITLE-->
     <h4 class="panel-title">{{task.name}}</h4>
 
-    <!--TASK DELETE BUTTON-->
-    <button class="btn btn-danger pull-right" title="Remove task" ng-click="task.delete()">
-        <span class="glyphicon glyphicon-trash"></span>
-    </button>
+    <div class="btn-group pull-right">
+
+        <!--TASK CLONE BUTTON-->
+        <button class="btn btn-success" title="Clone task" ng-click="task.clone($event)"><span class="fa fa-files-o"></span></button>
+
+        <!--TASK DELETE BUTTON-->
+        <button class="btn btn-danger" title="Remove task" ng-click="task.delete()"><span class="glyphicon glyphicon-trash"></span></button>
+
+    </div>
 
 </div>
 

@@ -3,6 +3,8 @@
  */
 'use strict';
 
+var _ = require('lodash');
+
 module.exports = function (toolkit, Restangular) {
 
     var guid = toolkit.guid;
@@ -35,20 +37,20 @@ module.exports = function (toolkit, Restangular) {
             }
         };
         task.run = function () {
-            console.debug('run task: ' + task.id);
+            console.debug('run task.id: ' + task.id);
             Restangular.one('runtask', task.id).post();
         };
         task.test = function () {
-            console.debug('test task: ' + task.id);
+            console.debug('test task.id: ' + task.id);
             Restangular.one('testtask', task.id).post();
         };
         task.addPath = function (path) {
-            console.debug('adding path for task: ' + task.id);
+            console.debug('adding path for task.id: ' + task.id);
             task.paths.push(path);
             saveTask(task);
         };
         task.injectAfterPath = function (path, path2Inject) {
-            console.debug('cloning path for task: ' + task.id);
+            console.debug('cloning path for task.id: ' + task.id);
             var index = task.paths.indexOf(path);
             task.paths.splice(index + 1, 0, path2Inject);
             saveTask(task);
@@ -73,6 +75,15 @@ module.exports = function (toolkit, Restangular) {
         };
         task.toggleScheduleEnabled = function () {
             task.schedule.enabled = !task.schedule.enabled;
+        };
+        task.clone = function (e) {
+            var clonedTask = _.clone(task);
+            clonedTask.id = guid();
+            tasks.post(clonedTask).then(function (clonedTask) {
+                console.debug('cloning task.id: ' + task.id + ' as task.id: ' + clonedTask.id);
+                tasks.push(clonedTask);
+            });
+            e.stopPropagation();
         };
 
         return task;
@@ -118,7 +129,7 @@ module.exports = function (toolkit, Restangular) {
         newTask: function () {
             var task = _createTask();
             return tasks.post(task).then(function (task) {
-                console.debug('Adding task:id ' + task.id);
+                console.debug('Adding task.id: ' + task.id);
                 tasks.push(task);
             });
         }
