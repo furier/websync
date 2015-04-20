@@ -48,6 +48,12 @@ module.exports = function (toolkit, Restangular) {
                 task.inProgress = true;
             });
         };
+        task.cancel = function () {
+            console.debug('canceling task.id: ' + task.id);
+            Restangular.one('canceltask', task.id).post().then(function () {
+                task.inProgress = false;
+            });
+        };
         task.addPath = function (path) {
             console.debug('adding path for task.id: ' + task.id);
             task.paths.push(path);
@@ -83,6 +89,8 @@ module.exports = function (toolkit, Restangular) {
         task.clone = function (e) {
             var clonedTask = _.clone(task);
             clonedTask.id = guid();
+            //If cloning a task in progress the new one should not have its state set to in progress
+            clonedTask.inProgress = false;
             tasks.post(clonedTask).then(function (clonedTask) {
                 console.debug('cloning task.id: ' + task.id + ' as task.id: ' + clonedTask.id);
                 tasks.push(clonedTask);

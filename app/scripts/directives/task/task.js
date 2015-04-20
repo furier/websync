@@ -32,6 +32,7 @@ module.exports = function ($socket, pathHelper) {
 
             $socket.on('task.progress.' + task.id, $scope, function (data) {
                 if (data) {
+                    task.inProgress = true;
                     var strip = 'rsync:';
                     var stripError = 'rsync error:';
                     if (_.startsWith(data, strip)) {

@@ -2,7 +2,8 @@
 
 <div class="panel-footer clearfix">
     <div class="pull-right">
-        <button type="button" class="btn btn-primary margin-left" ng-click="task.run()" ng-class="{disabled: task.inProgress}">Run</button>
+        <button type="button" class="btn btn-primary margin-left" ng-click="task.run()" ng-if="!task.inProgress">Run</button>
+        <button type="button" class="btn btn-primary margin-left" ng-click="task.cancel()" ng-if="task.inProgress">Cancel</button>
         <button type="button" class="btn btn-primary margin-left" ng-click="task.test()" ng-class="{disabled: task.inProgress}" title="Dry run">Test</button>
     </div>
 </div>
