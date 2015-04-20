@@ -19,6 +19,7 @@ module.exports = function ($socket, pathHelper) {
             }
 
             $socket.on('task.finished.' + task.id, $scope, function (data) {
+                task.inProgress = false;
                 if (data && data.error) {
                     var msg = data.error + ' (' + data.errorCode.message + ')';
                     log.push({type: 'list-group-item-danger', msg: msg});

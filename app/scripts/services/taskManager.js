@@ -38,11 +38,15 @@ module.exports = function (toolkit, Restangular) {
         };
         task.run = function () {
             console.debug('run task.id: ' + task.id);
-            Restangular.one('runtask', task.id).post();
+            Restangular.one('runtask', task.id).post().then(function () {
+                task.inProgress = true;
+            });
         };
         task.test = function () {
             console.debug('test task.id: ' + task.id);
-            Restangular.one('testtask', task.id).post();
+            Restangular.one('testtask', task.id).post().then(function () {
+                task.inProgress = true;
+            });
         };
         task.addPath = function (path) {
             console.debug('adding path for task.id: ' + task.id);
