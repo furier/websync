@@ -1,0 +1,92 @@
+.crumb {
+    display: block;
+    background: #ffffff;
+    margin-bottom: 0;
+    white-space: nowrap;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #d3d3d3;
+    a {
+        text-decoration: none;
+        outline: none;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 36px;
+        color: white;
+        padding: 0 10px 0 36px;
+        background: #666;
+        background: linear-gradient(#666, #333);
+        position: relative;
+        &:last-child {
+            border-radius: 0 5px 5px 0;
+            /*this was to prevent glitches on hover*/
+            padding-right: 20px;
+        }
+        &:first-child {
+            ~ a {
+                border-radius: 0 5px 5px 0;
+            }
+            padding-left: 20px;
+            border-radius: 5px 5px 5px 0;
+        }
+        &.active, &:hover {
+            background: #333;
+            background: linear-gradient(#333, #000);
+        }
+        &.active:after, &:hover:after {
+            background: #333;
+            background: linear-gradient(135deg, #333, #000);
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -18px;
+            /*half of square's length*/
+            /*same dimension as the line-height of .crumb a */
+            width: 36px;
+            height: 36px;
+            /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
+            length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+            if diagonal required = 1; length = 1/1.414 = 0.707*/
+            transform: scale(0.707) rotate(45deg);
+            /*we need to prevent the arrows from getting buried under the next link*/
+            z-index: 1;
+            /*background same as links but the gradient will be rotated to compensate with the transform applied*/
+            background: #666;
+            background: linear-gradient(135deg, #666, #333);
+            /*stylish arrow design using box shadow*/
+            box-shadow: 2px -2px 0 2px rgba(0, 0, 0, 0.4), 3px -3px 0 2px rgba(255, 255, 255, 0.1);
+            /*
+                5px - for rounded arrows and
+                50px - to prevent hover glitches on the border created using shadows*/
+            border-radius: 0 5px 0 50px;
+        }
+        &:last-child:after {
+            content: none;
+        }
+    }
+}
+
+/*hover/active styles*/
+
+/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+
+/*we don't need an arrow after the last link*/
+
+.flat a {
+    background: white;
+    color: black;
+    transition: all 0.5s;
+    &:after {
+        background: white;
+        color: black;
+        transition: all 0.5s;
+    }
+    &:before {
+        background: white;
+        box-shadow: 0 0 0 1px #ccc;
+    }
+    &:hover, &.active, &:hover:after, &.active:after {
+        background: #9EEB62;
+    }
+}

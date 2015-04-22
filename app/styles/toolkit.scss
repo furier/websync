@@ -1,5 +1,5 @@
-@import url('margins.css');
-@import url('paddings.css');
+@import "margins";
+@import "paddings";
 
 .unselectable {
     -webkit-touch-callout: none;
@@ -19,13 +19,10 @@
     cursor: pointer;
 }
 
-/*noinspection CssInvalidPseudoSelector*/
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-/*noinspection CssInvalidElement*/
 .hide-scrollbar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
 }

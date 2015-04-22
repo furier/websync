@@ -1,0 +1,26 @@
+.host-list-item {
+    background: #dedede;
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: thin solid #d3d3d3;
+    margin-bottom: 8px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    div {
+        padding: 0;
+    }
+    > div {
+        &:first-child {
+            padding: 0 10px 0 0;
+        }
+        > div > {
+            div {
+                padding: 0 5px;
+            }
+            input:last-child {
+                width: 90px !important;
+            }
+        }
+    }
+}

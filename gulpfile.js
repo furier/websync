@@ -11,6 +11,7 @@ var gutil = require('gulp-util');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var cssmin = require('gulp-minify-css');
+var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rimraf = require('gulp-rimraf');
 var rename = require('gulp-rename');
@@ -45,13 +46,12 @@ var ngAnnotate = require('gulp-ng-annotate');
     }());
 
     (function styles() {
+        gulp.task('scss', function () {
+            gulp.src('app/styles/**/*.scss')
+                .pipe(sass())
+                .pipe(gulp.dest('dist/app/styles'))
+        });
         gulp.task('css', function () {
-            gulp.src('app/styles/**/*.css')
-                //.pipe(concatCss('bundle.css'))
-                .pipe(gulp.dest('dist/app/styles'))/*
-                .pipe(cssmin())
-                .pipe(rename({suffix: '.min'}))
-                .pipe(gulp.dest('dist/app/styles'))*/;
             gulp.src(['node_modules/alertifyjs/src/css/core.css',
                 'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
                 .pipe(changed('dist/app/styles'))
@@ -164,7 +164,7 @@ var ngAnnotate = require('gulp-ng-annotate');
     });
 }());
 
-gulp.task('build', ['html', 'css', 'fonts', 'imagemin', 'bower'], function () {
+gulp.task('build', ['html', 'scss', 'css', 'fonts', 'imagemin', 'bower'], function () {
     gulp.src(['app/.htaccess', 'app/robots.txt'])
         .pipe(gulp.dest('dist/app'));
 });
@@ -175,7 +175,7 @@ gulp.task('build-dev', ['watchify', 'build']);
 gulp.task('dist', ['clean', 'copy-server-to-dist', 'build-prod']);
 
 gulp.task('default', ['server', 'livereload', 'build-dev'], function () {
-    gulp.watch('app/styles/**/*.css', ['css']);
+    gulp.watch('app/styles/**/*.scss', ['scss']);
     gulp.watch('app/views/**/*.html', ['html']);
     gulp.watch('app/fonts/**', ['fonts']);
     gulp.watch('app/bower_components/**', ['bower']);

@@ -1,0 +1,26 @@
+@import "task-header";
+
+.path-list-item {
+    background: #dedede;
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: thin solid #d3d3d3;
+    margin-bottom: 8px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .path-arrow {
+        padding: 0 5px;
+    }
+}
+
+#accordion > task > div {
+    margin-bottom: 10px;
+    &.panel.panel-default > div > div.panel-body > div.scheduler {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        > label {
+            width: 100px;
+        }
+    }
+}
