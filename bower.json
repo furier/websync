@@ -20,6 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "css-toggle-switch": "~2.1.6"
+    "css-toggle-switch": "~2.1.6",
+    "bootstrap-sass": "~3.3.4"
   }
 }

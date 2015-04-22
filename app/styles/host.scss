@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 .host-list-item {
     background: #dedede;
     padding: 15px 10px;
@@ -7,20 +9,29 @@
     &:last-child {
         margin-bottom: 0;
     }
-    div {
-        padding: 0;
+    .input-group-addon {
+        padding: 0 5px;
+    }
+    @media (min-width: $screen-sm-min) {
+        .btn-group-justified {
+            padding: 0 0 0 10px;
+        }
     }
     > div {
+        padding: 5px 0 0 0;
         &:first-child {
-            padding: 0 10px 0 0;
+            padding: 0;
         }
-        > div > {
-            div {
-                padding: 0 5px;
+        @media (min-width: $screen-sm-min) {
+            padding: 0;
+            &:first-child {
+                padding: 0 10px 0 0;
             }
-            input:last-child {
+        }
+        /*.input-group input {
+            &:last-child {
                 width: 90px !important;
             }
-        }
+        }*/
     }
 }

@@ -3,13 +3,13 @@
 <li class="clearfix host-list-item">
 
     <!--INPUTS-->
-    <div class="col-xs-3">
+    <div class="col-md-3 col-sm-3 col-xs-12">
 
         <!--ALIAS-->
         <input name="alias" type="text" class="form-control" placeholder="Alias" ng-model="host.alias">
 
     </div>
-    <div class="col-xs-7">
+    <div class="col-md-7 col-sm-6 col-xs-12">
         <div class="input-group">
 
             <!--USERNAME-->
@@ -27,17 +27,19 @@
     </div>
 
     <!--BUTTONS / ACTIONS-->
-    <div class="col-xs-2">
+    <div class="col-md-2 col-sm-3 col-xs-12">
 
-        <div class="btn-group pull-right">
+        <div class="btn-group btn-group-justified pull-right" role="group">
 
             <!--COPY SSH ID BUTTON-->
-            <button class="btn btn-primary" title="Copy ssh id to target host." ng-click="showSshCopyIdModal()" ng-class="{disabled: isLastAndBlank()}">
-                <span class="glyphicon glyphicon-upload"></span> SSH
-            </button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" title="Copy ssh id to target host." ng-click="showSshCopyIdModal()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-upload"></span> SSH</button>
+            </div>
 
             <!--DELETE HOST BUTTON-->
-            <button class="btn btn-danger" title="Remove Host" ng-click="removeHost()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-trash"></span></button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-danger" title="Remove Host" ng-click="removeHost()" ng-class="{disabled: isLastAndBlank()}"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
 
         </div>
 

@@ -1,4 +1,5 @@
 @import "task-header";
+@import "bootstrap";
 
 .path-list-item {
     background: #dedede;
@@ -9,8 +10,19 @@
     &:last-child {
         margin-bottom: 0;
     }
-    .path-arrow {
+    > div {
+        padding: 0;
+    }
+    .input-group-addon {
         padding: 0 5px;
+    }
+    .btn-group-justified {
+        padding: 5px 0 0 0;
+    }
+    @media (min-width: $screen-sm-min) {
+        .btn-group-justified {
+            padding: 0 0 0 10px;
+        }
     }
 }
 

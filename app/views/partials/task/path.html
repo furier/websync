@@ -3,7 +3,7 @@
 <li class="clearfix path-list-item">
 
     <!--INPUTS-->
-    <div class="col-xs-10">
+    <div class="col-sm-10 col-xs-12">
         <div class="input-group">
 
             <input type="text" class="form-control" placeholder="Source" ng-model="path.source"/>
@@ -14,18 +14,18 @@
     </div>
 
     <!--BUTTONS / ACTIONS-->
-    <div class="col-xs-2">
+    <div class="col-sm-2 col-xs-12">
 
-        <div class="btn-group pull-right">
+        <div class="btn-group btn-group-justified" role="group">
 
             <!--TOGGLE FILE BROWSER-->
             <!--<button class="btn btn-primary" title="Browse files" ng-click="browse()"><span class="glyphicon glyphicon-folder-open"></span></button>-->
 
             <!--CLONE PATH BUTTON-->
-            <button class="btn btn-success" title="Clone path" ng-click="clonePath()" ng-class="{disabled: isBlank()}"><span class="fa fa-files-o"></span></button>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-success" title="Clone path" ng-click="clonePath()" ng-class="{disabled: isBlank()}"><span class="fa fa-files-o"></span></button></div>
 
             <!--DELETE PATH BUTTON-->
-            <button class="btn btn-danger" title="Remove Path" ng-click="removePath()" ng-class="{disabled: isBlankAndLast()}"><span class="glyphicon glyphicon-trash"></span></button>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-danger" title="Remove Path" ng-click="removePath()" ng-class="{disabled: isBlankAndLast()}"><span class="glyphicon glyphicon-trash"></span></button></div>
 
         </div>
 
