@@ -19,7 +19,7 @@ var jshint = require('gulp-jshint');
 var changed = require('gulp-changed');
 var nodemon = require('gulp-nodemon');
 var imagemin = require('gulp-imagemin');
-var concatCss = require('gulp-concat-css');
+var concatCss = require('gulp-concat-css'); 
 var source = require('vinyl-source-stream');
 var livereload = require('gulp-livereload');
 var minifyHTML = require('gulp-minify-html');
@@ -52,7 +52,7 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(gulp.dest('dist/app/styles'))
         });
         gulp.task('css', function () {
-            gulp.src(['node_modules/alertifyjs/src/css/core.css',
+            gulp.src(['node_modules/alertifyjs/src/css/alertify.css',
                 'node_modules/alertifyjs/src/css/themes/bootstrap/bootstrap.css'])
                 .pipe(changed('dist/app/styles'))
                 .pipe(concatCss('alertify.css'))
