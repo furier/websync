@@ -3,14 +3,13 @@
  */
 'use strict';
 
-var path = require('path');
 var fs = require('fs');
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var browserify = require('browserify');
 var watchify = require('watchify');
-var cssmin = require('gulp-minify-css');
+var cssnano = require('gulp-cssnano');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rimraf = require('gulp-rimraf');
@@ -19,10 +18,9 @@ var jshint = require('gulp-jshint');
 var changed = require('gulp-changed');
 var nodemon = require('gulp-nodemon');
 var imagemin = require('gulp-imagemin');
-var concatCss = require('gulp-concat-css'); 
+var concatCss = require('gulp-concat-css');
 var source = require('vinyl-source-stream');
 var livereload = require('gulp-livereload');
-var minifyHTML = require('gulp-minify-html');
 var ngAnnotate = require('gulp-ng-annotate');
 
 (function client() {
@@ -49,7 +47,7 @@ var ngAnnotate = require('gulp-ng-annotate');
         gulp.task('scss', function () {
             gulp.src('app/styles/**/*.scss')
                 .pipe(sass())
-                .pipe(gulp.dest('dist/app/styles'))
+                .pipe(gulp.dest('dist/app/styles'));
         });
         gulp.task('css', function () {
             gulp.src(['node_modules/alertifyjs/src/css/alertify.css',
@@ -57,7 +55,7 @@ var ngAnnotate = require('gulp-ng-annotate');
                 .pipe(changed('dist/app/styles'))
                 .pipe(concatCss('alertify.css'))
                 .pipe(gulp.dest('dist/app/styles'))
-                .pipe(cssmin())
+                .pipe(cssnano())
                 .pipe(rename({suffix: '.min'}))
                 .pipe(gulp.dest('dist/app/styles'));
         });
@@ -94,7 +92,6 @@ var ngAnnotate = require('gulp-ng-annotate');
         gulp.task('watchify', function () {
             var bundler = watchify('./app/scripts/app.js');
             //bundler.transform('brfs');
-            bundler.on('update', rebundle);
             function rebundle() {
                 return bundler.bundle()
                     // log errors if they happen
@@ -102,8 +99,9 @@ var ngAnnotate = require('gulp-ng-annotate');
                         gutil.log('Browserify Error', e);
                     })
                     .pipe(source('bundle.js'))
-                    .pipe(gulp.dest('dist/app/scripts'))
+                    .pipe(gulp.dest('dist/app/scripts'));
             }
+            bundler.on('update', rebundle);
             return rebundle();
         });
         gulp.task('js', ['jshint', 'uglify']);
@@ -140,7 +138,7 @@ var ngAnnotate = require('gulp-ng-annotate');
         setTimeout(function () {
             nodemon({ script: 'dist/server.js', ext: 'js', env: { 'NODE_ENV': 'development', 'DEBUG': null }, watch: ['lib', 'assets', 'server.js'] })
                 .on('restart', function () {
-                    console.log('restarted!')
+                    console.log('restarted!');
                 });
         }, 1000);
     });
