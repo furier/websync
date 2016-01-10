@@ -12,7 +12,7 @@ var watchify = require('watchify');
 var cssnano = require('gulp-cssnano');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var rimraf = require('gulp-rimraf');
+var del = require('del');
 var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
 var changed = require('gulp-changed');
@@ -156,9 +156,7 @@ var ngAnnotate = require('gulp-ng-annotate');
         ]).on('change', livereload.changed);
     });
     gulp.task('clean', function () {
-        gulp.src(['dist/app', 'dist/lib', 'dist/assets', 'dist/*.json', 'dist/server.js', 'dist/.bowerrc', '!dist/wsdata.json'], {
-            read: false
-        }).pipe(rimraf());
+        return del(['dist/app', 'dist/lib', 'dist/assets', 'dist/*.json', 'dist/server.js', 'dist/.bowerrc', '!dist/wsdata.json']);
     });
 }());
 
