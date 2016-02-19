@@ -46,7 +46,7 @@
     --ignore-existing       skip updating files that exist on receiver
     --remove-source-files   sender removes synchronized files (non-dir)
     --del                   an alias for --delete-during
-    --delete                delete extraneous files from dest dirs
+-delete,    --delete                delete extraneous files from dest dirs
     --delete-before         receiver deletes before transfer (default)
     --delete-during         receiver deletes during xfer, not before
     --delete-delay          find deletions during, delete after
