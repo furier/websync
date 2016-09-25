@@ -1,102 +1,104 @@
 {
-    "name": "websync",
-    "version": "1.0.4",
-    "homepage": "https://github.com/furier/websync",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/furier/websync.git"
+  "name": "websync",
+  "version": "1.0.4",
+  "homepage": "https://github.com/furier/websync",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/furier/websync.git"
+  },
+  "authors": [
+    "Sander Struijk <sander.struijk@gmail.com>"
+  ],
+  "description": "websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.",
+  "main": "server.js",
+  "keywords": [
+    "rsync"
+  ],
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "angular-cookies": "^1.4.8",
+    "angular-route": "^1.4.8",
+    "angular-sanitize": "0.0.1",
+    "bufferutil": "^1.2.1",
+    "cron": "^1.1.0",
+    "ejs": "^0.8.8",
+    "express": "^3.21.2",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-livereload": "^2.1.1",
+    "gulp-sass": "^2.1.1",
+    "jsonfile": "^1.2.0",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1",
+    "react": "^0.11.2",
+    "restangular": "^1.5.1",
+    "rsync": "^0.4.0",
+    "socket.io": "^1.4.2",
+    "socket.io-client": "^1.4.2",
+    "underscore.string": "^2.4.0",
+    "utf-8-validate": "^1.2.1"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "brfs": "^1.1.2",
+    "browserify": "^4.2.3",
+    "browserify-shim": "^3.6.0",
+    "connect-livereload": "^0.4.0",
+    "del": "^2.2.0",
+    "gulp": "^3.8.6",
+    "gulp-changed": "^0.4.0",
+    "gulp-concat-css": "^0.1.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^1.7.1",
+    "gulp-livereload": "^2.1.0",
+    "gulp-ng-annotate": "^0.2.0",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "^3.0.0",
+    "hiredis": "^0.4.1",
+    "msgpack": "^1.0.2",
+    "napa": "^0.4.1",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^3.6.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "install": "napa && npm run install-bower-dependencies && npm run build-dist",
+    "install-bower-dependencies": "bower install",
+    "build-dist": "gulp dist"
+  },
+  "napa": {
+    "scrollglue": "Luegg/angularjs-scroll-glue",
+    "alertifyjs": "alertifyjs/alertify.js",
+    "angu-poly": "matjaz/angu-poly"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "brfs"
+    ]
+  },
+  "browser": {
+    "restangular": "./node_modules/restangular/dist/restangular.js",
+    "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
+    "angular-socket": "./app/scripts/ngSocket.js",
+    "angular-alertify": "./app/scripts/ngAlertify.js",
+    "angu-poly": "./node_modules/angu-poly/angupoly.js"
+  },
+  "browserify-shim": {
+    "restangular": {
+      "depends": [
+        "lodash:_"
+      ]
     },
-    "authors": [
-        "Sander Struijk <sander.struijk@gmail.com>"
-    ],
-    "description": "websync is intended to be an rsync manager, where rsync tasks can be added, scheduled and maintained in a sane manner.",
-    "main": "server.js",
-    "keywords": [
-        "rsync"
-    ],
-    "license": "MIT",
-    "private": false,
-    "dependencies": {
-        "angular-cookies": "^1.2.19",
-        "angular-route": "^1.2.17-build.163.1",
-        "angular-sanitize": "0.0.1",
-        "cron": "^1.0.4",
-        "ejs": "~0.8.4",
-        "express": "~3.4.3",
-        "gulp-sass": "^1.3.3",
-        "jsonfile": "^1.1.1",
-        "lodash": "^3.7.0",
-        "q": "^1.0.1",
-        "react": "^0.11.0",
-        "restangular": "^1.4.0",
-        "rsync": "^0.4.0",
-        "socket.io": "^1.0.6",
-        "socket.io-client": "^1.0.6",
-        "underscore.string": "^2.3.3"
-    },
-    "devDependencies": {
-        "bower": "^1.4.1",
-        "brfs": "^1.1.2",
-        "browserify": "^4.2.3",
-        "browserify-shim": "^3.6.0",
-        "connect-livereload": "^0.4.0",
-        "gulp": "^3.8.6",
-        "gulp-changed": "^0.4.0",
-        "gulp-concat-css": "^0.1.4",
-        "gulp-imagemin": "^0.6.1",
-        "gulp-jshint": "^1.7.1",
-        "gulp-livereload": "^2.1.0",
-        "gulp-minify-css": "^0.3.7",
-        "gulp-minify-html": "^0.1.4",
-        "gulp-ng-annotate": "^0.2.0",
-        "gulp-nodemon": "^1.0.4",
-        "gulp-rename": "^1.2.0",
-        "gulp-rimraf": "^0.1.0",
-        "gulp-uglify": "^0.3.1",
-        "gulp-util": "^3.0.0",
-        "hiredis": "^0.1.17",
-        "msgpack": "^0.2.3",
-        "napa": "^0.4.1",
-        "vinyl-source-stream": "^0.1.1",
-        "watchify": "^0.10.2"
-    },
-    "engines": {
-        "node": ">=0.10.0"
-    },
-    "scripts": {
-        "test": "gulp test",
-        "install": "napa && npm run install-bower-dependencies && npm run build-dist",
-        "install-bower-dependencies": "bower install",
-        "build-dist": "gulp dist"
-    },
-    "napa": {
-        "scrollglue": "Luegg/angularjs-scroll-glue",
-        "alertifyjs": "alertifyjs/alertify.js",
-        "angu-poly": "matjaz/angu-poly"
-    },
-    "browserify": {
-        "transform": [
-            "browserify-shim",
-            "brfs"
-        ]
-    },
-    "browser": {
-        "restangular": "./node_modules/restangular/dist/restangular.js",
-        "scrollglue": "./node_modules/scrollglue/src/scrollglue.js",
-        "angular-socket": "./app/scripts/ngSocket.js",
-        "angular-alertify": "./app/scripts/ngAlertify.js",
-        "angu-poly": "./node_modules/angu-poly/angupoly.js"
-    },
-    "browserify-shim": {
-        "restangular": {
-            "depends": [
-                "lodash:_"
-            ]
-        },
-        "angular-socket": {
-            "depends": [
-                "socket.io-client:io"
-            ]
-        }
+    "angular-socket": {
+      "depends": [
+        "socket.io-client:io"
+      ]
     }
+  }
 }
