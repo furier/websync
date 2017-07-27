@@ -41,6 +41,7 @@
 -x, --one-file-system       don’t cross filesystem boundaries
 -B, --block-size=SIZE       force a fixed checksum block-size
 -e, --rsh=COMMAND           specify the remote shell to use
+--rsync-path="sudo rsync", --remote-sudo   specify the rsync to run in sudo mode on remote machine --rsync-path="sudo rsync"
     --rsync-path=PROGRAM    specify the rsync to run on remote machine
     --existing              skip creating new files on receiver
     --ignore-existing       skip updating files that exist on receiver
