@@ -1,3 +1,6 @@
+# **websync is no longer maintained**
+Feel free to use websync if it works for you, otherwise you need to make a fork and fix any and all issues without my help.
+
 # **websync**
 
 _websync is intended to be an **rsync task manager**, where rsync tasks can be added, scheduled and maintained in a sane manner._
